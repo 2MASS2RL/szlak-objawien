@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cs5jhbocavhjj"]
+
+[ext_resource type="Script" uid="uid://v4gtolhvr4s6" path="res://inventory_ui.gd" id="1_5v8q7"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_5v8q7"]
+
+[node name="InventoryUI" type="CanvasLayer" unique_id=1874086328]
+script = ExtResource("1_5v8q7")
+
+[node name="Panel" type="Panel" parent="." unique_id=453658199]
+custom_minimum_size = Vector2(789, 405)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel" unique_id=1672997416]
+layout_mode = 0
+offset_left = 300.0
+offset_top = -25.0
+offset_right = 500.0
+text = "Odkryte przedmioty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=901100214]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 132.0
+columns = 3
+
+[node name="SlotPanel" type="Panel" parent="Panel/GridContainer" unique_id=1018672335]
+custom_minimum_size = Vector2(260, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer/SlotPanel" unique_id=1807381486]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 62.0
+offset_bottom = 62.0
+texture = SubResource("ImageTexture_5v8q7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SlotPanel2" type="Panel" parent="Panel/GridContainer" unique_id=1406355017]
+custom_minimum_size = Vector2(260, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer/SlotPanel2" unique_id=273084440]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 62.0
+offset_bottom = 62.0
+texture = SubResource("ImageTexture_5v8q7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SlotPanel3" type="Panel" parent="Panel/GridContainer" unique_id=762268954]
+custom_minimum_size = Vector2(260, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer/SlotPanel3" unique_id=756870220]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 62.0
+offset_bottom = 62.0
+texture = SubResource("ImageTexture_5v8q7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SlotPanel4" type="Panel" parent="Panel/GridContainer" unique_id=1090443565]
+custom_minimum_size = Vector2(260, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer/SlotPanel4" unique_id=931829385]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 62.0
+offset_bottom = 62.0
+texture = SubResource("ImageTexture_5v8q7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SlotPanel5" type="Panel" parent="Panel/GridContainer" unique_id=1447474985]
+custom_minimum_size = Vector2(260, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer/SlotPanel5" unique_id=72873863]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 62.0
+offset_bottom = 62.0
+texture = SubResource("ImageTexture_5v8q7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SlotPanel6" type="Panel" parent="Panel/GridContainer" unique_id=1895887500]
+custom_minimum_size = Vector2(260, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer/SlotPanel6" unique_id=72568188]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 62.0
+offset_bottom = 62.0
+texture = SubResource("ImageTexture_5v8q7")
+expand_mode = 3
+stretch_mode = 5

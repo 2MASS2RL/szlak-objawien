@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dlpv5giwj6sgp"]
+
+[ext_resource type="Script" uid="uid://ck8q8my1pnspk" path="res://QuestHUD.gd" id="1_g6l6n"]
+[ext_resource type="Script" uid="uid://ce1m3ry7tpdic" path="res://QuestJournal.gd" id="2_qui0h"]
+[ext_resource type="Script" uid="uid://c6k3q4t4u3xpr" path="res://QuestNotification.gd" id="3_vrfts"]
+
+[node name="UI" type="CanvasLayer" unique_id=1906946251]
+
+[node name="QuestHUD" type="Control" parent="." unique_id=900384622]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_g6l6n")
+
+[node name="QuestJournal" type="Control" parent="." unique_id=125042833]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_qui0h")
+
+[node name="QuestNotification" type="Control" parent="." unique_id=1153390394]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_vrfts")

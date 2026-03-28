@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://q4ta030r2eia"]
+
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_d3j8c"]
+[ext_resource type="Script" uid="uid://byswioktiwkn8" path="res://transition_left.gd" id="2_d3j8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r24c"]
+size = Vector2(50, 1100)
+
+[node name="Scene3" type="Node2D" unique_id=2142176148]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1816428079]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.56659347, 0.22564602, 0.29576793, 1)
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("1_d3j8c")]
+position = Vector2(520, 200)
+up_direction = Vector2(0.99999815, -0.0019230734)
+
+[node name="LeftTransition" type="Area2D" parent="." unique_id=1809225586]
+position = Vector2(-50, 525)
+script = ExtResource("2_d3j8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTransition" unique_id=1638258966]
+shape = SubResource("RectangleShape2D_3r24c")

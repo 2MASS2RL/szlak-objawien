@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bd7dndvxjhpmw"]
+
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_o12kj"]
+[ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="1_v52xy"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="2_o12kj"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="3_pey8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(50, 250)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(250, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(200, 50)
+
+[node name="SceneTop" type="Node2D" unique_id=71771241]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=174770387]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.1764706, 0.2901961, 0.24313726, 1)
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("1_o12kj")]
+
+[node name="TransitionRight" type="Area2D" parent="." unique_id=714779249]
+position = Vector2(1980, 540)
+script = ExtResource("1_v52xy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionRight" unique_id=1397269121]
+shape = SubResource("RectangleShape2D_ig7tw")
+debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=1268075532]
+position = Vector2(935, -50)
+script = ExtResource("2_o12kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1516350183]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=32932556]
+position = Vector2(960, 1125)
+script = ExtResource("3_pey8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=69106970]
+shape = SubResource("RectangleShape2D_lquwl")
