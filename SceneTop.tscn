@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_o12kj"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="1_v52xy"]
+[ext_resource type="Script" uid="uid://bop4strgxe8cq" path="res://PauseMenu.gd" id="1_whw8k"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="2_o12kj"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="3_pey8a"]
 
@@ -15,6 +16,7 @@ size = Vector2(250, 50)
 size = Vector2(200, 50)
 
 [node name="SceneTop" type="Node2D" unique_id=71771241]
+script = ExtResource("1_whw8k")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=174770387]
 custom_minimum_size = Vector2(1920, 1080)

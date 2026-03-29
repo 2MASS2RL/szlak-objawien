@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cm18gvp2llv4s"]
 
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_4kvji"]
+[ext_resource type="Script" uid="uid://bop4strgxe8cq" path="res://PauseMenu.gd" id="1_i810n"]
 [ext_resource type="Script" uid="uid://byswioktiwkn8" path="res://transition_left.gd" id="2_va63h"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="3_pttqn"]
 [ext_resource type="Script" uid="uid://nv7o8qv52rfq" path="res://NPC.gd" id="4_pttqn"]
@@ -16,6 +17,7 @@ size = Vector2(50, 1100)
 size = Vector2(50, 50)
 
 [node name="SceneRight" type="Node2D" unique_id=2142176148]
+script = ExtResource("1_i810n")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1816428079]
 custom_minimum_size = Vector2(1920, 1080)

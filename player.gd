@@ -11,7 +11,7 @@ const SCALE_MAX = 1.0 # rozmiar gdy blisko
 
 func _physics_process(delta):
 	# Blokuj ruch gdy inventory otwarte
-	if InventoryUI.visible:
+	if InventoryUI and InventoryUI.visible:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
