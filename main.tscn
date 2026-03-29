@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://d01ofbuyra7w6" path="res://item.tscn" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://nv7o8qv52rfq" path="res://NPC.gd" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://bv5nu6lk0r4w2" path="res://icon.svg" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://Item.gd" id="8_kek77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(50, 250)
@@ -20,6 +20,11 @@ size = Vector2(200, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
 size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4c57u"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [node name="Main" type="Node2D" unique_id=71771241]
 
@@ -76,10 +81,6 @@ offset_top = 9.0
 offset_right = 952.0
 offset_bottom = 49.0
 
-[node name="Item" parent="." unique_id=499404124 instance=ExtResource("5_lquwl")]
-position = Vector2(1167, 527)
-scale = Vector2(0.44, 0.44)
-
 [node name="Area2D" type="Area2D" parent="." unique_id=262894468]
 position = Vector2(185.87, 106.38)
 script = ExtResource("7_272bh")
@@ -98,3 +99,16 @@ offset_bottom = -27.0
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=766439528]
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("8_5vw27")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1652897815]
+position = Vector2(800, 191.23)
+script = ExtResource("8_kek77")
+item_id = "notatka_proboszcza"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2034262066]
+scale = Vector2(2.97, 2.97)
+shape = SubResource("RectangleShape2D_kek77")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1497832475]
+scale = Vector2(0.455, 0.455)
+texture = SubResource("CompressedTexture2D_4c57u")

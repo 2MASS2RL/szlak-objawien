@@ -18,10 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://b8y0fpc3p47d4"
-InventoryUI="*uid://cs5jhbocavhjj"
 DialogueBoxUI="*uid://bl77guxy2ps8o"
 DialogueManager="*uid://bbeue18sg0wbk"
 QuestManager="*uid://daynnym6ngkof"
+ItemManager="*uid://cqv1ku4reyt8y"
+InventoryManager="*uid://b084so47ijxqk"
+InventoryUI="*uid://cs5jhbocavhjj"
 UI="*uid://dlpv5giwj6sgp"
 
 [display]
