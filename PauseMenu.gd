@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const SAVE_FILE := "user://savegame.save"
-const MAIN_MENU := "res://main_menu.tscn"
+const MAIN_MENU := "res://MainMenu.tscn"
 
 var is_paused      := false
 var main_panel     : Control
