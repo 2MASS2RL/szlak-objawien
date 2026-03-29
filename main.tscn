@@ -83,7 +83,7 @@ scale = Vector2(0.44, 0.44)
 [node name="Area2D" type="Area2D" parent="." unique_id=262894468]
 position = Vector2(185.87, 106.38)
 script = ExtResource("7_272bh")
-dialogue_tag = "koscielny_stroz"
+dialogue_tag = "Proboszcz"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1035602028]
 position = Vector2(0.56500244, -0.18999481)
