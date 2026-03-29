@@ -1,91 +1,91 @@
-extends Control
+extends CanvasLayer
 
-# ================================================
-# MAIN MENU — dopasowane do twojego projektu
-# ================================================
-# Autoloady których używasz:
-#   Global          → res://Global.gd
-#   QuestManager    → res://QuestManager.gd
-#   DialogueManager → res://DialogueManager.gd
-#
-# Scena startowa gry wg twojego Global.gd = "res://main.tscn"
-# ================================================
+const SAVE_FILE  := "user://savegame.save"
+const GAME_SCENE := "res://main.tscn"
 
-const SAVE_FILE := "user://savegame.save"
-
-@onready var btn_new_game   : Button         = $CenterContainer/BtnNewGame
-@onready var btn_continue   : Button         = $CenterContainer/BtnContinue
-@onready var btn_settings   : Button         = $CenterContainer/BtnSettings
-@onready var btn_quit       : Button         = $CenterContainer/BtnQuit
-@onready var settings_panel : PanelContainer = $SettingsPanel
-@onready var slider_volume  : HSlider        = $SettingsPanel/VBox/HBoxVolume/SliderVolume
-@onready var btn_close_set  : Button         = $SettingsPanel/VBox/BtnCloseSettings
+var btn_continue : Button
 
 
 func _ready() -> void:
-	# Zawsze odpauzuj grę wracając do menu
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	layer = 10
 	get_tree().paused = false
 
-	# Reset Global do sceny startowej
-	Global.current_scene_key = "main"
+	# Zablokuj PauseMenu gdy jesteśmy w main menu
+	PauseMenu.in_main_menu = true
 
-	# Odblokuj "Kontynuuj" tylko jeśli istnieje save
+	Global.current_scene_key = "main"
+	_build_ui()
+
+
+func _build_ui() -> void:
+	var bg := ColorRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.color = Color(0.08, 0.08, 0.10, 1.0)
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(bg)
+
+	var vbox := VBoxContainer.new()
+	vbox.set_anchors_preset(Control.PRESET_CENTER)
+	vbox.custom_minimum_size = Vector2(340, 0)
+	vbox.offset_left   = -170
+	vbox.offset_right  =  170
+	vbox.offset_top    = -200
+	vbox.offset_bottom =  200
+	vbox.add_theme_constant_override("separation", 14)
+	vbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	add_child(vbox)
+
+	var title := Label.new()
+	title.text = "TWOJA GRA"
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 48)
+	vbox.add_child(title)
+
+	var spacer := Control.new()
+	spacer.custom_minimum_size = Vector2(0, 20)
+	vbox.add_child(spacer)
+
+	var btn_new  := _btn("Nowa gra",  vbox)
+	btn_continue  = _btn("Kontynuuj", vbox)
+	var btn_quit := _btn("Wyjście",   vbox)
+
 	btn_continue.disabled = not FileAccess.file_exists(SAVE_FILE)
 
-	# Wczytaj zapisaną głośność
-	var vol := AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
-	slider_volume.value = db_to_linear(vol)
-
-	# Sygnały
-	btn_new_game.pressed.connect(_on_new_game)
+	btn_new.pressed.connect(_on_new_game)
 	btn_continue.pressed.connect(_on_continue)
-	btn_settings.pressed.connect(_on_settings)
 	btn_quit.pressed.connect(_on_quit)
-	btn_close_set.pressed.connect(_on_close_settings)
-	slider_volume.value_changed.connect(_on_volume_changed)
 
 
-# ─────────────────────────────────────
-# PRZYCISKI
-# ─────────────────────────────────────
+func _btn(label: String, parent: Node) -> Button:
+	var b := Button.new()
+	b.text = label
+	b.custom_minimum_size = Vector2(320, 52)
+	b.add_theme_font_size_override("font_size", 20)
+	b.process_mode = Node.PROCESS_MODE_ALWAYS
+	parent.add_child(b)
+	return b
+
 
 func _on_new_game() -> void:
-	# Usuń stary zapis
 	if FileAccess.file_exists(SAVE_FILE):
 		DirAccess.remove_absolute(SAVE_FILE)
-
-	# Resetuj Global (wartości domyślne z twojego Global.gd)
 	Global.spawn_position = Vector2(200, 500)
 	Global.current_scene_key = "main"
-
-	get_tree().change_scene_to_file(Global.scenes["main"])
+	# Odblokuj PauseMenu gdy wchodzimy do gry
+	PauseMenu.in_main_menu = false
+	get_tree().change_scene_to_file(GAME_SCENE)
 
 
 func _on_continue() -> void:
 	_load_game()
+	PauseMenu.in_main_menu = false
 	get_tree().change_scene_to_file(Global.scenes[Global.current_scene_key])
-
-
-func _on_settings() -> void:
-	settings_panel.visible = true
 
 
 func _on_quit() -> void:
 	get_tree().quit()
 
-
-func _on_close_settings() -> void:
-	settings_panel.visible = false
-
-
-func _on_volume_changed(value: float) -> void:
-	var db := linear_to_db(value)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), db)
-
-
-# ─────────────────────────────────────
-# SAVE / LOAD
-# ─────────────────────────────────────
 
 func _load_game() -> void:
 	if not FileAccess.file_exists(SAVE_FILE):
@@ -93,7 +93,6 @@ func _load_game() -> void:
 	var file := FileAccess.open(SAVE_FILE, FileAccess.READ)
 	var data : Dictionary = file.get_var()
 	file.close()
-
 	if data.has("scene_key"):
 		Global.current_scene_key = data["scene_key"]
 	if data.has("spawn_position"):

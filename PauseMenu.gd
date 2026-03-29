@@ -3,11 +3,14 @@ extends CanvasLayer
 const SAVE_FILE := "user://savegame.save"
 const MAIN_MENU := "res://MainMenu.tscn"
 
-var is_paused := false
-var main_panel     : PanelContainer
+var is_paused      := false
+var main_panel     : Control
+var settings_panel : Control
 var btn_save       : Button
-var settings_panel : PanelContainer
 var slider_volume  : HSlider
+
+# Zablokuj pause menu gdy jesteśmy w main menu
+var in_main_menu := false
 
 
 func _ready() -> void:
@@ -18,25 +21,20 @@ func _ready() -> void:
 
 
 func _build_ui() -> void:
-	# Overlay
 	var overlay := ColorRect.new()
 	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
 	overlay.color = Color(0, 0, 0, 0.65)
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	overlay.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(overlay)
 
-	# === GŁÓWNY PANEL ===
-	main_panel = PanelContainer.new()
-	main_panel.set_anchors_preset(Control.PRESET_CENTER)
-	main_panel.custom_minimum_size = Vector2(340, 0)
-	main_panel.offset_left   = -170
-	main_panel.offset_right  =  170
-	main_panel.offset_top    = -160
-	main_panel.offset_bottom =  160
+	main_panel = _centered_panel(340, 300)
 	add_child(main_panel)
 
 	var vbox := VBoxContainer.new()
+	vbox.set_anchors_preset(Control.PRESET_FULL_RECT)
 	vbox.add_theme_constant_override("separation", 12)
+	vbox.alignment = BoxContainer.ALIGNMENT_CENTER
 	main_panel.add_child(vbox)
 
 	var title := Label.new()
@@ -44,7 +42,6 @@ func _build_ui() -> void:
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 36)
 	vbox.add_child(title)
-
 	vbox.add_child(_spacer(8))
 
 	var btn_resume   := _btn("Wróć do gry", vbox)
@@ -57,19 +54,14 @@ func _build_ui() -> void:
 	btn_settings.pressed.connect(_on_settings)
 	btn_menu.pressed.connect(_on_main_menu)
 
-	# === PANEL USTAWIEŃ ===
-	settings_panel = PanelContainer.new()
-	settings_panel.set_anchors_preset(Control.PRESET_CENTER)
-	settings_panel.custom_minimum_size = Vector2(340, 0)
-	settings_panel.offset_left   = -170
-	settings_panel.offset_right  =  170
-	settings_panel.offset_top    = -100
-	settings_panel.offset_bottom =  100
+	settings_panel = _centered_panel(340, 180)
 	settings_panel.visible = false
 	add_child(settings_panel)
 
 	var svbox := VBoxContainer.new()
+	svbox.set_anchors_preset(Control.PRESET_FULL_RECT)
 	svbox.add_theme_constant_override("separation", 14)
+	svbox.alignment = BoxContainer.ALIGNMENT_CENTER
 	settings_panel.add_child(svbox)
 
 	var stitle := Label.new()
@@ -92,8 +84,9 @@ func _build_ui() -> void:
 	slider_volume.step = 0.05
 	slider_volume.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	slider_volume.process_mode = Node.PROCESS_MODE_ALWAYS
-	var vol := AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
-	slider_volume.value = db_to_linear(vol)
+	slider_volume.value = db_to_linear(
+		AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	)
 	hbox.add_child(slider_volume)
 
 	var btn_close := _btn("Zamknij", svbox)
@@ -101,10 +94,22 @@ func _build_ui() -> void:
 	slider_volume.value_changed.connect(_on_volume_changed)
 
 
+func _centered_panel(w: float, h: float) -> PanelContainer:
+	var p := PanelContainer.new()
+	p.set_anchors_preset(Control.PRESET_CENTER)
+	p.custom_minimum_size = Vector2(w, h)
+	p.offset_left   = -w / 2.0
+	p.offset_right  =  w / 2.0
+	p.offset_top    = -h / 2.0
+	p.offset_bottom =  h / 2.0
+	p.process_mode  = Node.PROCESS_MODE_ALWAYS
+	return p
+
+
 func _btn(label: String, parent: Node) -> Button:
 	var b := Button.new()
 	b.text = label
-	b.custom_minimum_size = Vector2(320, 52)
+	b.custom_minimum_size = Vector2(300, 50)
 	b.add_theme_font_size_override("font_size", 20)
 	b.process_mode = Node.PROCESS_MODE_ALWAYS
 	parent.add_child(b)
@@ -118,6 +123,9 @@ func _spacer(h: int) -> Control:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Zablokowane w main menu
+	if in_main_menu:
+		return
 	if event.is_action_pressed("ui_cancel"):
 		var inv = get_tree().get_first_node_in_group("InventoryUI")
 		if inv and inv.visible:
@@ -146,8 +154,7 @@ func _resume() -> void:
 	visible = false
 
 
-func _on_resume() -> void:
-	_resume()
+func _on_resume() -> void: _resume()
 
 
 func _on_save() -> void:
@@ -170,6 +177,7 @@ func _on_close_settings() -> void:
 func _on_main_menu() -> void:
 	get_tree().paused = false
 	is_paused = false
+	in_main_menu = true
 	get_tree().change_scene_to_file(MAIN_MENU)
 
 
