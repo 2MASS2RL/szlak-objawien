@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://b8y0fpc3p47d4"
-QuestUi="*uid://dp7f87mivilk6"
 InventoryUI="*uid://cs5jhbocavhjj"
 DialogueBoxUI="*uid://bl77guxy2ps8o"
 DialogueManager="*uid://bbeue18sg0wbk"
