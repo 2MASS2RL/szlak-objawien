@@ -43,7 +43,7 @@ shape = SubResource("RectangleShape2D_c5w0c")
 debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1527778065]
-position = Vector2(185.87, 106.38)
+position = Vector2(1400, 900)
 script = ExtResource("4_pttqn")
 dialogue_tag = "Proboszcz"
 
