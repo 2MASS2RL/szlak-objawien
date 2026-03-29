@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3 uid="uid://pause_menu"]
+
+[ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -190.0
+offset_right = 180.0
+offset_bottom = 190.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="LblPause" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "PAUZA"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="Spacer" type="Control" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 10)
+
+[node name="BtnResume" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 52)
+text = "Wróć do gry"
+theme_override_font_sizes/font_size = 20
+
+[node name="BtnSave" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 52)
+text = "Zapisz grę"
+theme_override_font_sizes/font_size = 20
+
+[node name="BtnSettings" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 52)
+text = "Ustawienia"
+theme_override_font_sizes/font_size = 20
+
+[node name="BtnMainMenu" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 52)
+text = "Menu główne"
+theme_override_font_sizes/font_size = 20
+
+[node name="SettingsSubPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = 120.0
+visible = false
+
+[node name="VBox" type="VBoxContainer" parent="SettingsSubPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LblSettings" type="Label" parent="SettingsSubPanel/VBox"]
+layout_mode = 2
+text = "Ustawienia"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 26
+
+[node name="HBoxVolume" type="HBoxContainer" parent="SettingsSubPanel/VBox"]
+layout_mode = 2
+
+[node name="LblVol" type="Label" parent="SettingsSubPanel/VBox/HBoxVolume"]
+layout_mode = 2
+text = "Głośność:"
+theme_override_font_sizes/font_size = 18
+custom_minimum_size = Vector2(120, 0)
+
+[node name="SliderVolume" type="HSlider" parent="SettingsSubPanel/VBox/HBoxVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="BtnCloseSettings" type="Button" parent="SettingsSubPanel/VBox"]
+layout_mode = 2
+text = "Zamknij"
+theme_override_font_sizes/font_size = 18

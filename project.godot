@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SzlakObjawien"
-run/main_scene="uid://bdr3isiqspq7n"
+run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
