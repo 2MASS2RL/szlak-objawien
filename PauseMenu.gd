@@ -1,34 +1,59 @@
+# PauseMenu.gd
 extends CanvasLayer
 
 const SAVE_FILE := "user://savegame.save"
 const MAIN_MENU := "res://MainMenu.tscn"
+
+# =====================================================
+# === STYL — podmień tutaj gdy będziesz miał grafiki ===
+# =====================================================
+const STYLE_BG_COLOR       := Color(0, 0, 0, 0.65)  # kolor przyciemnienia
+const STYLE_PANEL_W        := 340.0                  # szerokość panelu
+const STYLE_PANEL_H        := 300.0                  # wysokość panelu głównego
+const STYLE_PANEL_SETTINGS := 180.0                  # wysokość panelu ustawień
+const STYLE_FONT_SIZE_TTL  := 36                     # rozmiar tytułu PAUZA
+const STYLE_FONT_SIZE_BTN  := 20                     # rozmiar przycisków
+const STYLE_BTN_H          := 50.0                   # wysokość przycisku
+# const STYLE_BG_TEXTURE   := "res://ui/pause_bg.png"   # <- własna tekstura tła panelu
+# const STYLE_BTN_TEXTURE  := "res://ui/button.png"     # <- własna tekstura przycisku
+# const STYLE_FONT_TITLE   := "res://fonts/medieval.ttf"# <- własna czcionka tytułu
+# const STYLE_FONT_BTN     := "res://fonts/medieval.ttf"# <- własna czcionka przycisków
+# =====================================================
 
 var is_paused      := false
 var main_panel     : Control
 var settings_panel : Control
 var btn_save       : Button
 var slider_volume  : HSlider
-
-# Zablokuj pause menu gdy jesteśmy w main menu
-var in_main_menu := false
-
+var in_main_menu   := false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 10
 	visible = false
 	_build_ui()
+	# Reset przy każdej zmianie sceny
+	get_tree().node_added.connect(_on_node_added)
 
+func _on_node_added(node: Node) -> void:
+	# Gdy scena się zmienia i ładuje się nowy root — resetuj pauzę
+	if node == get_tree().current_scene:
+		_force_resume()
+
+func _force_resume() -> void:
+	is_paused = false
+	get_tree().paused = false
+	visible = false
 
 func _build_ui() -> void:
 	var overlay := ColorRect.new()
 	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
-	overlay.color = Color(0, 0, 0, 0.65)
+	overlay.color = STYLE_BG_COLOR
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	overlay.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(overlay)
 
-	main_panel = _centered_panel(340, 300)
+	main_panel = _centered_panel(STYLE_PANEL_W, STYLE_PANEL_H)
 	add_child(main_panel)
 
 	var vbox := VBoxContainer.new()
@@ -40,7 +65,9 @@ func _build_ui() -> void:
 	var title := Label.new()
 	title.text = "PAUZA"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.add_theme_font_size_override("font_size", 36)
+	title.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_TTL)
+	# Własna czcionka — odkomentuj gdy będziesz miał:
+	# title.add_theme_font_override("font", load(STYLE_FONT_TITLE))
 	vbox.add_child(title)
 	vbox.add_child(_spacer(8))
 
@@ -54,7 +81,8 @@ func _build_ui() -> void:
 	btn_settings.pressed.connect(_on_settings)
 	btn_menu.pressed.connect(_on_main_menu)
 
-	settings_panel = _centered_panel(340, 180)
+	# Panel ustawień
+	settings_panel = _centered_panel(STYLE_PANEL_W, STYLE_PANEL_SETTINGS)
 	settings_panel.visible = false
 	add_child(settings_panel)
 
@@ -93,7 +121,6 @@ func _build_ui() -> void:
 	btn_close.pressed.connect(_on_close_settings)
 	slider_volume.value_changed.connect(_on_volume_changed)
 
-
 func _centered_panel(w: float, h: float) -> PanelContainer:
 	var p := PanelContainer.new()
 	p.set_anchors_preset(Control.PRESET_CENTER)
@@ -103,27 +130,34 @@ func _centered_panel(w: float, h: float) -> PanelContainer:
 	p.offset_top    = -h / 2.0
 	p.offset_bottom =  h / 2.0
 	p.process_mode  = Node.PROCESS_MODE_ALWAYS
+	# === STYL panelu ===
+	# Własna tekstura — odkomentuj gdy będziesz miał:
+	# var style := StyleBoxTexture.new()
+	# style.texture = load(STYLE_BG_TEXTURE)
+	# p.add_theme_stylebox_override("panel", style)
 	return p
-
 
 func _btn(label: String, parent: Node) -> Button:
 	var b := Button.new()
 	b.text = label
-	b.custom_minimum_size = Vector2(300, 50)
-	b.add_theme_font_size_override("font_size", 20)
+	b.custom_minimum_size = Vector2(STYLE_PANEL_W - 40, STYLE_BTN_H)
+	b.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_BTN)
 	b.process_mode = Node.PROCESS_MODE_ALWAYS
+	# === STYL przycisku ===
+	# Własna tekstura — odkomentuj gdy będziesz miał:
+	# var style := StyleBoxTexture.new()
+	# style.texture = load(STYLE_BTN_TEXTURE)
+	# b.add_theme_stylebox_override("normal", style)
+	# b.add_theme_font_override("font", load(STYLE_FONT_BTN))
 	parent.add_child(b)
 	return b
-
 
 func _spacer(h: int) -> Control:
 	var s := Control.new()
 	s.custom_minimum_size = Vector2(0, h)
 	return s
 
-
 func _unhandled_input(event: InputEvent) -> void:
-	# Zablokowane w main menu
 	if in_main_menu:
 		return
 	if event.is_action_pressed("ui_cancel"):
@@ -133,11 +167,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_toggle_pause()
 		get_viewport().set_input_as_handled()
 
-
 func _toggle_pause() -> void:
 	if is_paused: _resume()
 	else: _pause()
-
 
 func _pause() -> void:
 	is_paused = true
@@ -147,15 +179,12 @@ func _pause() -> void:
 	settings_panel.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-
 func _resume() -> void:
 	is_paused = false
 	get_tree().paused = false
 	visible = false
 
-
 func _on_resume() -> void: _resume()
-
 
 func _on_save() -> void:
 	_save_game()
@@ -163,16 +192,13 @@ func _on_save() -> void:
 	await get_tree().create_timer(1.5).timeout
 	btn_save.text = "Zapisz grę"
 
-
 func _on_settings() -> void:
 	main_panel.visible = false
 	settings_panel.visible = true
 
-
 func _on_close_settings() -> void:
 	settings_panel.visible = false
 	main_panel.visible = true
-
 
 func _on_main_menu() -> void:
 	get_tree().paused = false
@@ -180,10 +206,8 @@ func _on_main_menu() -> void:
 	in_main_menu = true
 	get_tree().change_scene_to_file(MAIN_MENU)
 
-
 func _on_volume_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
-
 
 func _save_game() -> void:
 	var player_node = get_tree().get_first_node_in_group("Player")

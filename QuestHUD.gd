@@ -1,6 +1,25 @@
 # QuestHUD.gd
 extends Control
 
+# =====================================================
+# === STYL — podmień tutaj gdy będziesz miał grafiki ===
+# =====================================================
+const STYLE_BG_COLOR      := Color(0, 0, 0, 0.5)   # kolor tła
+const STYLE_CORNER_RADIUS := 12                      # zaokrąglenie rogów
+const STYLE_WIDTH         := 300                     # szerokość panelu
+const STYLE_OFFSET_RIGHT  := 20                      # odstęp od prawej krawędzi
+const STYLE_OFFSET_TOP    := 20                      # odstęp od góry
+const STYLE_FONT_SIZE_HDR := 14                      # rozmiar nagłówka
+const STYLE_FONT_SIZE_NAME:= 13                      # rozmiar nazwy questa
+const STYLE_FONT_SIZE_GOAL:= 11                      # rozmiar celu questa
+const STYLE_FONT_SIZE_HINT:= 13                      # rozmiar podpowiedzi
+const STYLE_COLOR_HDR     := Color(1.0, 0.85, 0.3)  # kolor nagłówka
+const STYLE_COLOR_NAME    := Color(1, 1, 1)          # kolor nazwy questa
+const STYLE_COLOR_GOAL    := Color(0.7, 0.7, 0.7)   # kolor celu questa
+const STYLE_COLOR_HINT    := Color(0.8, 0.8, 0.8)   # kolor podpowiedzi
+# const STYLE_BG_TEXTURE  := "res://ui/hud_bg.png"  # <- własna tekstura tła
+# =====================================================
+
 var _vbox : VBoxContainer
 
 func _ready() -> void:
@@ -11,29 +30,32 @@ func _ready() -> void:
 
 func _build_ui() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-	# Pozycja: prawy górny róg, rozmiar automatyczny
 	anchor_left   = 1.0
 	anchor_top    = 0.0
 	anchor_right  = 1.0
 	anchor_bottom = 0.0
-	offset_left   = -320
-	offset_top    =  20
-	offset_right  = -20
-	offset_bottom =  20  # będzie rósł automatycznie
+	offset_left   = -STYLE_WIDTH - STYLE_OFFSET_RIGHT
+	offset_top    =  STYLE_OFFSET_TOP
+	offset_right  = -STYLE_OFFSET_RIGHT
+	offset_bottom =  STYLE_OFFSET_TOP
 
-	# Zaokrąglone tło
+	# === STYL tła ===
 	var bg := Panel.new()
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0, 0, 0, 0.5)
-	style.corner_radius_top_left     = 12
-	style.corner_radius_top_right    = 12
-	style.corner_radius_bottom_left  = 12
-	style.corner_radius_bottom_right = 12
+	style.bg_color = STYLE_BG_COLOR
+	style.corner_radius_top_left     = STYLE_CORNER_RADIUS
+	style.corner_radius_top_right    = STYLE_CORNER_RADIUS
+	style.corner_radius_bottom_left  = STYLE_CORNER_RADIUS
+	style.corner_radius_bottom_right = STYLE_CORNER_RADIUS
 	bg.add_theme_stylebox_override("panel", style)
+	# Własna tekstura — zamień na:
+	# var style := StyleBoxTexture.new()
+	# style.texture = load(STYLE_BG_TEXTURE)
+	# bg.add_theme_stylebox_override("panel", style)
 	add_child(bg)
+	# ===
 
 	var margin := MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -62,8 +84,8 @@ func _refresh(_id = "") -> void:
 
 	var header := Label.new()
 	header.text = "📜 Questy"
-	header.add_theme_font_size_override("font_size", 14)
-	header.add_theme_color_override("font_color", Color(1.0, 0.85, 0.3))
+	header.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_HDR)
+	header.add_theme_color_override("font_color", STYLE_COLOR_HDR)
 	_vbox.add_child(header)
 
 	var count := 0
@@ -78,25 +100,24 @@ func _refresh(_id = "") -> void:
 
 		var name_lbl := Label.new()
 		name_lbl.text = "▶ " + data.get("name", "")
-		name_lbl.add_theme_font_size_override("font_size", 13)
-		name_lbl.add_theme_color_override("font_color", Color(1, 1, 1))
+		name_lbl.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_NAME)
+		name_lbl.add_theme_color_override("font_color", STYLE_COLOR_NAME)
 		entry.add_child(name_lbl)
 
 		var goal_lbl := Label.new()
 		goal_lbl.text = "   " + data.get("goal", "")
-		goal_lbl.add_theme_font_size_override("font_size", 11)
-		goal_lbl.add_theme_color_override("font_color", Color(0.7, 0.7, 0.7))
+		goal_lbl.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_GOAL)
+		goal_lbl.add_theme_color_override("font_color", STYLE_COLOR_GOAL)
 		entry.add_child(goal_lbl)
 
 		count += 1
 
 	var hint := Label.new()
 	hint.text = "[J] Dziennik"
-	hint.add_theme_font_size_override("font_size", 13)
-	hint.add_theme_color_override("font_color", Color(0.8, 0.8, 0.8))
+	hint.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_HINT)
+	hint.add_theme_color_override("font_color", STYLE_COLOR_HINT)
 	_vbox.add_child(hint)
 
-	# Dopasuj wysokość do zawartości
 	await get_tree().process_frame
 	await get_tree().process_frame
 	var h = _vbox.size.y + 24

@@ -1,6 +1,34 @@
 # InventoryUI.gd
 extends CanvasLayer
 
+# =====================================================
+# === STYL — podmień tutaj gdy będziesz miał grafiki ===
+# =====================================================
+const STYLE_BG_OVERLAY     := Color(0, 0, 0, 0.6)   # przyciemnienie tła
+const STYLE_PANEL_W        := 520.0                  # szerokość panelu
+const STYLE_PANEL_H        := 480.0                  # wysokość panelu
+const STYLE_SLOT_SIZE      := 100.0                  # rozmiar slotu
+const STYLE_ICON_SIZE      := 64.0                   # rozmiar ikonki w slocie
+const STYLE_FONT_SIZE_TTL  := 24                     # rozmiar tytułu
+const STYLE_FONT_SIZE_ITEM := 11                     # rozmiar nazwy itemu w slocie
+const STYLE_FONT_SIZE_CNT  := 12                     # rozmiar licznika stacka
+const STYLE_FONT_SIZE_TTP  := 15                     # rozmiar nazwy w tooltipie
+const STYLE_FONT_SIZE_DESC := 12                     # rozmiar opisu w tooltipie
+const STYLE_COLOR_STACK    := Color(1.0, 0.85, 0.3)  # kolor licznika stacka
+const STYLE_COLOR_EMPTY    := Color(0.6, 0.6, 0.6)   # kolor "brak przedmiotów"
+const STYLE_COLOR_DESC     := Color(0.8, 0.8, 0.8)   # kolor opisu w tooltipie
+# const STYLE_BG_TEXTURE   := "res://ui/inventory_bg.png"  # <- własna tekstura panelu
+# const STYLE_SLOT_TEXTURE := "res://ui/slot.png"          # <- własna tekstura slotu
+# const STYLE_BTN_TEXTURE  := "res://ui/button.png"        # <- własna tekstura przycisku
+# const STYLE_FONT_TTL     := "res://fonts/medieval.ttf"   # <- własna czcionka tytułu
+# const STYLE_FONT_ITEM    := "res://fonts/medieval.ttf"   # <- własna czcionka itemów
+# Podgląd dokumentu:
+const STYLE_DOC_COLOR      := Color(0.96, 0.92, 0.82)    # kolor kartki
+const STYLE_DOC_TEXT_COLOR := Color(0.15, 0.1, 0.05)     # kolor tekstu na kartce
+const STYLE_DOC_ROTATION   := -1.5                        # pochylenie kartki (stopnie)
+# const STYLE_DOC_TEXTURE  := "res://ui/paper.png"        # <- własna tekstura kartki
+# =====================================================
+
 const CATEGORIES = [
 	{ "id": "quest",    "label": "Przedmioty" },
 	{ "id": "document", "label": "Dokumenty"  },
@@ -28,17 +56,22 @@ func _build_ui() -> void:
 
 	var bg := ColorRect.new()
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	bg.color = Color(0, 0, 0, 0.6)
+	bg.color = STYLE_BG_OVERLAY
 	bg.mouse_filter = Control.MOUSE_FILTER_STOP
 	_root.add_child(bg)
 
 	_panel = Panel.new()
 	_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
-	_panel.custom_minimum_size = Vector2(520, 480)
-	_panel.offset_left   = -260
-	_panel.offset_top    = -240
-	_panel.offset_right  =  260
-	_panel.offset_bottom =  240
+	_panel.custom_minimum_size = Vector2(STYLE_PANEL_W, STYLE_PANEL_H)
+	_panel.offset_left   = -STYLE_PANEL_W / 2
+	_panel.offset_top    = -STYLE_PANEL_H / 2
+	_panel.offset_right  =  STYLE_PANEL_W / 2
+	_panel.offset_bottom =  STYLE_PANEL_H / 2
+	# === STYL panelu ===
+	# Własna tekstura — odkomentuj:
+	# var panel_style := StyleBoxTexture.new()
+	# panel_style.texture = load(STYLE_BG_TEXTURE)
+	# _panel.add_theme_stylebox_override("panel", panel_style)
 	_root.add_child(_panel)
 
 	var margin := MarginContainer.new()
@@ -55,7 +88,9 @@ func _build_ui() -> void:
 
 	var title := Label.new()
 	title.text = "🎒  Ekwipunek"
-	title.add_theme_font_size_override("font_size", 24)
+	title.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_TTL)
+	# Własna czcionka — odkomentuj:
+	# title.add_theme_font_override("font", load(STYLE_FONT_TTL))
 	vbox.add_child(title)
 
 	var tabs := HBoxContainer.new()
@@ -67,6 +102,10 @@ func _build_ui() -> void:
 		btn.text = cat["label"]
 		btn.toggle_mode = true
 		btn.pressed.connect(_on_tab_pressed.bind(cat["id"]))
+		# === STYL zakładki ===
+		# var tab_style := StyleBoxTexture.new()
+		# tab_style.texture = load(STYLE_BTN_TEXTURE)
+		# btn.add_theme_stylebox_override("normal", tab_style)
 		_tab_buttons[cat["id"]] = btn
 		tabs.add_child(btn)
 
@@ -81,9 +120,12 @@ func _build_ui() -> void:
 	var close := Button.new()
 	close.text = "Zamknij  [Tab]"
 	close.pressed.connect(func(): visible = false)
+	# === STYL przycisku zamknij ===
+	# var close_style := StyleBoxTexture.new()
+	# close_style.texture = load(STYLE_BTN_TEXTURE)
+	# close.add_theme_stylebox_override("normal", close_style)
 	vbox.add_child(close)
 
-	# Tooltip
 	_tooltip = Panel.new()
 	_tooltip.custom_minimum_size = Vector2(220, 80)
 	_tooltip.hide()
@@ -102,44 +144,36 @@ func _build_ui() -> void:
 	m.add_child(v)
 
 	_tooltip_name = Label.new()
-	_tooltip_name.add_theme_font_size_override("font_size", 15)
+	_tooltip_name.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_TTP)
 	v.add_child(_tooltip_name)
 
 	_tooltip_desc = Label.new()
-	_tooltip_desc.add_theme_font_size_override("font_size", 12)
-	_tooltip_desc.add_theme_color_override("font_color", Color(0.8, 0.8, 0.8))
+	_tooltip_desc.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_DESC)
+	_tooltip_desc.add_theme_color_override("font_color", STYLE_COLOR_DESC)
 	_tooltip_desc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_tooltip_desc.custom_minimum_size = Vector2(200, 0)
 	v.add_child(_tooltip_desc)
 
 	_set_category("quest")
 
-# ─── PODGLĄD ITEMU ───────────────────────────
-
 func _show_preview(data: Dictionary) -> void:
 	if _preview != null:
 		_preview.queue_free()
-
-	var category = data.get("category", "quest")
-
-	if category == "document":
+	if data.get("category", "quest") == "document":
 		_show_document_preview(data)
 	else:
 		_show_item_preview(data)
 
 func _show_item_preview(data: Dictionary) -> void:
-	# Ciemne tło
 	var overlay := ColorRect.new()
 	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	overlay.color = Color(0, 0, 0, 0.75)
 	overlay.mouse_filter = Control.MOUSE_FILTER_STOP
 	overlay.gui_input.connect(func(e):
-		if e is InputEventMouseButton and e.pressed:
-			_close_preview())
+		if e is InputEventMouseButton and e.pressed: _close_preview())
 	_root.add_child(overlay)
 	_preview = overlay
 
-	# Panel podglądu
 	var panel := Panel.new()
 	panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	panel.custom_minimum_size = Vector2(360, 300)
@@ -147,6 +181,10 @@ func _show_item_preview(data: Dictionary) -> void:
 	panel.offset_top    = -150
 	panel.offset_right  =  180
 	panel.offset_bottom =  150
+	# === STYL panelu podglądu ===
+	# var style := StyleBoxTexture.new()
+	# style.texture = load(STYLE_BG_TEXTURE)
+	# panel.add_theme_stylebox_override("panel", style)
 	overlay.add_child(panel)
 
 	var margin := MarginContainer.new()
@@ -161,7 +199,6 @@ func _show_item_preview(data: Dictionary) -> void:
 	vbox.add_theme_constant_override("separation", 12)
 	margin.add_child(vbox)
 
-	# Ikonka
 	var icon := TextureRect.new()
 	icon.custom_minimum_size = Vector2(96, 96)
 	icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
@@ -169,11 +206,9 @@ func _show_item_preview(data: Dictionary) -> void:
 	icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	if data.has("icon"):
 		var tex = load(data["icon"])
-		if tex:
-			icon.texture = tex
+		if tex: icon.texture = tex
 	vbox.add_child(icon)
 
-	# Nazwa
 	var name_lbl := Label.new()
 	name_lbl.text = data.get("name", "")
 	name_lbl.add_theme_font_size_override("font_size", 20)
@@ -182,7 +217,6 @@ func _show_item_preview(data: Dictionary) -> void:
 
 	vbox.add_child(HSeparator.new())
 
-	# Opis
 	var desc := RichTextLabel.new()
 	desc.bbcode_enabled = true
 	desc.scroll_active = false
@@ -191,25 +225,21 @@ func _show_item_preview(data: Dictionary) -> void:
 	desc.add_theme_font_size_override("normal_font_size", 14)
 	vbox.add_child(desc)
 
-	# Zamknij
 	var close := Button.new()
 	close.text = "Zamknij"
 	close.pressed.connect(_close_preview)
 	vbox.add_child(close)
 
 func _show_document_preview(data: Dictionary) -> void:
-	# Ciemne tło
 	var overlay := ColorRect.new()
 	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	overlay.color = Color(0, 0, 0, 0.8)
 	overlay.mouse_filter = Control.MOUSE_FILTER_STOP
 	overlay.gui_input.connect(func(e):
-		if e is InputEventMouseButton and e.pressed:
-			_close_preview())
+		if e is InputEventMouseButton and e.pressed: _close_preview())
 	_root.add_child(overlay)
 	_preview = overlay
 
-	# Kartka — lekko obrócona
 	var paper := Panel.new()
 	paper.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	paper.custom_minimum_size = Vector2(400, 500)
@@ -217,11 +247,10 @@ func _show_document_preview(data: Dictionary) -> void:
 	paper.offset_top    = -250
 	paper.offset_right  =  200
 	paper.offset_bottom =  250
-	paper.rotation_degrees = 0 # lekkie pochylenie
-
-	# Styl kartki — kremowy kolor
+	paper.rotation_degrees = STYLE_DOC_ROTATION
+	# === STYL kartki dokumentu ===
 	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.96, 0.92, 0.82)
+	style.bg_color = STYLE_DOC_COLOR
 	style.corner_radius_top_left     = 4
 	style.corner_radius_top_right    = 4
 	style.corner_radius_bottom_left  = 4
@@ -229,6 +258,10 @@ func _show_document_preview(data: Dictionary) -> void:
 	style.shadow_color = Color(0, 0, 0, 0.4)
 	style.shadow_size  = 8
 	paper.add_theme_stylebox_override("panel", style)
+	# Własna tekstura kartki — odkomentuj:
+	# var style := StyleBoxTexture.new()
+	# style.texture = load(STYLE_DOC_TEXTURE)
+	# paper.add_theme_stylebox_override("panel", style)
 	overlay.add_child(paper)
 
 	var margin := MarginContainer.new()
@@ -243,31 +276,27 @@ func _show_document_preview(data: Dictionary) -> void:
 	vbox.add_theme_constant_override("separation", 14)
 	margin.add_child(vbox)
 
-	# Tytuł notatki
 	var title := Label.new()
 	title.text = data.get("name", "")
 	title.add_theme_font_size_override("font_size", 20)
-	title.add_theme_color_override("font_color", Color(0.2, 0.1, 0.05))
+	title.add_theme_color_override("font_color", STYLE_DOC_TEXT_COLOR)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(title)
 
-	# Linia dekoracyjna
 	var sep := ColorRect.new()
 	sep.custom_minimum_size = Vector2(0, 2)
 	sep.color = Color(0.5, 0.35, 0.2, 0.5)
 	vbox.add_child(sep)
 
-	# Treść notatki
 	var text := RichTextLabel.new()
 	text.bbcode_enabled = true
 	text.scroll_active = true
 	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	text.text = data.get("content", data.get("description", ""))
+	text.text = data.get("description", "")
 	text.add_theme_font_size_override("normal_font_size", 15)
-	text.add_theme_color_override("default_color", Color(0.15, 0.1, 0.05))
+	text.add_theme_color_override("default_color", STYLE_DOC_TEXT_COLOR)
 	vbox.add_child(text)
 
-	# Zamknij
 	var close := Button.new()
 	close.text = "✕  Zamknij"
 	close.pressed.connect(_close_preview)
@@ -277,8 +306,6 @@ func _close_preview() -> void:
 	if _preview != null:
 		_preview.queue_free()
 		_preview = null
-
-# ─── RESZTA ──────────────────────────────────
 
 func _set_category(category: String) -> void:
 	_current_category = category
@@ -300,7 +327,7 @@ func _refresh(_ignored = null) -> void:
 	if items.is_empty():
 		var lbl := Label.new()
 		lbl.text = "Brak przedmiotów w tej kategorii."
-		lbl.add_theme_color_override("font_color", Color(0.6, 0.6, 0.6))
+		lbl.add_theme_color_override("font_color", STYLE_COLOR_EMPTY)
 		lbl.add_theme_font_size_override("font_size", 14)
 		_grid.add_child(lbl)
 		return
@@ -312,7 +339,12 @@ func _add_slot(entry: Dictionary) -> void:
 	var data = ItemManager.get_item(entry["item_id"])
 
 	var slot := Panel.new()
-	slot.custom_minimum_size = Vector2(100, 100)
+	slot.custom_minimum_size = Vector2(STYLE_SLOT_SIZE, STYLE_SLOT_SIZE)
+	# === STYL slotu ===
+	# Własna tekstura — odkomentuj:
+	# var slot_style := StyleBoxTexture.new()
+	# slot_style.texture = load(STYLE_SLOT_TEXTURE)
+	# slot.add_theme_stylebox_override("panel", slot_style)
 	_grid.add_child(slot)
 
 	var v := VBoxContainer.new()
@@ -323,33 +355,32 @@ func _add_slot(entry: Dictionary) -> void:
 	var icon := TextureRect.new()
 	icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
 	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	icon.custom_minimum_size = Vector2(64, 64)
+	icon.custom_minimum_size = Vector2(STYLE_ICON_SIZE, STYLE_ICON_SIZE)
 	icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	if data.has("icon"):
 		var tex = load(data["icon"])
-		if tex:
-			icon.texture = tex
+		if tex: icon.texture = tex
 	v.add_child(icon)
 
 	var name_lbl := Label.new()
 	name_lbl.text = data.get("name", entry["item_id"])
-	name_lbl.add_theme_font_size_override("font_size", 11)
+	name_lbl.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_ITEM)
 	name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	name_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	# Własna czcionka — odkomentuj:
+	# name_lbl.add_theme_font_override("font", load(STYLE_FONT_ITEM))
 	v.add_child(name_lbl)
 
 	if entry["count"] > 1:
 		var count_lbl := Label.new()
 		count_lbl.text = "x" + str(entry["count"])
-		count_lbl.add_theme_font_size_override("font_size", 12)
-		count_lbl.add_theme_color_override("font_color", Color(1.0, 0.85, 0.3))
+		count_lbl.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_CNT)
+		count_lbl.add_theme_color_override("font_color", STYLE_COLOR_STACK)
 		count_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		v.add_child(count_lbl)
 
-	# Hover tooltip
 	slot.mouse_entered.connect(_show_tooltip.bind(data, slot))
 	slot.mouse_exited.connect(_hide_tooltip)
-	# Kliknięcie = podgląd
 	slot.gui_input.connect(func(e):
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed:
 			_show_preview(data))
