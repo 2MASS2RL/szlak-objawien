@@ -13,7 +13,7 @@ const STYLE_ANIM_IN        := 0.3                     # czas pojawiania się
 const STYLE_ANIM_STAY      := 3.0                     # czas wyświetlania
 const STYLE_ANIM_OUT       := 0.5                     # czas znikania
 # const STYLE_BG_TEXTURE   := "res://ui/notification_bg.png" # <- własna tekstura
-# const STYLE_FONT_NAME    := "res://fonts/medieval.ttf"     # <- własna czcionka
+const STYLE_FONT_NAME    := "res://fonts/medieval.ttf"     # <- własna czcionka
 # =====================================================
 
 var _label_name : Label
@@ -62,7 +62,7 @@ func _build_ui() -> void:
 	_label_name.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_NAME)
 	_label_name.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	# Własna czcionka — odkomentuj:
-	# _label_name.add_theme_font_override("font", load(STYLE_FONT_NAME))
+	_label_name.add_theme_font_override("font", load(STYLE_FONT_NAME))
 	vbox.add_child(_label_name)
 
 	_label_goal = Label.new()

@@ -5,19 +5,20 @@ const SAVE_FILE := "user://savegame.save"
 const MAIN_MENU := "res://MainMenu.tscn"
 
 # =====================================================
-# === STYL — podmień tutaj gdy będziesz miał grafiki ===
-# =====================================================
-const STYLE_BG_COLOR       := Color(0, 0, 0, 0.65)  # kolor przyciemnienia
-const STYLE_PANEL_W        := 340.0                  # szerokość panelu
-const STYLE_PANEL_H        := 300.0                  # wysokość panelu głównego
-const STYLE_PANEL_SETTINGS := 180.0                  # wysokość panelu ustawień
-const STYLE_FONT_SIZE_TTL  := 36                     # rozmiar tytułu PAUZA
-const STYLE_FONT_SIZE_BTN  := 20                     # rozmiar przycisków
-const STYLE_BTN_H          := 50.0                   # wysokość przycisku
-# const STYLE_BG_TEXTURE   := "res://ui/pause_bg.png"   # <- własna tekstura tła panelu
-# const STYLE_BTN_TEXTURE  := "res://ui/button.png"     # <- własna tekstura przycisku
-# const STYLE_FONT_TITLE   := "res://fonts/medieval.ttf"# <- własna czcionka tytułu
-# const STYLE_FONT_BTN     := "res://fonts/medieval.ttf"# <- własna czcionka przycisków
+const STYLE_BG_COLOR       := Color(0, 0, 0, 0.65)
+const STYLE_PANEL_W        := 340.0
+const STYLE_PANEL_H        := 300.0
+const STYLE_PANEL_SETTINGS := 180.0
+const STYLE_FONT_SIZE_TTL  := 36
+const STYLE_FONT_SIZE_BTN  := 20
+const STYLE_BTN_H          := 50.0
+# const STYLE_BG_TEXTURE   := "res://ui/pause_bg.png"
+const STYLE_BTN_NORMAL   := "res://ui/button_normal.png"
+const STYLE_BTN_PRESSED  := "res://ui/button_pressed.png"
+const STYLE_BTN_HOVER    := "res://ui/button_pressed.png"
+#const STYLE_BTN_DISABLED := "res://ui/button_disabled.png"
+const STYLE_FONT_TITLE   := "res://fonts/medieval.ttf"
+const STYLE_FONT_BTN     := "res://fonts/medieval.ttf"
 # =====================================================
 
 var is_paused      := false
@@ -32,11 +33,9 @@ func _ready() -> void:
 	layer = 10
 	visible = false
 	_build_ui()
-	# Reset przy każdej zmianie sceny
 	get_tree().node_added.connect(_on_node_added)
 
 func _on_node_added(node: Node) -> void:
-	# Gdy scena się zmienia i ładuje się nowy root — resetuj pauzę
 	if node == get_tree().current_scene:
 		_force_resume()
 
@@ -66,8 +65,7 @@ func _build_ui() -> void:
 	title.text = "PAUZA"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_TTL)
-	# Własna czcionka — odkomentuj gdy będziesz miał:
-	# title.add_theme_font_override("font", load(STYLE_FONT_TITLE))
+	title.add_theme_font_override("font", load(STYLE_FONT_TITLE))
 	vbox.add_child(title)
 	vbox.add_child(_spacer(8))
 
@@ -81,7 +79,6 @@ func _build_ui() -> void:
 	btn_settings.pressed.connect(_on_settings)
 	btn_menu.pressed.connect(_on_main_menu)
 
-	# Panel ustawień
 	settings_panel = _centered_panel(STYLE_PANEL_W, STYLE_PANEL_SETTINGS)
 	settings_panel.visible = false
 	add_child(settings_panel)
@@ -131,7 +128,6 @@ func _centered_panel(w: float, h: float) -> PanelContainer:
 	p.offset_bottom =  h / 2.0
 	p.process_mode  = Node.PROCESS_MODE_ALWAYS
 	# === STYL panelu ===
-	# Własna tekstura — odkomentuj gdy będziesz miał:
 	# var style := StyleBoxTexture.new()
 	# style.texture = load(STYLE_BG_TEXTURE)
 	# p.add_theme_stylebox_override("panel", style)
@@ -142,13 +138,42 @@ func _btn(label: String, parent: Node) -> Button:
 	b.text = label
 	b.custom_minimum_size = Vector2(STYLE_PANEL_W - 40, STYLE_BTN_H)
 	b.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_BTN)
+	b.add_theme_font_override("font", load(STYLE_FONT_BTN))
 	b.process_mode = Node.PROCESS_MODE_ALWAYS
-	# === STYL przycisku ===
-	# Własna tekstura — odkomentuj gdy będziesz miał:
-	# var style := StyleBoxTexture.new()
-	# style.texture = load(STYLE_BTN_TEXTURE)
-	# b.add_theme_stylebox_override("normal", style)
-	# b.add_theme_font_override("font", load(STYLE_FONT_BTN))
+
+	# === STYL przycisku — odkomentuj gdy będziesz miał tekstury ===
+	var style_normal := StyleBoxTexture.new()
+	style_normal.texture = load(STYLE_BTN_NORMAL)
+	style_normal.texture_margin_left   = 4.0
+	style_normal.texture_margin_right  = 4.0
+	style_normal.texture_margin_top    = 4.0
+	style_normal.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("normal", style_normal)
+
+	var style_pressed := StyleBoxTexture.new()
+	style_pressed.texture = load(STYLE_BTN_PRESSED)
+	style_pressed.texture_margin_left   = 4.0
+	style_pressed.texture_margin_right  = 4.0
+	style_pressed.texture_margin_top    = 4.0
+	style_pressed.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("pressed", style_pressed)
+
+	var style_hover := StyleBoxTexture.new()
+	style_hover.texture = load(STYLE_BTN_HOVER)
+	style_hover.texture_margin_left   = 4.0
+	style_hover.texture_margin_right  = 4.0
+	style_hover.texture_margin_top    = 4.0
+	style_hover.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("hover", style_hover)
+
+	var style_disabled := StyleBoxTexture.new()
+	#style_disabled.texture = load(STYLE_BTN_DISABLED)
+	style_disabled.texture_margin_left   = 4.0
+	style_disabled.texture_margin_right  = 4.0
+	style_disabled.texture_margin_top    = 4.0
+	style_disabled.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("disabled", style_disabled)
+
 	parent.add_child(b)
 	return b
 

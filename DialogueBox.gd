@@ -7,27 +7,60 @@ var next_btn      : Button
 var choices_box   : VBoxContainer
 
 # =====================================================
-# === STYL — podmień tutaj gdy będziesz miał grafiki ===
-# Krok 1: Odkomentuj linie z "custom_*"
-# Krok 2: Wstaw ścieżki do swoich tekstur
-# Krok 3: Usuń lub zakomentuj linie ze StyleBoxFlat
-# =====================================================
-const STYLE_BG_COLOR        := Color(0.10, 0.08, 0.06, 0.92)  # kolor tła panelu
-const STYLE_CORNER_RADIUS   := 0                                # zaokrąglenie rogów
-const STYLE_FONT_SIZE_NAME  := 22                               # rozmiar czcionki imienia
-const STYLE_FONT_SIZE_TEXT  := 18                               # rozmiar czcionki tekstu
-const STYLE_FONT_SIZE_BTN   := 16                               # rozmiar czcionki przycisków
-const STYLE_PANEL_HEIGHT    := 200                              # wysokość panelu dialogu
-# const STYLE_BG_TEXTURE    := "res://ui/dialogue_bg.png"       # <- własna tekstura tła
-# const STYLE_BTN_TEXTURE   := "res://ui/button.png"           # <- własna tekstura przycisku
-# const STYLE_FONT_NAME     := "res://fonts/medieval.ttf"      # <- własna czcionka imienia
-# const STYLE_FONT_TEXT     := "res://fonts/medieval.ttf"      # <- własna czcionka tekstu
+const STYLE_BG_COLOR        := Color(0.10, 0.08, 0.06, 0.92)
+const STYLE_CORNER_RADIUS   := 0
+const STYLE_FONT_SIZE_NAME  := 22
+const STYLE_FONT_SIZE_TEXT  := 18
+const STYLE_FONT_SIZE_BTN   := 16
+const STYLE_PANEL_HEIGHT    := 200
+# const STYLE_BG_TEXTURE    := "res://ui/dialogue_bg.png"
+const STYLE_BTN_NORMAL   := "res://ui/button_normal.png"
+const STYLE_BTN_PRESSED  := "res://ui/button_pressed.png"
+const STYLE_BTN_HOVER    := "res://ui/button_pressed.png"
+#const STYLE_BTN_DISABLED := "res://ui/button_disabled.png"
+const STYLE_FONT_NAME     := "res://fonts/medieval.ttf"
+const STYLE_FONT_TEXT     := "res://fonts/medieval.ttf"
 # =====================================================
 
 func _ready() -> void:
 	_build_ui()
 	DialogueManager.set_box(self)
 	hide()
+
+func _apply_btn_style(b: Button) -> void:
+	# === STYL przycisku — odkomentuj gdy będziesz miał tekstury ===
+	var style_normal := StyleBoxTexture.new()
+	style_normal.texture = load(STYLE_BTN_NORMAL)
+	style_normal.texture_margin_left   = 4.0
+	style_normal.texture_margin_right  = 4.0
+	style_normal.texture_margin_top    = 4.0
+	style_normal.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("normal", style_normal)
+
+	var style_pressed := StyleBoxTexture.new()
+	style_pressed.texture = load(STYLE_BTN_PRESSED)
+	style_pressed.texture_margin_left   = 4.0
+	style_pressed.texture_margin_right  = 4.0
+	style_pressed.texture_margin_top    = 4.0
+	style_pressed.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("pressed", style_pressed)
+
+	var style_hover := StyleBoxTexture.new()
+	style_hover.texture = load(STYLE_BTN_HOVER)
+	style_hover.texture_margin_left   = 4.0
+	style_hover.texture_margin_right  = 4.0
+	style_hover.texture_margin_top    = 4.0
+	style_hover.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("hover", style_hover)
+
+	# var style_disabled := StyleBoxTexture.new()
+	# style_disabled.texture = load(STYLE_BTN_DISABLED)
+	# style_disabled.texture_margin_left   = 4.0
+	# style_disabled.texture_margin_right  = 4.0
+	# style_disabled.texture_margin_top    = 4.0
+	# style_disabled.texture_margin_bottom = 4.0
+	# b.add_theme_stylebox_override("disabled", style_disabled)
+	pass
 
 func _build_ui() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -38,7 +71,6 @@ func _build_ui() -> void:
 	panel.offset_top = -STYLE_PANEL_HEIGHT
 	panel.mouse_filter = Control.MOUSE_FILTER_STOP
 
-	# === STYL tła panelu ===
 	var style := StyleBoxFlat.new()
 	style.bg_color = STYLE_BG_COLOR
 	style.corner_radius_top_left     = STYLE_CORNER_RADIUS
@@ -46,11 +78,9 @@ func _build_ui() -> void:
 	style.corner_radius_bottom_left  = STYLE_CORNER_RADIUS
 	style.corner_radius_bottom_right = STYLE_CORNER_RADIUS
 	panel.add_theme_stylebox_override("panel", style)
-	# Gdy będziesz miał teksturę — zamień powyższe na:
 	# var style := StyleBoxTexture.new()
 	# style.texture = load(STYLE_BG_TEXTURE)
 	# panel.add_theme_stylebox_override("panel", style)
-	# ===
 
 	add_child(panel)
 
@@ -71,8 +101,7 @@ func _build_ui() -> void:
 	speaker_label = Label.new()
 	speaker_label.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_NAME)
 	speaker_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	# Własna czcionka — odkomentuj gdy będziesz miał:
-	# speaker_label.add_theme_font_override("font", load(STYLE_FONT_NAME))
+	speaker_label.add_theme_font_override("font", load(STYLE_FONT_NAME))
 	vbox.add_child(speaker_label)
 
 	text_label = RichTextLabel.new()
@@ -81,8 +110,7 @@ func _build_ui() -> void:
 	text_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	text_label.add_theme_font_size_override("normal_font_size", STYLE_FONT_SIZE_TEXT)
 	text_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	# Własna czcionka — odkomentuj gdy będziesz miał:
-	# text_label.add_theme_font_override("normal_font", load(STYLE_FONT_TEXT))
+	text_label.add_theme_font_override("normal_font", load(STYLE_FONT_TEXT))
 	vbox.add_child(text_label)
 
 	choices_box = VBoxContainer.new()
@@ -94,10 +122,7 @@ func _build_ui() -> void:
 	next_btn.text = "Dalej ▶"
 	next_btn.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_BTN)
 	next_btn.pressed.connect(_on_next_pressed)
-	# Własna tekstura przycisku — odkomentuj gdy będziesz miał:
-	# var btn_style := StyleBoxTexture.new()
-	# btn_style.texture = load(STYLE_BTN_TEXTURE)
-	# next_btn.add_theme_stylebox_override("normal", btn_style)
+	_apply_btn_style(next_btn)
 	vbox.add_child(next_btn)
 
 func display_line(line: Dictionary) -> void:
@@ -115,10 +140,7 @@ func display_line(line: Dictionary) -> void:
 			var btn := Button.new()
 			btn.text = choice["label"]
 			btn.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_BTN)
-			# Własna tekstura przycisków wyborów — odkomentuj gdy będziesz miał:
-			# var s := StyleBoxTexture.new()
-			# s.texture = load(STYLE_BTN_TEXTURE)
-			# btn.add_theme_stylebox_override("normal", s)
+			_apply_btn_style(btn)
 			var i := idx
 			btn.pressed.connect(func(): DialogueManager.pick_choice(i))
 			choices_box.add_child(btn)

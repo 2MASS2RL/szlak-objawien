@@ -17,8 +17,8 @@ const STYLE_COLOR_DESC     := Color(0.8, 0.8, 0.8)  # kolor opisu
 const STYLE_COLOR_EMPTY    := Color(0.6, 0.6, 0.6)  # kolor "brak questów"
 # const STYLE_BG_TEXTURE   := "res://ui/journal_bg.png"  # <- własna tekstura panelu
 # const STYLE_BTN_TEXTURE  := "res://ui/button.png"      # <- własna tekstura przycisku
-# const STYLE_FONT_TTL     := "res://fonts/medieval.ttf" # <- własna czcionka tytułu
-# const STYLE_FONT_BODY    := "res://fonts/medieval.ttf" # <- własna czcionka tekstu
+const STYLE_FONT_TTL     := "res://fonts/medieval.ttf" # <- własna czcionka tytułu
+const STYLE_FONT_BODY    := "res://fonts/medieval.ttf" # <- własna czcionka tekstu
 # =====================================================
 
 var _vbox_active : VBoxContainer
@@ -72,7 +72,7 @@ func _build_ui() -> void:
 	title.text = "📜  Dziennik questów"
 	title.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_TTL)
 	# Własna czcionka — odkomentuj:
-	# title.add_theme_font_override("font", load(STYLE_FONT_TTL))
+	title.add_theme_font_override("font", load(STYLE_FONT_TTL))
 	vbox.add_child(title)
 
 	vbox.add_child(HSeparator.new())
@@ -138,7 +138,7 @@ func _add_quest_entry(parent: VBoxContainer, data: Dictionary, completed: bool) 
 	if completed:
 		name_lbl.add_theme_color_override("font_color", STYLE_COLOR_DONE)
 	# Własna czcionka — odkomentuj:
-	# name_lbl.add_theme_font_override("font", load(STYLE_FONT_BODY))
+	name_lbl.add_theme_font_override("font", load(STYLE_FONT_BODY))
 	entry.add_child(name_lbl)
 
 	var desc_lbl := Label.new()

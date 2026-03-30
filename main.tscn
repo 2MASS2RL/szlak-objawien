@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://nv7o8qv52rfq" path="res://NPC.gd" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://bv5nu6lk0r4w2" path="res://icon.svg" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://Item.gd" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://celf3dim84fml" path="res://icons/notatka.png" id="9_kek77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(50, 250)
@@ -22,9 +23,6 @@ size = Vector2(200, 50)
 size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4c57u"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [node name="Main" type="Node2D" unique_id=71771241]
 
@@ -110,5 +108,5 @@ scale = Vector2(2.97, 2.97)
 shape = SubResource("RectangleShape2D_kek77")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1497832475]
-scale = Vector2(0.455, 0.455)
-texture = SubResource("CompressedTexture2D_4c57u")
+scale = Vector2(0.355, 0.355)
+texture = ExtResource("9_kek77")

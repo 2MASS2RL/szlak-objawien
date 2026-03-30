@@ -2,31 +2,31 @@
 extends CanvasLayer
 
 # =====================================================
-# === STYL — podmień tutaj gdy będziesz miał grafiki ===
-# =====================================================
-const STYLE_BG_OVERLAY     := Color(0, 0, 0, 0.6)   # przyciemnienie tła
-const STYLE_PANEL_W        := 520.0                  # szerokość panelu
-const STYLE_PANEL_H        := 480.0                  # wysokość panelu
-const STYLE_SLOT_SIZE      := 100.0                  # rozmiar slotu
-const STYLE_ICON_SIZE      := 64.0                   # rozmiar ikonki w slocie
-const STYLE_FONT_SIZE_TTL  := 24                     # rozmiar tytułu
-const STYLE_FONT_SIZE_ITEM := 11                     # rozmiar nazwy itemu w slocie
-const STYLE_FONT_SIZE_CNT  := 12                     # rozmiar licznika stacka
-const STYLE_FONT_SIZE_TTP  := 15                     # rozmiar nazwy w tooltipie
-const STYLE_FONT_SIZE_DESC := 12                     # rozmiar opisu w tooltipie
-const STYLE_COLOR_STACK    := Color(1.0, 0.85, 0.3)  # kolor licznika stacka
-const STYLE_COLOR_EMPTY    := Color(0.6, 0.6, 0.6)   # kolor "brak przedmiotów"
-const STYLE_COLOR_DESC     := Color(0.8, 0.8, 0.8)   # kolor opisu w tooltipie
-# const STYLE_BG_TEXTURE   := "res://ui/inventory_bg.png"  # <- własna tekstura panelu
-# const STYLE_SLOT_TEXTURE := "res://ui/slot.png"          # <- własna tekstura slotu
-# const STYLE_BTN_TEXTURE  := "res://ui/button.png"        # <- własna tekstura przycisku
-# const STYLE_FONT_TTL     := "res://fonts/medieval.ttf"   # <- własna czcionka tytułu
-# const STYLE_FONT_ITEM    := "res://fonts/medieval.ttf"   # <- własna czcionka itemów
-# Podgląd dokumentu:
-const STYLE_DOC_COLOR      := Color(0.96, 0.92, 0.82)    # kolor kartki
-const STYLE_DOC_TEXT_COLOR := Color(0.15, 0.1, 0.05)     # kolor tekstu na kartce
-const STYLE_DOC_ROTATION   := -1.5                        # pochylenie kartki (stopnie)
-# const STYLE_DOC_TEXTURE  := "res://ui/paper.png"        # <- własna tekstura kartki
+const STYLE_BG_OVERLAY     := Color(0, 0, 0, 0.6)
+const STYLE_PANEL_W        := 520.0
+const STYLE_PANEL_H        := 480.0
+const STYLE_SLOT_SIZE      := 100.0
+const STYLE_ICON_SIZE      := 64.0
+const STYLE_FONT_SIZE_TTL  := 24
+const STYLE_FONT_SIZE_ITEM := 11
+const STYLE_FONT_SIZE_CNT  := 12
+const STYLE_FONT_SIZE_TTP  := 15
+const STYLE_FONT_SIZE_DESC := 12
+const STYLE_COLOR_STACK    := Color(1.0, 0.85, 0.3)
+const STYLE_COLOR_EMPTY    := Color(0.6, 0.6, 0.6)
+const STYLE_COLOR_DESC     := Color(0.8, 0.8, 0.8)
+# const STYLE_BG_TEXTURE   := "res://ui/inventory_bg.png"
+# const STYLE_SLOT_TEXTURE := "res://ui/slot.png"
+const STYLE_BTN_NORMAL   := "res://ui/button_normal.png"
+const STYLE_BTN_PRESSED  := "res://ui/button_pressed.png"
+const STYLE_BTN_HOVER    := "res://ui/button_pressed.png"
+#const STYLE_BTN_DISABLED := "res://ui/button_disabled.png"
+const STYLE_FONT_TTL     := "res://fonts/medieval.ttf"
+const STYLE_FONT_ITEM    := "res://fonts/medieval.ttf"
+const STYLE_DOC_COLOR      := Color(0.96, 0.92, 0.82)
+const STYLE_DOC_TEXT_COLOR := Color(0.15, 0.1, 0.05)
+const STYLE_DOC_ROTATION   := 0
+const STYLE_DOC_TEXTURE  := "res://ui/paper.png"
 # =====================================================
 
 const CATEGORIES = [
@@ -49,6 +49,41 @@ func _ready() -> void:
 	InventoryManager.inventory_changed.connect(_refresh)
 	visible = false
 
+func _apply_btn_style(b: Button) -> void:
+	# === STYL przycisku — odkomentuj gdy będziesz miał tekstury ===
+	var style_normal := StyleBoxTexture.new()
+	style_normal.texture = load(STYLE_BTN_NORMAL)
+	style_normal.texture_margin_left   = 4.0
+	style_normal.texture_margin_right  = 4.0
+	style_normal.texture_margin_top    = 4.0
+	style_normal.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("normal", style_normal)
+
+	var style_pressed := StyleBoxTexture.new()
+	style_pressed.texture = load(STYLE_BTN_PRESSED)
+	style_pressed.texture_margin_left   = 4.0
+	style_pressed.texture_margin_right  = 4.0
+	style_pressed.texture_margin_top    = 4.0
+	style_pressed.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("pressed", style_pressed)
+
+	var style_hover := StyleBoxTexture.new()
+	style_hover.texture = load(STYLE_BTN_HOVER)
+	style_hover.texture_margin_left   = 4.0
+	style_hover.texture_margin_right  = 4.0
+	style_hover.texture_margin_top    = 4.0
+	style_hover.texture_margin_bottom = 4.0
+	b.add_theme_stylebox_override("hover", style_hover)
+
+	# var style_disabled := StyleBoxTexture.new()
+	# style_disabled.texture = load(STYLE_BTN_DISABLED)
+	# style_disabled.texture_margin_left   = 4.0
+	# style_disabled.texture_margin_right  = 4.0
+	# style_disabled.texture_margin_top    = 4.0
+	# style_disabled.texture_margin_bottom = 4.0
+	# b.add_theme_stylebox_override("disabled", style_disabled)
+	pass
+
 func _build_ui() -> void:
 	_root = Control.new()
 	_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -68,7 +103,6 @@ func _build_ui() -> void:
 	_panel.offset_right  =  STYLE_PANEL_W / 2
 	_panel.offset_bottom =  STYLE_PANEL_H / 2
 	# === STYL panelu ===
-	# Własna tekstura — odkomentuj:
 	# var panel_style := StyleBoxTexture.new()
 	# panel_style.texture = load(STYLE_BG_TEXTURE)
 	# _panel.add_theme_stylebox_override("panel", panel_style)
@@ -89,8 +123,7 @@ func _build_ui() -> void:
 	var title := Label.new()
 	title.text = "🎒  Ekwipunek"
 	title.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_TTL)
-	# Własna czcionka — odkomentuj:
-	# title.add_theme_font_override("font", load(STYLE_FONT_TTL))
+	title.add_theme_font_override("font", load(STYLE_FONT_TTL))
 	vbox.add_child(title)
 
 	var tabs := HBoxContainer.new()
@@ -102,10 +135,7 @@ func _build_ui() -> void:
 		btn.text = cat["label"]
 		btn.toggle_mode = true
 		btn.pressed.connect(_on_tab_pressed.bind(cat["id"]))
-		# === STYL zakładki ===
-		# var tab_style := StyleBoxTexture.new()
-		# tab_style.texture = load(STYLE_BTN_TEXTURE)
-		# btn.add_theme_stylebox_override("normal", tab_style)
+		_apply_btn_style(btn)
 		_tab_buttons[cat["id"]] = btn
 		tabs.add_child(btn)
 
@@ -120,10 +150,7 @@ func _build_ui() -> void:
 	var close := Button.new()
 	close.text = "Zamknij  [Tab]"
 	close.pressed.connect(func(): visible = false)
-	# === STYL przycisku zamknij ===
-	# var close_style := StyleBoxTexture.new()
-	# close_style.texture = load(STYLE_BTN_TEXTURE)
-	# close.add_theme_stylebox_override("normal", close_style)
+	_apply_btn_style(close)
 	vbox.add_child(close)
 
 	_tooltip = Panel.new()
@@ -228,6 +255,7 @@ func _show_item_preview(data: Dictionary) -> void:
 	var close := Button.new()
 	close.text = "Zamknij"
 	close.pressed.connect(_close_preview)
+	_apply_btn_style(close)
 	vbox.add_child(close)
 
 func _show_document_preview(data: Dictionary) -> void:
@@ -248,7 +276,6 @@ func _show_document_preview(data: Dictionary) -> void:
 	paper.offset_right  =  200
 	paper.offset_bottom =  250
 	paper.rotation_degrees = STYLE_DOC_ROTATION
-	# === STYL kartki dokumentu ===
 	var style := StyleBoxFlat.new()
 	style.bg_color = STYLE_DOC_COLOR
 	style.corner_radius_top_left     = 4
@@ -258,7 +285,6 @@ func _show_document_preview(data: Dictionary) -> void:
 	style.shadow_color = Color(0, 0, 0, 0.4)
 	style.shadow_size  = 8
 	paper.add_theme_stylebox_override("panel", style)
-	# Własna tekstura kartki — odkomentuj:
 	# var style := StyleBoxTexture.new()
 	# style.texture = load(STYLE_DOC_TEXTURE)
 	# paper.add_theme_stylebox_override("panel", style)
@@ -300,6 +326,7 @@ func _show_document_preview(data: Dictionary) -> void:
 	var close := Button.new()
 	close.text = "✕  Zamknij"
 	close.pressed.connect(_close_preview)
+	_apply_btn_style(close)
 	vbox.add_child(close)
 
 func _close_preview() -> void:
@@ -341,7 +368,6 @@ func _add_slot(entry: Dictionary) -> void:
 	var slot := Panel.new()
 	slot.custom_minimum_size = Vector2(STYLE_SLOT_SIZE, STYLE_SLOT_SIZE)
 	# === STYL slotu ===
-	# Własna tekstura — odkomentuj:
 	# var slot_style := StyleBoxTexture.new()
 	# slot_style.texture = load(STYLE_SLOT_TEXTURE)
 	# slot.add_theme_stylebox_override("panel", slot_style)
@@ -367,8 +393,7 @@ func _add_slot(entry: Dictionary) -> void:
 	name_lbl.add_theme_font_size_override("font_size", STYLE_FONT_SIZE_ITEM)
 	name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	name_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	# Własna czcionka — odkomentuj:
-	# name_lbl.add_theme_font_override("font", load(STYLE_FONT_ITEM))
+	name_lbl.add_theme_font_override("font", load(STYLE_FONT_ITEM))
 	v.add_child(name_lbl)
 
 	if entry["count"] > 1:
