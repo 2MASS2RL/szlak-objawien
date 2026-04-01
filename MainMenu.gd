@@ -60,7 +60,7 @@ func _build_ui() -> void:
 	btn_continue  = _btn("Kontynuuj", vbox)
 	var btn_quit := _btn("Wyjście",   vbox)
 
-	btn_continue.disabled = not FileAccess.file_exists(SAVE_FILE)
+	btn_continue.disabled = not SaveManager.save_exists()
 
 	btn_new.pressed.connect(_on_new_game)
 	btn_continue.pressed.connect(_on_continue)
@@ -119,27 +119,17 @@ func _spacer(h: int) -> Control:
 
 func _on_new_game() -> void:
 	if FileAccess.file_exists(SAVE_FILE):
-		DirAccess.remove_absolute(SAVE_FILE)
+		SaveManager.delete_save()
+		SaveManager.reset_all()  
 	Global.spawn_position = Vector2(200, 500)
 	Global.current_scene_key = "main"
 	PauseMenu.in_main_menu = false
 	get_tree().change_scene_to_file(GAME_SCENE)
 
 func _on_continue() -> void:
-	_load_game()
+	SaveManager.load_save() 
 	PauseMenu.in_main_menu = false
 	get_tree().change_scene_to_file(Global.scenes[Global.current_scene_key])
 
 func _on_quit() -> void:
 	get_tree().quit()
-
-func _load_game() -> void:
-	if not FileAccess.file_exists(SAVE_FILE):
-		return
-	var file := FileAccess.open(SAVE_FILE, FileAccess.READ)
-	var data : Dictionary = file.get_var()
-	file.close()
-	if data.has("scene_key"):
-		Global.current_scene_key = data["scene_key"]
-	if data.has("spawn_position"):
-		Global.spawn_position = data["spawn_position"]

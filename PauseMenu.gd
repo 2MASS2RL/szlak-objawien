@@ -212,7 +212,7 @@ func _resume() -> void:
 func _on_resume() -> void: _resume()
 
 func _on_save() -> void:
-	_save_game()
+	SaveManager.save()
 	btn_save.text = "Zapisano! ✓"
 	await get_tree().create_timer(1.5).timeout
 	btn_save.text = "Zapisz grę"

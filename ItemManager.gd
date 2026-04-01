@@ -63,3 +63,6 @@ func get_item(item_id: String) -> Dictionary:
 # Czy item istnieje w bazie?
 func has_item(item_id: String) -> bool:
 	return items.has(item_id)
+
+func reset() -> void:
+	_picked.clear()

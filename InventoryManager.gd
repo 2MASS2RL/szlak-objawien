@@ -83,3 +83,7 @@ func get_items_by_category(category: String) -> Array:
 			if data.get("category", "") == category:
 				result.append({ "slot": i, "item_id": slot["item_id"], "count": slot["count"] })
 	return result
+func reset() -> void:
+	for i in range(MAX_SLOTS):
+		slots[i] = null
+	emit_signal("inventory_changed")
