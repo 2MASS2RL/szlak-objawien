@@ -78,13 +78,16 @@ var dialogues: Dictionary = {
 		}
 	],
 	# ─────────────────────────────────────────────
-	#Dialogi Gracza
+	#Dialogi Gracza/Narratora
 	# ─────────────────────────────────────────────
 	"GB1": [
 		{ "speaker": "Główny Bohater", "text": "Gdzie ja jestem...? Ta droga musi gdzieś prowadzić." },
 		  ],
 	"GB2": [
 		{ "speaker": "Główny Bohater", "text": "Sanktuarium... Może ktoś tam mi powie, gdzie się znalazłem." },
+		  ],
+	"GB3": [
+		{ "speaker": "Główny Bohater", "text": "To musi być ten klucz. Czas wracać do księdza Łukasza." },
 		  ],
 	# ─────────────────────────────────────────────
 	#Dialogi KS Ł
@@ -103,8 +106,8 @@ var dialogues: Dictionary = {
 		{ "speaker": "Ks. Łukasz", "text": "Przy drzwiach zakrystii — od tyłu kościoła. Tam ktoś go odkładał."},
 	],
 	"KS Ł Quest Done": [
-		{"speaker": "Główny bohater", "text": "Mam klucz."},
-		{ "speaker": "Ks. Łukasz", "text": "Doskonale. Kronika jest w środku — szukaj na półce przy ołtarzu."},
+		{"speaker": "Główny bohater", "text": "Znalazłem klucz, proszę księdza."},
+		{ "speaker": "Ks. Łukasz", "text": "To dobrze. Za trud należy ci się nagroda.", "give_item": "List2"},
 	],
 }
 
