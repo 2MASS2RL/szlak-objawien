@@ -8,12 +8,12 @@ signal dialogue_started(npc_tag: String)
 signal dialogue_ended(npc_tag: String)
 signal choice_made(npc_tag: String, choice_index: int)
 
+var current_zoom_request : Dictionary = { "mode": "none" }
 var _box: Control = null
 var _current_tag: String = ""
 var _current_lines: Array = []
 var _current_index: int = 0
 var current_npc_pos: Vector2 = Vector2.ZERO
-
 var dialogues: Dictionary = {
 
 	"koscielny_stroz": [
@@ -77,6 +77,35 @@ var dialogues: Dictionary = {
 		  ]
 		}
 	],
+	# ─────────────────────────────────────────────
+	#Dialogi Gracza
+	# ─────────────────────────────────────────────
+	"GB1": [
+		{ "speaker": "Główny Bohater", "text": "Gdzie ja jestem...? Ta droga musi gdzieś prowadzić." },
+		  ],
+	"GB2": [
+		{ "speaker": "Główny Bohater", "text": "Sanktuarium... Może ktoś tam mi powie, gdzie się znalazłem." },
+		  ],
+	# ─────────────────────────────────────────────
+	#Dialogi KS Ł
+	# ─────────────────────────────────────────────
+		"KS Ł 1": [
+		{ "speaker": "Główny Bohater", "text": "Szczęść Boże, proszę księdza."},
+		{ "speaker": "Ks. Łukasz", "text": "Szczęść Boże. Rzadko ktoś tu przybywa o tej porze. W czym mogę pomóc?"},
+		{ "speaker": "Główny Bohater", "text": "Trafiłem tu przez przypadek. Może ksiądz mi opowiedzieć o tym miejscu?"},
+		{ "speaker": "Ks. Łukasz", "text": "Chętnie. Mam list który zostawił poprzedni proboszcz — jest tam trochę historii. Weź.", "give_item": "List1"},
+		{ "speaker": "Główny Bohater", "text": "Dzięki. Ale to budzi więcej pytań niż odpowiedzi... Czy jest tu ktoś, kto mógłby powiedzieć mi więcej?"},
+		{ "speaker": "Ks. Łukasz", "text": "W zakrystii jest stara kronika parafialna. Ale zakrystia jest zamknięta, a klucz gdzieś zaginął. Znajdziesz go — kronika jest do twojej dyspozycji."},
+		{ "speaker": "Główny Bohater", "text": "Rozumiem. Poszukam."},
+	],
+	"KS Ł Quest Active": [
+		{"speaker": "Główny bohater", "text": "Gdzie szukać tego klucza?"},
+		{ "speaker": "Ks. Łukasz", "text": "Przy drzwiach zakrystii — od tyłu kościoła. Tam ktoś go odkładał."},
+	],
+	"KS Ł Quest Done": [
+		{"speaker": "Główny bohater", "text": "Mam klucz."},
+		{ "speaker": "Ks. Łukasz", "text": "Doskonale. Kronika jest w środku — szukaj na półce przy ołtarzu."},
+	],
 }
 
 # ─────────────────────────────────────────────
@@ -111,7 +140,9 @@ func set_box(box: Control) -> void:
 func is_active() -> bool:
 	return _is_box_valid() and _box.visible
 
-func start_dialogue(tag: String, npc_pos: Vector2 = Vector2.ZERO) -> void:
+func start_dialogue(tag: String, npc_pos: Vector2 = Vector2.ZERO, zoom_request: Dictionary = { "mode": "none" }) -> void:
+	current_npc_pos    = npc_pos
+	current_zoom_request = zoom_request
 	if not dialogues.has(tag):
 		push_warning("DialogueManager: brak dialogu dla tagu '%s'" % tag)
 		return
@@ -126,6 +157,12 @@ func start_dialogue(tag: String, npc_pos: Vector2 = Vector2.ZERO) -> void:
 	_show_line()
 
 func next_line() -> void:
+	var current_line = _current_lines[_current_index]
+	if current_line.has("give_item"):
+		var item_id : String = current_line["give_item"]
+		InventoryManager.add_item(item_id)
+		ItemNotification.show_item(item_id)   
+
 	_current_index += 1
 	if _current_index >= _current_lines.size():
 		_end_dialogue()
@@ -142,4 +179,7 @@ func pick_choice(choice_index: int) -> void:
 	if next_tag == "":
 		_end_dialogue()
 	else:
-		start_dialogue(next_tag)
+		_current_tag   = next_tag
+		_current_lines = dialogues[next_tag]
+		_current_index = 0
+		_show_line()

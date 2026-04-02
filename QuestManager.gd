@@ -40,6 +40,12 @@ func _on_dialogue_ended(tag: String) -> void:
 				"goal": "Znajdź kapliczkę na lewo",
 				"description": "Wyjdź z zakrystii i udaj się w lewą stronę. Tam znajdziesz kapliczkę z pierwszym przedmiotem.",
 			})
+		"KS Ł 1":
+			start_quest("Znajdź klucz od zakrystii", {
+				"name": "Klucz do zakrystii",
+				"goal": "Znajdź klucz od zakrystii",
+				"description": "Ksiądz Łukasz powiedział, żebym poszukał klucza od zakrystii na tyle kościoła.",
+			})
 		# ── dopisuj kolejne questy tutaj ──
 		# "twoj_tag":
 		#     start_quest("twoj_id", {

@@ -7,7 +7,7 @@ var scenes: Dictionary = {
 	"right":  "res://SceneRight.tscn",
 	"right2":  "res://scene_3.tscn",
 	"left":   "res://SceneRight.tscn",
-	"top":    "res://SceneTop.tscn",
+	"top":    "res://scena_1.tscn",
 	"bottom": "res://SceneBottom.tscn",
 }
 

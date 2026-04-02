@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bv5nu6lk0r4w2" path="res://icon.svg" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://Item.gd" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://celf3dim84fml" path="res://icons/notatka.png" id="9_kek77"]
+[ext_resource type="Script" uid="uid://p7bqgf5p3ny3" path="res://DialogAktywacja.gd" id="10_4c57u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(50, 250)
@@ -23,6 +24,9 @@ size = Vector2(200, 50)
 size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
+size = Vector2(50, 50)
 
 [node name="Main" type="Node2D" unique_id=71771241]
 
@@ -82,7 +86,11 @@ offset_bottom = 49.0
 [node name="Area2D" type="Area2D" parent="." unique_id=262894468]
 position = Vector2(185.87, 106.38)
 script = ExtResource("7_272bh")
-dialogue_tag = "Proboszcz"
+dialogue_tag = "KS Ł 1"
+quest_id_to_check = "KS Ł Quest1"
+dialogue_tag_active = "KS Ł Quest Active"
+dialogue_tag_completed = "KS Ł Quest Done"
+zoom_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1035602028]
 position = Vector2(0.56500244, -0.18999481)
@@ -110,3 +118,11 @@ shape = SubResource("RectangleShape2D_kek77")
 [node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1497832475]
 scale = Vector2(0.355, 0.355)
 texture = ExtResource("9_kek77")
+
+[node name="DialogGracza" type="Area2D" parent="." unique_id=339803690]
+position = Vector2(500, 200)
+script = ExtResource("10_4c57u")
+dialogue_tag = "GB1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogGracza" unique_id=1618376492]
+shape = SubResource("RectangleShape2D_efxa6")

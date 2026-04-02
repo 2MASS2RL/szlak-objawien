@@ -25,6 +25,7 @@ SaveManager="*uid://tkic10ftmn8r"
 QuestManager="*uid://daynnym6ngkof"
 ItemManager="*uid://cqv1ku4reyt8y"
 InventoryManager="*uid://b084so47ijxqk"
+ItemNotification="*uid://dsf107f4maqdk"
 InventoryUI="*uid://cs5jhbocavhjj"
 UI="*uid://dlpv5giwj6sgp"
 
