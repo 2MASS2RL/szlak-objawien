@@ -1,7 +1,3 @@
-# DialogueManager.gd
-# Autoload: Project > Project Settings > Autoload
-# Nazwa: DialogueManager
-
 extends Node
 
 signal dialogue_started(npc_tag: String)
@@ -89,10 +85,13 @@ var dialogues: Dictionary = {
 	"GB3": [
 		{ "speaker": "Główny Bohater", "text": "To musi być ten klucz. Czas wracać do księdza Łukasza." },
 		  ],
+	"GB4": [
+		{ "speaker": "Główny Bohater", "text": "To jest ta zakrystia. Poszukam tu kogoś." },
+		  ],
 	# ─────────────────────────────────────────────
 	#Dialogi KS Ł
 	# ─────────────────────────────────────────────
-		"KS Ł 1": [
+	"KS Ł 1": [
 		{ "speaker": "Główny Bohater", "text": "Szczęść Boże, proszę księdza."},
 		{ "speaker": "Ks. Łukasz", "text": "Szczęść Boże. Rzadko ktoś tu przybywa o tej porze. W czym mogę pomóc?"},
 		{ "speaker": "Główny Bohater", "text": "Trafiłem tu przez przypadek. Może ksiądz mi opowiedzieć o tym miejscu?"},
@@ -108,6 +107,26 @@ var dialogues: Dictionary = {
 	"KS Ł Quest Done": [
 		{"speaker": "Główny bohater", "text": "Znalazłem klucz, proszę księdza."},
 		{ "speaker": "Ks. Łukasz", "text": "To dobrze. Za trud należy ci się nagroda.", "give_item": "List2"},
+	],
+	# ─────────────────────────────────────────────
+	#Dialogi KS M
+	# ─────────────────────────────────────────────
+	"KS M 1": [
+		{"speaker": "Główny bohater", "text": "Szczęść Boże."},
+		{ "speaker": "Ks. Łukasz", "text": "Szczęść Boże. Co cię tutaj sprowadza?"},
+		{"speaker": "Główny bohater", "text": "Chciałem dowiedzieć się więcej o tym kościele."},
+		{ "speaker": "Ks. Łukasz", "text": "Masz tu list, może rzuci trochę światła.", "give_item": "List3"},
+		{ "speaker": "Ks. Łukasz", "text": "Jeśli chcesz wiedzieć więcej — przynieś mi (item2). Wtedy powiem ci resztę."},
+		{"speaker": "Główny bohater", "text": "A gdzie mogę go znaleźć?"},
+		{ "speaker": "Ks. Łukasz", "text": "Poszukaj na plebanii."},
+	],
+	"KS M Quest Active": [
+		{"speaker": "Główny bohater", "text": "Gdzie mogę znaleźć (item2)?"},
+		{ "speaker": "Ks. Łukasz", "text": "Mówiłem — na plebanii. Tam powinieneś go znaleźć."},
+	],
+	"KS M Quest Done": [
+		{"speaker": "Główny bohater", "text": "Mam to, o co prosiłeś."},
+		{ "speaker": "Ks. Łukasz", "text": "W takim razie posłuchaj... "},
 	],
 }
 

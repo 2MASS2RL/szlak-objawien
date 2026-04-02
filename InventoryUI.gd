@@ -318,7 +318,7 @@ func _show_document_preview(data: Dictionary) -> void:
 	text.bbcode_enabled = true
 	text.scroll_active = true
 	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	text.text = data.get("description", "")
+	text.text = data.get("content", "")
 	text.add_theme_font_size_override("normal_font_size", 15)
 	text.add_theme_color_override("default_color", STYLE_DOC_TEXT_COLOR)
 	vbox.add_child(text)

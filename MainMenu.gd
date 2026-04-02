@@ -118,11 +118,8 @@ func _spacer(h: int) -> Control:
 	return s
 
 func _on_new_game() -> void:
-	if FileAccess.file_exists(SAVE_FILE):
-		SaveManager.delete_save()
-		SaveManager.reset_all()  
-	Global.spawn_position = Vector2(200, 500)
-	Global.current_scene_key = "main"
+	SaveManager.delete_save()
+	SaveManager.reset_all()  
 	PauseMenu.in_main_menu = false
 	get_tree().change_scene_to_file(GAME_SCENE)
 

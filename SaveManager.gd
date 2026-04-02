@@ -10,6 +10,8 @@ const SAVE_FILE := "user://savegame.save"
 # ─────────────────────────────────────────────
 func save() -> void:
 	var player_node = get_tree().get_first_node_in_group("Player")
+	var quests_active    = QuestManager._active.duplicate()
+	var quests_completed = QuestManager._completed.duplicate()
 
 	# Pozycja — z węzła gracza jeśli istnieje, fallback na Global
 	var pos: Vector2 = Global.spawn_position
@@ -44,6 +46,8 @@ func save() -> void:
 		"inventory":      slots_data,
 		"picked_items":   picked_data,
 		"volume":         volume,
+		"quests_active":    quests_active,
+		"quests_completed": quests_completed,
 	}
 
 	var file := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
@@ -109,7 +113,11 @@ func load_save() -> bool:
 			AudioServer.get_bus_index("Master"),
 			linear_to_db(vol)
 		)
-
+	
+	if data.has("quests_active"):
+		QuestManager._active = data["quests_active"]
+	if data.has("quests_completed"):
+		QuestManager._completed = data["quests_completed"]
 	print("SaveManager: gra wczytana ✓")
 	return true
 
@@ -126,5 +134,6 @@ func save_exists() -> bool:
 func reset_all() -> void:
 	InventoryManager.reset()
 	ItemManager.reset()
+	QuestManager.reset()
 	Global.spawn_position = Vector2(200, 500)
 	Global.current_scene_key = "main"

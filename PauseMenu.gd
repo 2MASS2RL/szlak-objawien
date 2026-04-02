@@ -233,15 +233,3 @@ func _on_main_menu() -> void:
 
 func _on_volume_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
-
-func _save_game() -> void:
-	var player_node = get_tree().get_first_node_in_group("Player")
-	var data := {
-		"scene_key":      Global.current_scene_key,
-		"spawn_position": Global.spawn_position,
-	}
-	if player_node:
-		data["spawn_position"] = player_node.position
-	var file := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
-	file.store_var(data)
-	file.close()

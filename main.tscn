@@ -86,10 +86,10 @@ offset_bottom = 49.0
 [node name="Area2D" type="Area2D" parent="." unique_id=262894468]
 position = Vector2(185.87, 106.38)
 script = ExtResource("7_272bh")
-dialogue_tag = "KS Ł 1"
-quest_id_to_check = "KS Ł Quest1"
-dialogue_tag_active = "KS Ł Quest Active"
-dialogue_tag_completed = "KS Ł Quest Done"
+dialogue_tag = "KS M 1"
+quest_id_to_check = "KS M 1"
+dialogue_tag_active = "KS M Quest Active"
+dialogue_tag_completed = "KS M Quest Done"
 zoom_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1035602028]

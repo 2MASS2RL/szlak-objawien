@@ -18,13 +18,8 @@ var _completed: Dictionary = {} # { quest_id: dane }
 
 func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-	# Quest startowy — czekamy jedną klatkę żeby HUD zdążył się załadować
-	await get_tree().process_frame
-	start_quest("znajdz_zakrystie", {
-		"name": "Znajdź zakrystię",
-		"goal": "Rozejrzyj się po kościele",
-		"description": "Jesteś przed kościołem Świętej Marii Magdaleny. Znajdź wejście do zakrystii i porozmawiaj z proboszczem.",
-	})
+	_active.clear()
+	_completed.clear()
 
 func _on_dialogue_ended(tag: String) -> void:
 	match tag:
@@ -41,10 +36,22 @@ func _on_dialogue_ended(tag: String) -> void:
 				"description": "Wyjdź z zakrystii i udaj się w lewą stronę. Tam znajdziesz kapliczkę z pierwszym przedmiotem.",
 			})
 		"KS Ł 1":
-			start_quest("Znajdź klucz od zakrystii", {
+			start_quest("KS Ł 1", {
 				"name": "Klucz do zakrystii",
 				"goal": "Znajdź klucz od zakrystii",
 				"description": "Ksiądz Łukasz powiedział, żebym poszukał klucza od zakrystii na tyle kościoła.",
+			})
+		"KS Ł Quest Done":
+			start_quest("Dostań się do zakrystii", {
+				"name": "Dostań się do zakrystii",
+				"goal": "Znajdź zakrystię.",
+				"description": "Ksiądz Łukasz powiedział, żebym poszukał kogoś w zakrystii, żeby zdobyć więcej informacji o tym kościele.",
+			})
+		"KS M 1":
+			start_quest("KS M 1", {
+				"name": "Znajdź (item2) na plebani",
+				"goal": "",
+				"description": "Ksiądz Mateusz kazał mi znaleźć (item2) na plebanii i przynieść mu z powrotem.",
 			})
 		# ── dopisuj kolejne questy tutaj ──
 		# "twoj_tag":
@@ -90,3 +97,7 @@ func get_quest_data(quest_id: String) -> Dictionary:
 	if _completed.has(quest_id):
 		return _completed[quest_id]
 	return {}
+
+func reset() -> void:
+	_active.clear()
+	_completed.clear()
