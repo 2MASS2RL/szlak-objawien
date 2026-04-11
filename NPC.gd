@@ -17,14 +17,29 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 func _input(event: InputEvent) -> void:
-	if _player_nearby and event.is_action_pressed("interact"):
-		if not DialogueManager.is_active():
+	if event.is_action_pressed("interact"):
+		print("=== INPUT DEBUG ===")
+		print("player_nearby: ", _player_nearby)
+		print("dialogue_active: ", DialogueManager.is_active())
+		print("===================")
+		
+		if _player_nearby and not DialogueManager.is_active():
 			var req := _build_zoom_request()
 			DialogueManager.start_dialogue(_get_dialogue_tag(), global_position, req)
 
 func _get_dialogue_tag() -> String:
 	if quest_id_to_check == "":
 		return dialogue_tag
+	
+	print("=== QUEST DEBUG ===")
+	print("Quest ID: ", quest_id_to_check)
+	print("is_completed: ", QuestManager.is_completed(quest_id_to_check))
+	print("has_quest: ", QuestManager.has_quest(quest_id_to_check))
+	print("tag default: ", dialogue_tag)
+	print("tag active: ", dialogue_tag_active)
+	print("tag completed: ", dialogue_tag_completed)
+	print("===================")
+	
 	if QuestManager.is_completed(quest_id_to_check) and dialogue_tag_completed != "":
 		return dialogue_tag_completed
 	elif QuestManager.has_quest(quest_id_to_check) and dialogue_tag_active != "":
