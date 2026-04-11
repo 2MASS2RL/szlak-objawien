@@ -4,13 +4,29 @@
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_clwbw"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="3_f4x1p"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="4_ry83c"]
-[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="5_icgnu"]
+[ext_resource type="Script" path="res://SceneSettings.gd" id="5_icgnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ounk"]
 size = Vector2(1940, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(723, 50)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_60bu3"]
+a = Vector2(0, 414)
+b = Vector2(721, 18)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_clwbw"]
+a = Vector2(1914, 433)
+b = Vector2(1340, 22)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f4x1p"]
+a = Vector2(1, 1091)
+b = Vector2(4, 409)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ry83c"]
+a = Vector2(1918, 1075)
+b = Vector2(1915, 432)
 
 [node name="Scena3" type="Node2D" unique_id=71771241]
 
@@ -54,3 +70,17 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 0.6
 scale_max = 2.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1033327414]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=92031471]
+shape = SubResource("SegmentShape2D_60bu3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=149306286]
+shape = SubResource("SegmentShape2D_clwbw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1611722417]
+shape = SubResource("SegmentShape2D_f4x1p")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1714935333]
+shape = SubResource("SegmentShape2D_ry83c")
