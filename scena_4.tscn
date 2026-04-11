@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_7jcoh"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_tabdi"]
-[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_lk7rq"]
+[ext_resource type="Script" path="res://SceneSettings.gd" id="3_lk7rq"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="4_vmldb"]
 [ext_resource type="Script" uid="uid://byswioktiwkn8" path="res://transition_left.gd" id="5_e7pb4"]
 
