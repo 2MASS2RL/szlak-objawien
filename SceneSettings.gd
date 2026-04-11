@@ -13,7 +13,7 @@ func _setup() -> void:
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.size() > 0:
 		players[0].apply_scene_settings(self)
-	
+
 	var cameras = get_tree().get_nodes_in_group("GameCamera")
 	if cameras.size() > 0:
 		cameras[0].apply_scene_settings(self)

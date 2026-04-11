@@ -79,7 +79,7 @@ shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="SceneSettings" type="Node" parent="." unique_id=522916496]
 script = ExtResource("4_g01r8")
-scale_min = 1.0
+scale_min = 1.5
 scale_max = 2.5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2124101394]
