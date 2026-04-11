@@ -2,31 +2,31 @@ extends CharacterBody2D
 
 @export var speed: float = 300.0
 
-# Stałe - dostosuj do swojej sceny
-const SPEED = 300.0 
-const Y_MIN = 100.0   # górna krawędź mapy
-const Y_MAX = 900.0   # dolna krawędź mapy
-const SCALE_MIN = 0.3 # rozmiar gdy daleko
-const SCALE_MAX = 1.0 # rozmiar gdy blisko
+var Y_MIN     : float = 100.0
+var Y_MAX     : float = 900.0
+var SCALE_MIN : float = 0.3
+var SCALE_MAX : float = 1.0
+
+func apply_scene_settings(settings: Node) -> void:
+	Y_MIN     = settings.y_min
+	Y_MAX     = settings.y_max
+	SCALE_MIN = settings.scale_min
+	SCALE_MAX = settings.scale_max
+
+func _ready() -> void:
+	add_to_group("Player")
+	position = Global.spawn_position
 
 func _physics_process(delta):
-	# Blokuj ruch gdy inventory otwarte
 	if InventoryUI and InventoryUI.visible:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 	
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = input_dir * SPEED
+	velocity = input_dir * speed
 	move_and_slide()
 	
-	var t = (position.y - Y_MIN) / (Y_MAX - Y_MIN)
-	t = clamp(t, 0.0, 1.0)
-	var new_scale = lerp(SCALE_MIN, SCALE_MAX, t)
-	scale = Vector2(new_scale, new_scale)
-	
+	var t = clamp((position.y - Y_MIN) / (Y_MAX - Y_MIN), 0.0, 1.0)
+	scale = Vector2(lerp(SCALE_MIN, SCALE_MAX, t), lerp(SCALE_MIN, SCALE_MAX, t))
 	z_index = int(position.y)
-func _ready():
-	add_to_group("Player")
-	position = Global.spawn_position
-	print("Gracz respawn na: ", Global.spawn_position)

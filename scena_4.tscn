@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://p7ohfkxqr21"]
+
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_7jcoh"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_tabdi"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_lk7rq"]
+[ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="4_vmldb"]
+[ext_resource type="Script" uid="uid://byswioktiwkn8" path="res://transition_left.gd" id="5_e7pb4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fpwx0"]
+load_path = "res://.godot/imported/Scena 4.JPG-9418a1213f79cfb58adb7daefc5a41d0.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ounk"]
+size = Vector2(1940, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kfy3"]
+size = Vector2(50, 1088)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkad2"]
+size = Vector2(50, 1100)
+
+[node name="Scena4" type="Node2D" unique_id=71771241]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=140913566]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1076.0
+texture = SubResource("CompressedTexture2D_fpwx0")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=461170670]
+position = Vector2(960, 540)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Player" parent="." unique_id=127990800 groups=["Player"] instance=ExtResource("1_7jcoh")]
+position = Vector2(958, 1005)
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=1874342295]
+position = Vector2(957, 1114)
+script = ExtResource("2_tabdi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1890672323]
+shape = SubResource("RectangleShape2D_6ounk")
+
+[node name="SceneSettings" type="Node" parent="." unique_id=522916496]
+script = ExtResource("3_lk7rq")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 0.6
+scale_max = 2.5
+
+[node name="TransitionRight" type="Area2D" parent="." unique_id=537549354]
+position = Vector2(1980, 540)
+script = ExtResource("4_vmldb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionRight" unique_id=127896593]
+shape = SubResource("RectangleShape2D_7kfy3")
+debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
+
+[node name="LeftTransition" type="Area2D" parent="." unique_id=329887791]
+position = Vector2(-50, 525)
+script = ExtResource("5_e7pb4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTransition" unique_id=73946223]
+shape = SubResource("RectangleShape2D_hkad2")

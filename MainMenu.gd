@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const SAVE_FILE  := "user://savegame.save"
-const GAME_SCENE := "res://main.tscn"
+const GAME_SCENE := "res://scena_1.tscn"
 
 # =====================================================
 # === STYL — podmień tutaj gdy będziesz miał grafiki ===

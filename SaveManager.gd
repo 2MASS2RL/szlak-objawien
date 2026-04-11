@@ -135,5 +135,5 @@ func reset_all() -> void:
 	InventoryManager.reset()
 	ItemManager.reset()
 	QuestManager.reset()
-	Global.spawn_position = Vector2(200, 500)
+	Global.spawn_position = Vector2(960, 900)
 	Global.current_scene_key = "main"

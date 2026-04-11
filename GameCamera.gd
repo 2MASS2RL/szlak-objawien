@@ -12,6 +12,7 @@ var _original_parent : Node   = null
 var _detached        : bool   = false
 
 func _ready() -> void:
+	add_to_group("GameCamera") 
 	_target_zoom     = default_zoom
 	_original_parent = get_parent()
 	zoom = Vector2(default_zoom, default_zoom)
@@ -84,3 +85,8 @@ func _reattach() -> void:
 	_original_parent.add_child(self)
 	global_position = gpos
 	_detached = false
+
+func apply_scene_settings(settings: Node) -> void:
+	default_zoom = settings.camera_zoom
+	_target_zoom = settings.camera_zoom
+	zoom         = Vector2(settings.camera_zoom, settings.camera_zoom)
