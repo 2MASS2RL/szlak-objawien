@@ -18,15 +18,6 @@ var items: Dictionary = {
 		"stackable":   false,
 		"max_stack":   1,
 	},
-	"notatka_proboszcza": {
-		"name":        "Notatka proboszcza",
-		"description": "Zapiski proboszcza dotyczące jutrzejszej mszy.",
-		"content":     "Drogi bracie,\n\nJutro o świcie odprawiamy mszę ku czci Świętej Marii Magdaleny. Potrzebne będą:\n\n- Kielich z zakrystii\n- Świece z kapliczki\n- Relikwiarz z krypty\n\nProszę o pomoc w ich odnalezieniu.\n\n[i]— Ks. Stanisław[/i]",
-		"category":    "document",
-		"icon":        "res://icons/notatka.png",
-		"stackable":   false,
-		"max_stack":   1,
-	},
 	
 	# ─────────────────────────────────────────────
 	#Listy
