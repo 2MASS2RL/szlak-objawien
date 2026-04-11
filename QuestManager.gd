@@ -23,43 +23,43 @@ func _ready() -> void:
 
 func _on_dialogue_ended(tag: String) -> void:
 	match tag:
-		"znajdz_klucz":
+		"KS Ł 1":
 			start_quest("znajdz_klucz", {
 				"name": "Znajdź klucz od zakrystii",
 				"goal": "Znajdź klucz leżący przy kościele",
 				"description": "Ksiądz Łukasz powiedział żebym poszukał klucza od zakrystii na tyle kościoła.",
 			})
-		"dostac_sie_do_zakrystii":
+		"KS Ł Quest Done":
 			start_quest("dostac_sie_do_zakrystii", {
 				"name": "Dostań się do zakrystii",
 				"goal": "Wejdź do zakrystii używając znalezionego klucza",
 				"description": "Ksiądz Łukasz powiedział żebym poszukał kogoś w zakrystii żeby zdobyć więcej informacji o kościele.",
 			})
-		"znajdz_wino_mszalne":
+		"KS M 1":
 			start_quest("znajdz_wino_mszalne", {
 				"name": "Znajdź wino mszalne",
 				"goal": "Znajdź wino mszalne w drodze na plebanię",
 				"description": "Ksiądz Mateusz kazał mi znaleźć wino mszalne i przynieść mu z powrotem.",
 			})
-		"pomoz_potrzebujacym":
+		"KS M Quest Done":
 			start_quest("pomoz_potrzebujacym", {
 				"name": "Pomóż potrzebującym",
 				"goal": "Znajdź księdza Dominika w auli franciszkańskiej",
 				"description": "Ksiądz Mateusz powiedział żebym pomógł księdzu Dominikowi w auli franciszkańskiej.",
 			})
-		"idz_do_ksiedza_lukasza":
+		"KS D 1":
 			start_quest("idz_do_ksiedza_lukasza", {
 				"name": "Idź do księdza Łukasza",
 				"goal": "Przynieś dokumenty od księdza Łukasza do księdza Dominika",
 				"description": "Ksiądz Dominik kazał mi pójść po dokumenty do księdza Łukasza. Na szczęście wiem gdzie go znaleźć.",
 			})
-		"znajdz_ksiedza_mateusza":
+		"KS D Quest Done":
 			start_quest("znajdz_ksiedza_mateusza", {
 				"name": "Poszukaj księdza Mateusza",
 				"goal": "Znajdź księdza Mateusza i poproś go o kazanie",
 				"description": "Ksiądz Dominik kazał mi poszukać księdza Mateusza i zapytać się o jego kazanie.",
 			})
-		"idz_do_kapliczki":
+		"KS D Kazanie":
 			start_quest("idz_do_kapliczki", {
 				"name": "Zajrzyj do kapliczki",
 				"goal": "Otwórz kapliczkę kluczem od księdza Dominika",
