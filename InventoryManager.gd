@@ -26,6 +26,10 @@ func add_item(item_id: String) -> bool:
 		push_warning("InventoryManager: nieznany item '%s'" % item_id)
 		return false
 
+	# Jeśli niestackowalny i już istnieje w ekwipunku — nie dodawaj
+	if not data.get("stackable", false) and has_item(item_id):
+		return false
+
 	# Stackowanie — znajdź istniejący slot z tym itemem
 	if data.get("stackable", false):
 		for i in range(MAX_SLOTS):
