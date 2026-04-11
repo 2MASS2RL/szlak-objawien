@@ -23,3 +23,5 @@ expand_mode = 1
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_6owel")]
 position = Vector2(558, 1012)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=615885541]

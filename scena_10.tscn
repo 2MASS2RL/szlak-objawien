@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dj7fs5fbyk72b"]
 
-[ext_resource type="Texture2D" uid="uid://dpcvtgeae2kdo" path="res://Scenes/Scena2.JPG" id="1_nekeb"]
+[ext_resource type="Texture2D" uid="uid://nrd8nlx3wrax" path="res://Scenes/ScenaKapliczka.JPG" id="1_nekeb"]
 
 [node name="Node2D" type="Node2D" unique_id=1677708582]
 
