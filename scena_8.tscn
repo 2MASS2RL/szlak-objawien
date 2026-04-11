@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bhhgs52l43r1m"]
+
+[ext_resource type="Texture2D" uid="uid://cgubre23edrkf" path="res://Scenes/Scena8.JPG" id="1_n4dwr"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_tsfsk"]
+
+[node name="Node2D" type="Node2D" unique_id=602113219]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1990110196]
+position = Vector2(960, 540)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1921298246]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1076.0
+texture = ExtResource("1_n4dwr")
+expand_mode = 1
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_tsfsk")]
+position = Vector2(904, 988)

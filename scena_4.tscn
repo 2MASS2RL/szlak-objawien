@@ -18,6 +18,40 @@ size = Vector2(50, 1088)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkad2"]
 size = Vector2(50, 1100)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7jcoh"]
+a = Vector2(1538, 333)
+b = Vector2(452, 349)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jcoh"]
+size = Vector2(110, 218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tabdi"]
+size = Vector2(95, 207)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lk7rq"]
+a = Vector2(86, 348)
+b = Vector2(86, 5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tabdi"]
+a = Vector2(1894, -1)
+b = Vector2(1885, 366)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vmldb"]
+a = Vector2(87, 347)
+b = Vector2(252, 341)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_e7pb4"]
+a = Vector2(1882, 366)
+b = Vector2(1708, 373)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fpwx0"]
+a = Vector2(454, 350)
+b = Vector2(358, 403)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7kfy3"]
+a = Vector2(1538, 334)
+b = Vector2(1616, 371)
+
 [node name="Scena4" type="Node2D" unique_id=71771241]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=140913566]
@@ -67,3 +101,34 @@ script = ExtResource("5_e7pb4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTransition" unique_id=73946223]
 shape = SubResource("RectangleShape2D_hkad2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2012882239]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1287195944]
+shape = SubResource("SegmentShape2D_7jcoh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=86200792]
+position = Vector2(305, 296)
+shape = SubResource("RectangleShape2D_7jcoh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1616365472]
+position = Vector2(1660.5, 267.5)
+shape = SubResource("RectangleShape2D_tabdi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1586170059]
+shape = SubResource("SegmentShape2D_lk7rq")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1556756835]
+shape = SubResource("SegmentShape2D_tabdi")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=645075887]
+shape = SubResource("SegmentShape2D_vmldb")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1256832532]
+shape = SubResource("SegmentShape2D_e7pb4")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1131475209]
+shape = SubResource("SegmentShape2D_fpwx0")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=1681597136]
+shape = SubResource("SegmentShape2D_7kfy3")

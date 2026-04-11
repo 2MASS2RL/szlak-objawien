@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cw7b28lks1hpk"]
+
+[ext_resource type="Texture2D" uid="uid://c6dbttjjrbqvo" path="res://Scenes/Przed zakrystia.JPG" id="1_wxl3a"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_gv54k"]
+
+[node name="Node2D" type="Node2D" unique_id=1370807373]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1443920274]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_wxl3a")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1288256898]
+position = Vector2(1518, 1552)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_gv54k")]
+position = Vector2(904, 988)

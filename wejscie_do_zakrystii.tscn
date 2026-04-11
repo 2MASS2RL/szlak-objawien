@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bafkxhv4sxbn5"]
+
+[ext_resource type="Texture2D" uid="uid://dw5ubqha4vwki" path="res://Scenes/Drzwi Zakrystia.JPG" id="1_rvuaf"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_h4tlj"]
+
+[node name="Node2D" type="Node2D" unique_id=1677708582]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=65503406]
+position = Vector2(2360, 1502)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1337868510]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1076.0
+texture = ExtResource("1_rvuaf")
+expand_mode = 1
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_h4tlj")]
+position = Vector2(1400, 962)
