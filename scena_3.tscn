@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_clwbw"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="3_f4x1p"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="4_ry83c"]
-[ext_resource type="Script" path="res://SceneSettings.gd" id="5_icgnu"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="5_icgnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ounk"]
 size = Vector2(1940, 50)
@@ -68,7 +68,7 @@ shape = SubResource("RectangleShape2D_1bvp3")
 script = ExtResource("5_icgnu")
 y_min = 200.0
 y_max = 1000.0
-scale_min = 0.6
+scale_min = 1.2
 scale_max = 2.5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1033327414]

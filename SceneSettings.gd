@@ -7,8 +7,9 @@ extends Node
 @export var camera_zoom: float = 1.0
 
 func _ready() -> void:
-	await get_tree().process_frame
-	
+	call_deferred("_setup")
+
+func _setup() -> void:
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.size() > 0:
 		players[0].apply_scene_settings(self)
