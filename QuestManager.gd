@@ -23,35 +23,47 @@ func _ready() -> void:
 
 func _on_dialogue_ended(tag: String) -> void:
 	match tag:
-		"info_zadanie":
+		"znajdz_klucz":
 			start_quest("znajdz_klucz", {
-				"name": "Znajdź klucz",
-				"goal": "Idź do kapliczki",
-				"description": "Proboszcz poprosił cię o znalezienie klucza do kościoła. Udaj się do kapliczki na lewo od zakrystii.",
+				"name": "Znajdź klucz od zakrystii",
+				"goal": "Znajdź klucz leżący przy kościele",
+				"description": "Ksiądz Łukasz powiedział żebym poszukał klucza od zakrystii na tyle kościoła.",
 			})
-		"info_kapliczka":
-			start_quest("idz_do_kapliczki", {
-				"name": "Idź do kapliczki",
-				"goal": "Znajdź kapliczkę na lewo",
-				"description": "Wyjdź z zakrystii i udaj się w lewą stronę. Tam znajdziesz kapliczkę z pierwszym przedmiotem.",
-			})
-		"KS Ł 1":
-			start_quest("KS Ł 1", {
-				"name": "Klucz do zakrystii",
-				"goal": "Znajdź klucz od zakrystii",
-				"description": "Ksiądz Łukasz powiedział, żebym poszukał klucza od zakrystii na tyle kościoła.",
-			})
-		"KS Ł Quest Done":
-			start_quest("Dostań się do zakrystii", {
+		"dostac_sie_do_zakrystii":
+			start_quest("dostac_sie_do_zakrystii", {
 				"name": "Dostań się do zakrystii",
-				"goal": "Znajdź zakrystię.",
-				"description": "Ksiądz Łukasz powiedział, żebym poszukał kogoś w zakrystii, żeby zdobyć więcej informacji o tym kościele.",
+				"goal": "Wejdź do zakrystii używając znalezionego klucza",
+				"description": "Ksiądz Łukasz powiedział żebym poszukał kogoś w zakrystii żeby zdobyć więcej informacji o kościele.",
 			})
-		"KS M 1":
-			start_quest("KS M 1", {
-				"name": "Znajdź (item2) na plebani",
-				"goal": "",
-				"description": "Ksiądz Mateusz kazał mi znaleźć (item2) na plebanii i przynieść mu z powrotem.",
+		"znajdz_wino_mszalne":
+			start_quest("znajdz_wino_mszalne", {
+				"name": "Znajdź wino mszalne",
+				"goal": "Znajdź wino mszalne w drodze na plebanię",
+				"description": "Ksiądz Mateusz kazał mi znaleźć wino mszalne i przynieść mu z powrotem.",
+			})
+		"pomoz_potrzebujacym":
+			start_quest("pomoz_potrzebujacym", {
+				"name": "Pomóż potrzebującym",
+				"goal": "Znajdź księdza Dominika w auli franciszkańskiej",
+				"description": "Ksiądz Mateusz powiedział żebym pomógł księdzu Dominikowi w auli franciszkańskiej.",
+			})
+		"idz_do_ksiedza_lukasza":
+			start_quest("idz_do_ksiedza_lukasza", {
+				"name": "Idź do księdza Łukasza",
+				"goal": "Przynieś dokumenty od księdza Łukasza do księdza Dominika",
+				"description": "Ksiądz Dominik kazał mi pójść po dokumenty do księdza Łukasza. Na szczęście wiem gdzie go znaleźć.",
+			})
+		"znajdz_ksiedza_mateusza":
+			start_quest("znajdz_ksiedza_mateusza", {
+				"name": "Poszukaj księdza Mateusza",
+				"goal": "Znajdź księdza Mateusza i poproś go o kazanie",
+				"description": "Ksiądz Dominik kazał mi poszukać księdza Mateusza i zapytać się o jego kazanie.",
+			})
+		"idz_do_kapliczki":
+			start_quest("idz_do_kapliczki", {
+				"name": "Zajrzyj do kapliczki",
+				"goal": "Otwórz kapliczkę kluczem od księdza Dominika",
+				"description": "Ksiądz Dominik dał mi klucz do kapliczki. Powiedział, że jeśli chcę dowiedzieć się czegoś więcej o tym miejscu, powinienem się tam udać.",
 			})
 		# ── dopisuj kolejne questy tutaj ──
 		# "twoj_tag":
