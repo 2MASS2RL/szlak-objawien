@@ -7,6 +7,18 @@ var scenes: Dictionary = {
 	"top":    "res://scena_2.tscn",
 	"scena3": "res://scena_3.tscn",
 	"scena4": "res://scena_4.tscn",
+	"scena5": "res://scena5.tscn",
+	"scena6": "res://scena6.tscn",
+	"scena7": "res://scena_7.tscn",
+	"scena8": "res://scena_8.tscn",
+	"scena9": "res://scena_9.tscn",
+	"scena10": "res://scena_10.tscn",
+	"wejscie_do_zakrtystii": "res://wejscie_do_zakrystii.tscn",
+	"zakrystia1": "res://zakrystia1.tscn",
+	"zakrystia2": "res://zakrystia2.tscn",
+	"scena11": "res://scena11.tscn",
+	"drzwi_aulii": "res://drzwi_aulii.tscn"
+	
 }
 
 # Mapa połączeń: skąd → [prawo, lewo, góra, dół]
@@ -14,7 +26,18 @@ var connections: Dictionary = {
 	"main":   {"right": null,  "left": null,  "up": "top",   "down": null},
 	"top":    {"down": "main",    "up": "scena3",        "left": null,  "right": null},
 	"scena3": {"up": "scena4",      "down": "top",      "left": null,  "right": null},
-	"scena4": {"up": null,      "down": "scena3",      "left": null,  "right": null},
+	"scena4": {"up": null,      "down": "scena3",      "left": "scena5", "right": null},
+	"scena5": {"up": null,  "down": null,  "left": null,  "right": null},
+	"scena6": {"up": null,  "down": null,  "left": null,  "right": null},
+	"scena7": {"up": null,  "down": null,  "left": null,  "right": null},
+	"scena8": {"up": null,  "down": null,  "left": "scena10",  "right": null},
+	"scena9": {"up": null,  "down": "scena8",  "left": null,  "right": null},
+	"scena10": {"up": null,  "down": null,  "left": null,  "right": null},
+	"wejscie_do_zakrtystii": {"up": "zakrystia1",  "down": null,  "left": null,  "right": null},
+	"zakrystia1": {"up": "zakrystia2",  "down": "wejscie_do_zakrtystii",  "left": null,  "right": null},
+	"zakrystia2": {"up": null,  "down": null,  "left": null,  "right": "zakrystia1"},
+	"scena11": {"up": null,  "down": null,  "left": null,  "right": null},
+	"drzwi_aulii": {"up": null,  "down": null,  "left": null,  "right": null},
 }
 
 # Pozycja spawnu gdy WCHODZISZ do sceny z danego kierunku

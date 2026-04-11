@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d1idyrlr5tx7p"]
+
+[ext_resource type="Texture2D" uid="uid://cnrga54eu4j01" path="res://Scenes/Zakrystia przejscie.JPG" id="1_efk4f"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="2_mf6ve"]
+
+[node name="Node2D" type="Node2D" unique_id=1902098001]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1436575007]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_efk4f")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1555141996]
+position = Vector2(960, 540)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="SceneSettings" type="Node" parent="." unique_id=664769807]
+script = ExtResource("2_mf6ve")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

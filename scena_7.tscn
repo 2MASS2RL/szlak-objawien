@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cqnd1r2npnyrc" path="res://Scenes/Scena7.JPG" id="1_e0hya"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_it7hv"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="3_it7hv"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="4_4pf0i"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_e0hya"]
 a = Vector2(6, 820)
@@ -39,10 +41,17 @@ b = Vector2(1916, 371)
 a = Vector2(1200, 873)
 b = Vector2(1151, 725)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0hya"]
-size = Vector2(125, 62)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pf0i"]
+size = Vector2(121, 34)
 
 [node name="Node2D" type="Node2D" unique_id=436168165]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=831154738]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1076.0
+texture = ExtResource("1_e0hya")
+expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=305079076]
 position = Vector2(1578, 1519)
@@ -52,13 +61,6 @@ limit_right = 1920
 limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=831154738]
-custom_minimum_size = Vector2(1920, 1080)
-offset_right = 1920.0
-offset_bottom = 1076.0
-texture = ExtResource("1_e0hya")
-expand_mode = 1
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_it7hv")]
 position = Vector2(618, 979)
@@ -92,6 +94,17 @@ shape = SubResource("SegmentShape2D_svnd5")
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D" unique_id=1879235393]
 shape = SubResource("SegmentShape2D_fl0d4")
 
-[node name="tutaj ma byc przejscie do sceny 8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1899871547]
-position = Vector2(622.5, 114)
-shape = SubResource("RectangleShape2D_e0hya")
+[node name="TransitionUp" type="Area2D" parent="." unique_id=410541068]
+position = Vector2(495, -50)
+script = ExtResource("3_it7hv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=462992158]
+position = Vector2(131.5, 174)
+shape = SubResource("RectangleShape2D_4pf0i")
+
+[node name="SceneSettings" type="Node" parent="." unique_id=567094177]
+script = ExtResource("4_4pf0i")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

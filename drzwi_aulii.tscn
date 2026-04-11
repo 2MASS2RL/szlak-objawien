@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bl1fxdj56on6e"]
+
+[ext_resource type="Texture2D" uid="uid://c4h7uyww4w65y" path="res://Scenes/Drzwi Auli.JPG" id="1_wqt2p"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="2_hh3m6"]
+
+[node name="Node2D" type="Node2D" unique_id=117991379]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1105897866]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1076.0
+texture = ExtResource("1_wqt2p")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1441211414]
+position = Vector2(1518, 1552)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="SceneSettings" type="Node" parent="." unique_id=1275450216]
+script = ExtResource("2_hh3m6")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

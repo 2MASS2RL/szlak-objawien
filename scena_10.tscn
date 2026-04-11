@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dj7fs5fbyk72b"]
 
 [ext_resource type="Texture2D" uid="uid://nrd8nlx3wrax" path="res://Scenes/ScenaKapliczka.JPG" id="1_nekeb"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="2_xxthj"]
 
 [node name="Node2D" type="Node2D" unique_id=1677708582]
 
@@ -10,3 +11,19 @@ offset_right = 1920.0
 offset_bottom = 1076.0
 texture = ExtResource("1_nekeb")
 expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=245657618]
+position = Vector2(1518, 1552)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="SceneSettings" type="Node" parent="." unique_id=2108590130]
+script = ExtResource("2_xxthj")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cgubre23edrkf" path="res://Scenes/Scena8.JPG" id="1_n4dwr"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_tsfsk"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_tsfsk"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_n4dwr"]
 a = Vector2(331, 1064)
@@ -20,6 +21,13 @@ b = Vector2(1075, 6)
 
 [node name="Node2D" type="Node2D" unique_id=602113219]
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1921298246]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1076.0
+texture = ExtResource("1_n4dwr")
+expand_mode = 1
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1990110196]
 position = Vector2(960, 540)
 limit_left = 0
@@ -28,13 +36,6 @@ limit_right = 1920
 limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1921298246]
-custom_minimum_size = Vector2(1920, 1080)
-offset_right = 1920.0
-offset_bottom = 1076.0
-texture = ExtResource("1_n4dwr")
-expand_mode = 1
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_tsfsk")]
 position = Vector2(904, 988)
@@ -52,3 +53,10 @@ shape = SubResource("SegmentShape2D_vagx3")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=107036721]
 shape = SubResource("SegmentShape2D_si56h")
+
+[node name="SceneSettings" type="Node" parent="." unique_id=436160370]
+script = ExtResource("3_tsfsk")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

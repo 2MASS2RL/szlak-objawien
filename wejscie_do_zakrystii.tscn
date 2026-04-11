@@ -2,8 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://dw5ubqha4vwki" path="res://Scenes/Drzwi Zakrystia.JPG" id="1_rvuaf"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_h4tlj"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_h4tlj"]
 
 [node name="Node2D" type="Node2D" unique_id=1677708582]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1337868510]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1076.0
+texture = ExtResource("1_rvuaf")
+expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=65503406]
 position = Vector2(2360, 1502)
@@ -14,14 +22,14 @@ limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1337868510]
-custom_minimum_size = Vector2(1920, 1080)
-offset_right = 1920.0
-offset_bottom = 1076.0
-texture = ExtResource("1_rvuaf")
-expand_mode = 1
-
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_h4tlj")]
 position = Vector2(1400, 962)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=303008686]
+
+[node name="SceneSettings" type="Node" parent="." unique_id=709176093]
+script = ExtResource("3_h4tlj")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

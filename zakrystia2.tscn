@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cuxaqoi8qvuut" path="res://Scenes/Zakrystia.JPG" id="1_6idxf"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_6s7xp"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_6s7xp"]
 
 [node name="Node2D" type="Node2D" unique_id=137710370]
 
@@ -25,3 +26,10 @@ drag_vertical_enabled = true
 position = Vector2(1405, 975)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1114091224]
+
+[node name="SceneSettings" type="Node" parent="." unique_id=604689534]
+script = ExtResource("3_6s7xp")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

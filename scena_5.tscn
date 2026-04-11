@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_lcma2"]
 [ext_resource type="Texture2D" uid="uid://ghbyb53sf8oi" path="res://Scenes/Scena5.JPG" id="2_dt5ha"]
+[ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="3_dt5ha"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="4_wsdwn"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lcma2"]
 a = Vector2(1925, 1047)
@@ -15,7 +17,17 @@ b = Vector2(1918, 151)
 a = Vector2(-4, 840)
 b = Vector2(15, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsdwn"]
+size = Vector2(50, 935)
+
 [node name="scena5" type="Node2D" unique_id=2050330722]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=381893116]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_dt5ha")
+expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=626175893]
 position = Vector2(960, 540)
@@ -26,15 +38,8 @@ limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=381893116]
-custom_minimum_size = Vector2(1920, 1080)
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("2_dt5ha")
-expand_mode = 1
-
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("1_lcma2")]
-position = Vector2(1767, 901)
+position = Vector2(1748, 882)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1570975584]
 
@@ -46,3 +51,19 @@ shape = SubResource("SegmentShape2D_dt5ha")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=836624002]
 shape = SubResource("SegmentShape2D_wsdwn")
+
+[node name="TransitionRight" type="Area2D" parent="." unique_id=1598518704]
+position = Vector2(1980, 540)
+script = ExtResource("3_dt5ha")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionRight" unique_id=1657942675]
+position = Vector2(0, 76.5)
+shape = SubResource("RectangleShape2D_wsdwn")
+debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
+
+[node name="SceneSettings" type="Node" parent="." unique_id=131369747]
+script = ExtResource("4_wsdwn")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5
