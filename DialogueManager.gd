@@ -77,56 +77,125 @@ var dialogues: Dictionary = {
 	#Dialogi Gracza/Narratora
 	# ─────────────────────────────────────────────
 	"GB1": [
-		{ "speaker": "Główny Bohater", "text": "Gdzie ja jestem...? Ta droga musi gdzieś prowadzić." },
+		{ "speaker": "Główny Bohater", "text": "Gdzie ja jestem…?" },
+		{ "speaker": "Główny Bohater", "text": "Chyba pójdę tą ścieżką." },
 		  ],
 	"GB2": [
-		{ "speaker": "Główny Bohater", "text": "Sanktuarium... Może ktoś tam mi powie, gdzie się znalazłem." },
+		{ "speaker": "Główny Bohater", "text": "Tu nic nie ma, muszę szukać dalej." },
 		  ],
 	"GB3": [
-		{ "speaker": "Główny Bohater", "text": "To musi być ten klucz. Czas wracać do księdza Łukasza." },
+		{ "speaker": "Główny Bohater", "text": "To chyba ten klucz!" },
 		  ],
 	"GB4": [
-		{ "speaker": "Główny Bohater", "text": "To jest ta zakrystia. Poszukam tu kogoś." },
+		{ "speaker": "Główny Bohater", "text": "To jest zakrystia. Rozejrzę się tutaj." },
 		  ],
+	"GB5": [
+		{ "speaker": "Główny Bohater", "text": "Znalazłem wino mszalne!" },
+		  ],
+		
+	# ─────────────────────────────────────────────
+	#Dialog Przy Drzwiach
+	# ─────────────────────────────────────────────	
+	
+	"Zakrystia1": [
+		{ "speaker": "", "text": "To drzwi do zakrystii." },
+		  ],
+	"Zakrystia2": [
+		{ "speaker": "", "text": "Potrzebujesz klucza od zakrystii." },
+		  ],
+		
 	# ─────────────────────────────────────────────
 	#Dialogi KS Ł
 	# ─────────────────────────────────────────────
+	
 	"KS Ł 1": [
-		{ "speaker": "Główny Bohater", "text": "Szczęść Boże, proszę księdza."},
-		{ "speaker": "Ks. Łukasz", "text": "Szczęść Boże. Rzadko ktoś tu przybywa o tej porze. W czym mogę pomóc?"},
-		{ "speaker": "Główny Bohater", "text": "Trafiłem tu przez przypadek. Może ksiądz mi opowiedzieć o tym miejscu?"},
-		{ "speaker": "Ks. Łukasz", "text": "Chętnie. Mam list który zostawił poprzedni proboszcz — jest tam trochę historii. Weź.", "give_item": "List1"},
-		{ "speaker": "Główny Bohater", "text": "Dzięki. Ale to budzi więcej pytań niż odpowiedzi... Czy jest tu ktoś, kto mógłby powiedzieć mi więcej?"},
-		{ "speaker": "Ks. Łukasz", "text": "W zakrystii jest stara kronika parafialna. Ale zakrystia jest zamknięta, a klucz gdzieś zaginął. Znajdziesz go — kronika jest do twojej dyspozycji."},
-		{ "speaker": "Główny Bohater", "text": "Rozumiem. Poszukam."},
+		{ "speaker": "Główny Bohater", "text": "Szczęść Boże."},
+		{ "speaker": "Ks. Łukasz", "text": "Szczęść Boże."},
+		{ "speaker": "Główny Bohater", "text": "Czy ksiądz mógłby mi trochę opowiedzieć o tym miejscu?"},
+		{ "speaker": "Ks. Łukasz", "text": "Oczywiście. Weź ten list, znajdziesz tam podstawowe informacje.", "give_item": "List1"},
+		{ "speaker": "Główny Bohater", "text": "A jeśli chciałbym dowiedzieć się czegoś więcej o historii sanktuarium?"},
+		{ "speaker": "Ks. Łukasz", "text": "Wtedy będziesz musiał znaleźć klucz od zakrystii."},
+		{ "speaker": "Główny Bohater", "text": "Gdzie mogę go znaleźć?"},
+		{ "speaker": "Ks. Łukasz", "text": "Poszukaj przy tylnej części kościoła, koło drzwi od zakrystii."},
 	],
 	"KS Ł Quest Active": [
-		{"speaker": "Główny bohater", "text": "Gdzie szukać tego klucza?"},
-		{ "speaker": "Ks. Łukasz", "text": "Przy drzwiach zakrystii — od tyłu kościoła. Tam ktoś go odkładał."},
+		{"speaker": "Główny bohater", "text": "Gdzie mogę znaleźć ten klucz?"},
+		{ "speaker": "Ks. Łukasz", "text": "Szukaj koło drzwi od zakrystii, na tyle kościoła."},
 	],
 	"KS Ł Quest Done": [
 		{"speaker": "Główny bohater", "text": "Znalazłem klucz, proszę księdza."},
-		{ "speaker": "Ks. Łukasz", "text": "To dobrze. Za trud należy ci się nagroda.", "give_item": "List2"},
+		{ "speaker": "Ks. Łukasz", "text": "Bardzo dobrze. W nagrodę dostaniesz ode mnie ten list.", "give_item": "List2"},
+		{ "speaker": "Ks. Łukasz", "text": "Teraz, mając klucz, możesz wejść do zakrystii. Powinieneś znaleźć tam kogoś, kto powie ci więcej o tym miejscu."},
+		{"speaker": "Główny bohater", "text": "Dziękuję."},
 	],
+	"KS Ł & KS D": [
+		{"speaker": "Główny bohater", "text": "Ksiądz Dominik przysłał mnie po dokumenty."},
+		{ "speaker": "Ks. Łukasz", "text": "Oczywiście, mam je przy sobie.", "give_item": "Dokumenty1"},
+		{"speaker": "Główny bohater", "text": "Dziękuję."},
+	],
+	
 	# ─────────────────────────────────────────────
 	#Dialogi KS M
 	# ─────────────────────────────────────────────
+	
 	"KS M 1": [
 		{"speaker": "Główny bohater", "text": "Szczęść Boże."},
-		{ "speaker": "Ks. Łukasz", "text": "Szczęść Boże. Co cię tutaj sprowadza?"},
-		{"speaker": "Główny bohater", "text": "Chciałem dowiedzieć się więcej o tym kościele."},
-		{ "speaker": "Ks. Łukasz", "text": "Masz tu list, może rzuci trochę światła.", "give_item": "List3"},
-		{ "speaker": "Ks. Łukasz", "text": "Jeśli chcesz wiedzieć więcej — przynieś mi (item2). Wtedy powiem ci resztę."},
-		{"speaker": "Główny bohater", "text": "A gdzie mogę go znaleźć?"},
-		{ "speaker": "Ks. Łukasz", "text": "Poszukaj na plebanii."},
+		{ "speaker": "Ks. Mateusz", "text": "Szczęść Boże. Czego szukasz?"},
+		{"speaker": "Główny bohater", "text": "Chciałem dowiedzieć się czegoś więcej o tym kościele."},
+		{ "speaker": "Ks. Mateusz", "text": "W takim razie weź ten list.", "give_item": "List3"},
+		{ "speaker": "Ks. Mateusz", "text": "Jeśli chcesz dowiedzieć się więcej, przynieś mi jeszcze wino mszalne."},
+		{"speaker": "Główny bohater", "text": "A gdzie mogę je znaleźć?"},
+		{ "speaker": "Ks. Mateusz", "text": "Poszukaj w drodze prowadzącej na plebanię. Musiało mi tam wypaść."},
 	],
 	"KS M Quest Active": [
-		{"speaker": "Główny bohater", "text": "Gdzie mogę znaleźć (item2)?"},
-		{ "speaker": "Ks. Łukasz", "text": "Mówiłem — na plebanii. Tam powinieneś go znaleźć."},
+		{"speaker": "Główny bohater", "text": "A gdzie mogę znaleźć wino mszalne?"},
+		{ "speaker": "Ks. Mateusz", "text": "Poszukaj w drodze prowadzącej na plebanię. Musiało mi tam wypaść."},
 	],
 	"KS M Quest Done": [
-		{"speaker": "Główny bohater", "text": "Mam to, o co prosiłeś."},
-		{ "speaker": "Ks. Łukasz", "text": "W takim razie posłuchaj... "},
+		{"speaker": "Główny bohater", "text": "Znalazłem wino mszalne."},
+		{ "speaker": "Ks. Mateusz", "text": "WDziękuję ci. Weź ten list za pomoc.", "give_item": "List4"},
+		{"speaker": "Główny bohater", "text": "Dziękuję za list."},
+		{"speaker": "Ks. Mateusz", "text": "Teraz posłuchaj. Chciałbym, żebyś pomógł księdzu Dominikowi w auli franciszkańskiej."},
+		{"speaker": "Główny bohater", "text": "Dobrze, pójdę tam od razu."},
+	],
+	"KS M & D": [
+		{"speaker": "Główny bohater", "text": "Nie spodziewałem się księdza tutaj."},
+		{"speaker": "Ks. Mateusz", "text": "Tak, przyszedłem się pomodlić. Czego potrzebujesz?"},
+		{"speaker": "Główny bohater", "text": "Ksiądz Dominik przysłał mnie po swoje kazanie."},
+		{"speaker": "Ks. Mateusz", "text": "A tak, mam je przy sobie.", "give_item": "Kazanie1"},
+		{"speaker": "Główny bohater", "text": "Dziękuję bardzo."},
+	],
+	
+	# ─────────────────────────────────────────────
+	#Dialogi KS D
+	# ─────────────────────────────────────────────
+	
+	"KS D 1": [
+		{"speaker": "Główny bohater", "text": "Szczęść Boże."},
+		{ "speaker": "Ks. Dominik", "text": "Szczęść Boże. Ksiądz Mateusz cię przysłał?"},
+		{"speaker": "Główny bohater", "text": "Tak, powiedział, że potrzebuje ksiądz mojej pomocy."},
+		{ "speaker": "Ks. Dominik", "text": "Dokładnie. Musisz wrócić do księdza Łukasza po dokumenty, które ma dla mnie."},
+		{"speaker": "Główny bohater", "text": "Dobrze. Czy coś jeszcze?"},
+		{ "speaker": "Ks. Dominik", "text": "Tak, proszę. Weź też ten list.", "give_item": "List5"},
+		{"speaker": "Główny bohater", "text": "Dziękuję."},
+	],
+	"KS D Quest Active": [
+		{"speaker": "Główny bohater", "text": "A gdzie mogę znaleźć wino mszalne?"},
+		{ "speaker": "Ks. Dominik", "text": "Poszukaj w drodze prowadzącej na plebanię. Musiało mi tam wypaść."},
+	],
+	"KS D Quest Done": [
+		{"speaker": "Główny bohater", "text": "Mam już dokumenty, proszę księdza."},
+		{ "speaker": "Ks. Dominik", "text": "Bardzo dobrze. W nagrodę dostaniesz jeszcze ten list.", "give_item": "List6"},
+		{"speaker": "Główny bohater", "text": "Co mam zrobić?"},
+		{"speaker": "Ks. Dominik", "text": "Idź do księdza Mateusza po moje kazanie."},
+		{"speaker": "Główny bohater", "text": "Już się robi."},
+	],
+	"KS D Kazanie": [
+		{"speaker": "Główny bohater", "text": "Mam już kazanie księdza."},
+		{ "speaker": "Ks. Dominik", "text": "Wspaniale, bardzo ci dziękuję za całą pomoc. Weź jeszcze ten list.", "give_item": "List7"},
+		{"speaker": "Główny bohater", "text": "Czy mogę jeszcze w czymś pomóc?"},
+		{"speaker": "Ks. Dominik", "text": "Już nic nie potrzebuję. Ale jeśli chcesz dowiedzieć się czegoś więcej o tym miejscu, możesz zajrzeć do kapliczki. Masz klucz.", "give_item": "Klucz2"},
+		{"speaker": "Główny bohater", "text": "Dziękuję bardzo"},
 	],
 }
 
