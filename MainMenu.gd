@@ -12,11 +12,11 @@ const STYLE_PANEL_H       := 360.0
 const STYLE_FONT_SIZE_TTL := 48
 const STYLE_FONT_SIZE_BTN := 20
 const STYLE_BTN_H         := 52.0
-# const STYLE_BG_TEXTURE      := "res://ui/pause_bg.png"
-const STYLE_BTN_NORMAL      := "res://ui/button_normal.png"    # ← tekstura normalna
-const STYLE_BTN_PRESSED     := "res://ui/button_pressed.png"   # ← tekstura naciśnięta
-const STYLE_BTN_HOVER       := "res://ui/button_pressed.png"     # ← tekstura hover (opcjonalnie)
-# const STYLE_BTN_DISABLED    := "res://ui/button_disabled.png"  # ← tekstura disabled (opcjonalnie)
+const STYLE_BG_TEXTURE      := "res://ui/pause_bg.png"
+const STYLE_BTN_NORMAL      := "res://ui/Button.png"    # ← tekstura normalna
+const STYLE_BTN_PRESSED     := "res://ui/ButtonPressed.png"   # ← tekstura naciśnięta
+const STYLE_BTN_HOVER       := "res://ui/ButtonPressed.png"     # ← tekstura hover (opcjonalnie)
+const STYLE_BTN_DISABLED    := "res://ui/ButtonDisabled.png"  # ← tekstura disabled (opcjonalnie)
 const STYLE_FONT_TITLE    := "res://fonts/medieval.ttf"
 const STYLE_FONT_BTN      := "res://fonts/medieval.ttf"
 # =====================================================
@@ -37,6 +37,14 @@ func _build_ui() -> void:
 	bg.color = STYLE_BG_COLOR
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
+
+	#var bg_texture := TextureRect.new()
+	#bg_texture.set_anchors_preset(Control.PRESET_FULL_RECT)
+	#bg_texture.texture = load(STYLE_BG_TEXTURE)
+	#bg_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	#bg_texture.stretch_mode = TextureRect.STRETCH_SCALE
+	#bg_texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	#add_child(bg_texture)
 
 	var main_panel := _centered_panel(STYLE_PANEL_W, STYLE_PANEL_H)
 	add_child(main_panel)
@@ -76,9 +84,9 @@ func _centered_panel(w: float, h: float) -> PanelContainer:
 	p.offset_bottom =  h / 2.0
 	p.process_mode  = Node.PROCESS_MODE_ALWAYS
 	# === STYL panelu ===
-	# var style := StyleBoxTexture.new()
-	# style.texture = load(STYLE_BG_TEXTURE)
-	# p.add_theme_stylebox_override("panel", style)
+	#var style := StyleBoxTexture.new()
+	#style.texture = load(STYLE_BG_TEXTURE)
+	#p.add_theme_stylebox_override("panel", style)
 	return p
 
 func _btn(label: String, parent: Node) -> Button:
@@ -106,7 +114,7 @@ func _btn(label: String, parent: Node) -> Button:
 
 	# === STYL przycisku — disabled ===
 	var style_disabled := StyleBoxTexture.new()
-	# style_disabled.texture = load(STYLE_BTN_DISABLED)
+	style_disabled.texture = load(STYLE_BTN_DISABLED)
 	b.add_theme_stylebox_override("disabled", style_disabled)
 
 	parent.add_child(b)

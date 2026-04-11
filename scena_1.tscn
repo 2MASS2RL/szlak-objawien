@@ -1,21 +1,16 @@
 [gd_scene format=3 uid="uid://bacyh0tgk88b4"]
 
 [ext_resource type="Texture2D" uid="uid://ou0uw0d7boix" path="res://Scenes/Scena1.JPG" id="1_g01r8"]
+[ext_resource type="Script" uid="uid://p7bqgf5p3ny3" path="res://DialogAktywacja.gd" id="2_30v0j"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_k561o"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="4_g01r8"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="4_tjc7q"]
-[ext_resource type="Script" uid="uid://dhkg31angimvh" path="res://NPC.gd" id="5_k561o"]
-[ext_resource type="Texture2D" uid="uid://bv5nu6lk0r4w2" path="res://icon.svg" id="6_n0kx8"]
-[ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://Item.gd" id="7_tjc7q"]
-[ext_resource type="Texture2D" uid="uid://caje4mkm5qlvh" path="res://Scenes/mapa.jpg" id="8_gcjtd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k561o"]
+size = Vector2(2105.52, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(723, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxs5n"]
-size = Vector2(50, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h438a"]
 
 [node name="Scena1" type="Node2D" unique_id=71771241]
 
@@ -25,6 +20,14 @@ offset_right = 1920.0
 offset_bottom = 1076.0
 texture = ExtResource("1_g01r8")
 expand_mode = 1
+
+[node name="DialogGracza" type="Area2D" parent="TextureRect" unique_id=1286474113]
+position = Vector2(900.24, 900)
+script = ExtResource("2_30v0j")
+dialogue_tag = "GB1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/DialogGracza" unique_id=1374118342]
+shape = SubResource("RectangleShape2D_k561o")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=461170670]
 position = Vector2(960, 540)
@@ -50,41 +53,3 @@ shape = SubResource("RectangleShape2D_1bvp3")
 script = ExtResource("4_g01r8")
 scale_min = 1.0
 scale_max = 2.5
-
-[node name="Area2D" type="Area2D" parent="." unique_id=821781997]
-position = Vector2(500.515, 900)
-script = ExtResource("5_k561o")
-dialogue_tag = "KS Ł 1"
-quest_id_to_check = "znajdz_klucz"
-dialogue_tag_active = "KS Ł Quest Active"
-dialogue_tag_completed = "KS Ł Quest Done"
-zoom_mode = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=180896970]
-position = Vector2(0.56500244, -0.18999481)
-scale = Vector2(3.075, 3.075)
-shape = SubResource("RectangleShape2D_qxs5n")
-
-[node name="HintLabel" type="Label" parent="Area2D" unique_id=1994268677]
-offset_left = -20.0
-offset_top = -50.0
-offset_right = 20.0
-offset_bottom = -27.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=137629359]
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("6_n0kx8")
-
-[node name="Area2D2" type="Area2D" parent="." unique_id=39921906]
-position = Vector2(800, 191.23)
-script = ExtResource("7_tjc7q")
-item_id = "klucz_zakrystii"
-complete_quest_on_pick = "znajdz_klucz"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1647766071]
-scale = Vector2(8.24, 8.24)
-shape = SubResource("RectangleShape2D_h438a")
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=287566940]
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("8_gcjtd")

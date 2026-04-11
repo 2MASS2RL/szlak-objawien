@@ -321,6 +321,8 @@ func _show_document_preview(data: Dictionary) -> void:
 	text.text = data.get("content", "")
 	text.add_theme_font_size_override("normal_font_size", 15)
 	text.add_theme_color_override("default_color", STYLE_DOC_TEXT_COLOR)
+	text.mouse_filter = Control.MOUSE_FILTER_STOP  
+	text.custom_minimum_size = Vector2(0, 300)     
 	vbox.add_child(text)
 
 	var close := Button.new()

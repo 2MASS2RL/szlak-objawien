@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_7jcoh"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_tabdi"]
-[ext_resource type="Script" path="res://SceneSettings.gd" id="3_lk7rq"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_lk7rq"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="4_vmldb"]
 [ext_resource type="Script" uid="uid://byswioktiwkn8" path="res://transition_left.gd" id="5_e7pb4"]
+[ext_resource type="Script" uid="uid://dhkg31angimvh" path="res://npc.gd" id="6_lk7rq"]
+[ext_resource type="Texture2D" uid="uid://divxwuu8qnkp8" path="res://Postacie + animacje/KS Ł.png" id="7_lk7rq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fpwx0"]
 load_path = "res://.godot/imported/Scena 4.JPG-9418a1213f79cfb58adb7daefc5a41d0.ctex"
@@ -51,6 +53,9 @@ b = Vector2(358, 403)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7kfy3"]
 a = Vector2(1538, 334)
 b = Vector2(1616, 371)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7pb4"]
+size = Vector2(50, 50)
 
 [node name="Scena4" type="Node2D" unique_id=71771241]
 
@@ -132,3 +137,28 @@ shape = SubResource("SegmentShape2D_fpwx0")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=1681597136]
 shape = SubResource("SegmentShape2D_7kfy3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2013772212]
+position = Vector2(1277.545, 420.47)
+scale = Vector2(3.09, 3.09)
+script = ExtResource("6_lk7rq")
+dialogue_tag = "KS Ł 1"
+quest_id_to_check = "znajdz_klucz"
+dialogue_tag_active = "KS Ł Quest Active"
+dialogue_tag_completed = "KS Ł Quest Done"
+zoom_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1656262181]
+position = Vector2(0.56500244, -0.18999481)
+shape = SubResource("RectangleShape2D_e7pb4")
+
+[node name="HintLabel" type="Label" parent="Area2D" unique_id=2124994728]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -27.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=584396925]
+position = Vector2(-0.5, 1.4660187)
+scale = Vector2(0.019686176, 0.017983569)
+texture = ExtResource("7_lk7rq")

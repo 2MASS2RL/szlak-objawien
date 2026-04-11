@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://doiotmfmu1fvw"]
 
 [ext_resource type="Script" uid="uid://d342grti13rpu" path="res://player.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://bv5nu6lk0r4w2" path="res://icon.svg" id="2_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://cf3j74c4d0gg7" path="res://Postacie + animacje/Gracz_przód.png" id="2_kpjcp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
-size = Vector2(125, 125)
+size = Vector2(148, 257)
 
 [node name="Player" type="CharacterBody2D" unique_id=127990800]
 script = ExtResource("1_kpjcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1734462328]
+position = Vector2(10.499994, -22)
+scale = Vector2(0.15277779, 0.12395833)
 texture = ExtResource("2_kpjcp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1321680178]
+position = Vector2(-12, -19.5)
 shape = SubResource("RectangleShape2D_kne1u")
