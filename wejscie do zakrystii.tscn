@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ddqig2lvgjnvq"]
+
+[ext_resource type="Texture2D" uid="uid://dpcvtgeae2kdo" path="res://Scenes/Scena2.JPG" id="1_pdluc"]
+
+[node name="Node2D" type="Node2D" unique_id=1677708582]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1337868510]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1076.0
+texture = ExtResource("1_pdluc")
+expand_mode = 1
