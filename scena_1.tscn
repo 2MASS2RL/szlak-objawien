@@ -12,6 +12,34 @@ size = Vector2(2105.52, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(723, 50)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_k561o"]
+a = Vector2(97, 810)
+b = Vector2(234, 201)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n0kx8"]
+a = Vector2(198, 166)
+b = Vector2(300, -15)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gcjtd"]
+a = Vector2(1447, 93)
+b = Vector2(982, 11)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qxs5n"]
+a = Vector2(1434, 238)
+b = Vector2(1892, 298)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tjc7q"]
+a = Vector2(5, 1074)
+b = Vector2(-3, 815)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_h438a"]
+a = Vector2(1911, 1074)
+b = Vector2(-8, 1079)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wvpab"]
+a = Vector2(1914, 1074)
+b = Vector2(1922, 132)
+
 [node name="Scena1" type="Node2D" unique_id=71771241]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=140913566]
@@ -53,3 +81,30 @@ shape = SubResource("RectangleShape2D_1bvp3")
 script = ExtResource("4_g01r8")
 scale_min = 1.0
 scale_max = 2.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2124101394]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1209024603]
+position = Vector2(-79, -32)
+shape = SubResource("SegmentShape2D_k561o")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1343828555]
+position = Vector2(-79, -39)
+shape = SubResource("SegmentShape2D_n0kx8")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1831140347]
+position = Vector2(12, -12)
+shape = SubResource("SegmentShape2D_gcjtd")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2087857292]
+position = Vector2(25, -165)
+shape = SubResource("SegmentShape2D_qxs5n")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1708880415]
+shape = SubResource("SegmentShape2D_tjc7q")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=986836095]
+shape = SubResource("SegmentShape2D_h438a")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1449877608]
+shape = SubResource("SegmentShape2D_wvpab")

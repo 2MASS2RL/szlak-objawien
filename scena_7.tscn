@@ -3,6 +3,45 @@
 [ext_resource type="Texture2D" uid="uid://cqnd1r2npnyrc" path="res://Scenes/Scena7.JPG" id="1_e0hya"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_it7hv"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_e0hya"]
+a = Vector2(6, 820)
+b = Vector2(553, 277)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_it7hv"]
+a = Vector2(572, 153)
+b = Vector2(553, 276)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_thwji"]
+a = Vector2(630, 55)
+b = Vector2(724, 193)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ghq45"]
+a = Vector2(726, 193)
+b = Vector2(1393, 92)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_h3dny"]
+a = Vector2(982, 309)
+b = Vector2(1640, 133)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ravvp"]
+a = Vector2(1027, 407)
+b = Vector2(992, 302)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rvitb"]
+a = Vector2(1029, 412)
+b = Vector2(1880, 154)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_svnd5"]
+a = Vector2(1140, 735)
+b = Vector2(1916, 371)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fl0d4"]
+a = Vector2(1200, 873)
+b = Vector2(1151, 725)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0hya"]
+size = Vector2(125, 62)
+
 [node name="Node2D" type="Node2D" unique_id=436168165]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=305079076]
@@ -23,3 +62,36 @@ expand_mode = 1
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_it7hv")]
 position = Vector2(618, 979)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=104230094]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1811764224]
+shape = SubResource("SegmentShape2D_e0hya")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1271084209]
+shape = SubResource("SegmentShape2D_it7hv")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=908911566]
+shape = SubResource("SegmentShape2D_thwji")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2106399813]
+shape = SubResource("SegmentShape2D_ghq45")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1350375308]
+shape = SubResource("SegmentShape2D_h3dny")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1604020201]
+shape = SubResource("SegmentShape2D_ravvp")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=69226379]
+shape = SubResource("SegmentShape2D_rvitb")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=115486838]
+shape = SubResource("SegmentShape2D_svnd5")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D" unique_id=1879235393]
+shape = SubResource("SegmentShape2D_fl0d4")
+
+[node name="tutaj ma byc przejscie do sceny 8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1899871547]
+position = Vector2(622.5, 114)
+shape = SubResource("RectangleShape2D_e0hya")
