@@ -14,7 +14,7 @@ var scenes: Dictionary = {
 	"scena9": "res://scena_9.tscn",
 	"scena10": "res://scena_10.tscn",
 	"wejscie_do_zakrtystii": "res://wejscie_do_zakrystii.tscn",
-	"zakrystia1": "res://zakrystia1.tscn",
+	"zakrystia1": "res://zakrystia_1.tscn",
 	"zakrystia2": "res://zakrystia2.tscn",
 	"scena11": "res://scena11.tscn",
 	"drzwi_aulii": "res://drzwi_aulii.tscn",
