@@ -3,11 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://nrd8nlx3wrax" path="res://Scenes/ScenaKapliczka.JPG" id="1_nekeb"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="2_xxthj"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="3_gogec"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="4_5ytjq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ytjq"]
 size = Vector2(1216, 50)
 
-[node name="Node2D" type="Node2D" unique_id=1677708582]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlipp"]
+size = Vector2(603, 77)
+
+[node name="Node2D2" type="Node2D" unique_id=1677708582]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1337868510]
 custom_minimum_size = Vector2(1920, 1080)
@@ -38,3 +42,11 @@ script = ExtResource("3_gogec")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1486008147]
 shape = SubResource("RectangleShape2D_5ytjq")
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=1079831688]
+position = Vector2(991, -54)
+script = ExtResource("4_5ytjq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=514530310]
+position = Vector2(-15, 215)
+shape = SubResource("RectangleShape2D_hlipp")

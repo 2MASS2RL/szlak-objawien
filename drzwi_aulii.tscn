@@ -2,6 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://c4h7uyww4w65y" path="res://Scenes/Drzwi Auli.JPG" id="1_wqt2p"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="2_hh3m6"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="3_c0u11"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="4_072gn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4ttq"]
+size = Vector2(368, 441)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubtel"]
+size = Vector2(1940, 50)
 
 [node name="Node2D" type="Node2D" unique_id=117991379]
 
@@ -27,3 +35,19 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=205509102]
+position = Vector2(991, -54)
+script = ExtResource("3_c0u11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1615356281]
+position = Vector2(327, 474)
+shape = SubResource("RectangleShape2D_l4ttq")
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=742631598]
+position = Vector2(957, 1114)
+script = ExtResource("4_072gn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1503051974]
+position = Vector2(10, -3)
+shape = SubResource("RectangleShape2D_ubtel")

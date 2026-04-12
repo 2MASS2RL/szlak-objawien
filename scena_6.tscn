@@ -27,7 +27,7 @@ a = Vector2(9, 1078)
 b = Vector2(3, 448)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kacml"]
-size = Vector2(1922, 50)
+size = Vector2(1922, 59)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ff8m"]
 size = Vector2(364.5, 68)
@@ -82,7 +82,7 @@ position = Vector2(960, 1125)
 script = ExtResource("4_erhbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=498539649]
-position = Vector2(-1, 0)
+position = Vector2(-1, -4.5)
 shape = SubResource("RectangleShape2D_kacml")
 
 [node name="TransitionUp" type="Area2D" parent="." unique_id=66793419]
