@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://bhp5l8nbuun7u"]
 
 [ext_resource type="Texture2D" uid="uid://b8hytpdx2h7wo" path="res://Scenes/Aula1.JPG" id="1_d8byj"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_sn17w"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="3_c3n0l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3n0l"]
+size = Vector2(1216, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbehl"]
+size = Vector2(922.5, 76)
 
 [node name="Node2D" type="Node2D" unique_id=375761337]
 
@@ -19,3 +27,18 @@ limit_right = 1920
 limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=305348429]
+position = Vector2(960, 1125)
+script = ExtResource("2_sn17w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1852432492]
+shape = SubResource("RectangleShape2D_c3n0l")
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=1525897488]
+position = Vector2(991, -54)
+script = ExtResource("3_c3n0l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1019034868]
+position = Vector2(-15, 82)
+shape = SubResource("RectangleShape2D_fbehl")

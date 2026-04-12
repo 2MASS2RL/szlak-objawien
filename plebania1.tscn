@@ -8,7 +8,7 @@
 size = Vector2(1143, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrsta"]
-size = Vector2(603, 599.5)
+size = Vector2(922.5, 145)
 
 [node name="Node2D" type="Node2D" unique_id=1927853351]
 
@@ -41,5 +41,5 @@ position = Vector2(991, -54)
 script = ExtResource("3_k1xxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1428941093]
-position = Vector2(-15, 476.25)
+position = Vector2(-174.75, 132.5)
 shape = SubResource("RectangleShape2D_yrsta")

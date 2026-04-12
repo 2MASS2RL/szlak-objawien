@@ -21,14 +21,10 @@ b = Vector2(724, 193)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ghq45"]
 a = Vector2(726, 193)
-b = Vector2(995, 308)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ravvp"]
-a = Vector2(1027, 407)
-b = Vector2(992, 302)
+b = Vector2(1014, 371)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rvitb"]
-a = Vector2(1029, 412)
+a = Vector2(1021, 369)
 b = Vector2(1880, 154)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_svnd5"]
@@ -86,9 +82,6 @@ shape = SubResource("SegmentShape2D_thwji")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2106399813]
 shape = SubResource("SegmentShape2D_ghq45")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1604020201]
-shape = SubResource("SegmentShape2D_ravvp")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=69226379]
 shape = SubResource("SegmentShape2D_rvitb")

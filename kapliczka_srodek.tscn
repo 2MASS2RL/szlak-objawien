@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://xtcelebosgv0"]
 
 [ext_resource type="Texture2D" uid="uid://btdni06hpk253" path="res://Scenes/IMG_E6443.JPG" id="1_8m7yo"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_52g3r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m2vy"]
+size = Vector2(1216, 50)
 
 [node name="Node2D" type="Node2D" unique_id=830171183]
 
@@ -19,3 +23,10 @@ limit_right = 1920
 limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=387721353]
+position = Vector2(960, 1125)
+script = ExtResource("2_52g3r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=570204367]
+shape = SubResource("RectangleShape2D_3m2vy")
