@@ -68,7 +68,7 @@ var spawn_overrides: Dictionary = {
 	"right2:left":  Vector2(100, 500),
 	"top:down":     Vector2(960, 900),
 	"bottom:up":    Vector2(960, 100),
-	"zakrystia1:left": Vector2(978, 691),
+	"zakrystia_1:left": Vector2(978, 691),
 	"wejscie_do_zakrtystii:up": Vector2(944, 662),
 	"wejscie_do_zakrtystii:left": Vector2(1667, 1000),
 	"zakrystia2:right": Vector2(1534, 864),
