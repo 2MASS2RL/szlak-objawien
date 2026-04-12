@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://d1e7dmb316qk0"]
 
 [ext_resource type="Texture2D" uid="uid://d3pumxq31c1sj" path="res://Scenes/Droga Plebania (2).JPG" id="1_kuesg"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_16gpr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqy1p"]
+size = Vector2(1216, 50)
 
 [node name="Node2D" type="Node2D" unique_id=462176958]
 
@@ -19,3 +23,10 @@ limit_right = 1920
 limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=1240106783]
+position = Vector2(960, 1125)
+script = ExtResource("2_16gpr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1968163961]
+shape = SubResource("RectangleShape2D_eqy1p")

@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://ctvqeafg13f8j"]
 
 [ext_resource type="Texture2D" uid="uid://clfmjl0rck0h6" path="res://Scenes/Tu klucz.JPG" id="1_w7v4c"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_cquix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uiki5"]
+size = Vector2(1916, 50)
 
 [node name="Node2D" type="Node2D" unique_id=1007011794]
 
@@ -19,3 +23,11 @@ limit_right = 1920
 limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=864211637]
+position = Vector2(960, 1125)
+script = ExtResource("2_cquix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=303318678]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_uiki5")

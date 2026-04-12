@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://cuxaqoi8qvuut" path="res://Scenes/Zakrystia.JPG" id="1_6idxf"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_6s7xp"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_6s7xp"]
+[ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="4_2jibx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ve8r"]
+size = Vector2(115, 702)
 
 [node name="Node2D" type="Node2D" unique_id=137710370]
 
@@ -33,3 +37,12 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="TransitionRight" type="Area2D" parent="." unique_id=2128283222]
+position = Vector2(1980, 540)
+script = ExtResource("4_2jibx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionRight" unique_id=1914267596]
+position = Vector2(-384.5, 188)
+shape = SubResource("RectangleShape2D_0ve8r")
+debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)

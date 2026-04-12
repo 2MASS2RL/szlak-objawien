@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://ck3f3jc13umdw"]
 
 [ext_resource type="Texture2D" uid="uid://chx8d156shmr0" path="res://Scenes/Aula3.JPG" id="1_isjfm"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_82uud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqnng"]
+size = Vector2(1216, 50)
 
 [node name="Node2D" type="Node2D" unique_id=64403015]
 
@@ -19,3 +23,10 @@ limit_right = 1920
 limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=695325342]
+position = Vector2(960, 1125)
+script = ExtResource("2_82uud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=526218319]
+shape = SubResource("RectangleShape2D_dqnng")

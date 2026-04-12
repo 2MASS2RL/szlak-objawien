@@ -2,6 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://cnrga54eu4j01" path="res://Scenes/Zakrystia przejscie.JPG" id="1_efk4f"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="2_mf6ve"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="3_5iaqo"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="4_c7f2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka6rh"]
+size = Vector2(1216, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f6v0"]
+size = Vector2(603, 117.5)
 
 [node name="Node2D" type="Node2D" unique_id=1902098001]
 
@@ -27,3 +35,18 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=1493641857]
+position = Vector2(960, 1125)
+script = ExtResource("3_5iaqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=188717264]
+shape = SubResource("RectangleShape2D_ka6rh")
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=208640902]
+position = Vector2(991, -54)
+script = ExtResource("4_c7f2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=229394679]
+position = Vector2(-15, 194.75)
+shape = SubResource("RectangleShape2D_6f6v0")

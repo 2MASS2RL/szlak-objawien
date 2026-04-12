@@ -3,6 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://dw5ubqha4vwki" path="res://Scenes/Drzwi Zakrystia.JPG" id="1_rvuaf"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_h4tlj"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_h4tlj"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="4_cr8mg"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="5_tyx3a"]
+[ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="6_sqwfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_libgp"]
+size = Vector2(1840, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08jng"]
+size = Vector2(603, 568.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e66so"]
+size = Vector2(69, 398.5)
 
 [node name="Node2D" type="Node2D" unique_id=1677708582]
 
@@ -33,3 +45,28 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=1374687374]
+position = Vector2(960, 1125)
+script = ExtResource("4_cr8mg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1455576529]
+position = Vector2(-40, 0)
+shape = SubResource("RectangleShape2D_libgp")
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=422047490]
+position = Vector2(991, -54)
+script = ExtResource("5_tyx3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1705431378]
+position = Vector2(-29, 381)
+shape = SubResource("RectangleShape2D_08jng")
+
+[node name="TransitionRight" type="Area2D" parent="." unique_id=1357719230]
+position = Vector2(1980, 540)
+script = ExtResource("6_sqwfo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionRight" unique_id=1643391192]
+position = Vector2(-101.5, 343.25)
+shape = SubResource("RectangleShape2D_e66so")
+debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
