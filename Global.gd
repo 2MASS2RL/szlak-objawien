@@ -88,6 +88,7 @@ var _opposite: Dictionary = {
 	"down":  "up",
 }
 
+
 func go(direction: String) -> void:
 	print("current_scene_key: ", current_scene_key, " | kierunek: ", direction)
 	var next = connections[current_scene_key].get(direction, null)
