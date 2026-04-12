@@ -73,6 +73,7 @@ var spawn_overrides: Dictionary = {
 	"wejscie_do_zakrtystii:left": Vector2(1667, 1000),
 	"zakrystia2:down": Vector2(1534, 864),
 	"scena7:left": Vector2(1832, 288),
+	"scena10:right": Vector2(930, 894),
 	# ← dodawaj kolejne tutaj w formacie "scena:kierunek_wejscia"
 }
 

@@ -19,6 +19,16 @@ var items: Dictionary = {
 		"max_stack":   1,
 	},
 	
+	"Wino": {
+		"name":        "Wino mszalne",
+		"description": "",
+		"content":     "",  # przedmioty questowe nie mają treści listu
+		"category":    "quest",
+		"icon":        "res://icons/Wino.png",
+		"stackable":   false,
+		"max_stack":   1,
+	},
+	
 	# ─────────────────────────────────────────────
 	#Listy
 	# ─────────────────────────────────────────────
