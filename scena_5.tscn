@@ -38,8 +38,15 @@ limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Player" parent="." unique_id=127990800 instance=ExtResource("1_lcma2")]
-position = Vector2(1748, 882)
+[node name="Player" parent="." unique_id=127990800 groups=["Player"] instance=ExtResource("1_lcma2")]
+position = Vector2(500, 200)
+
+[node name="SceneSettings" type="Node" parent="." unique_id=131369747]
+script = ExtResource("4_wsdwn")
+y_min = 0.0
+y_max = 1080.0
+scale_min = 1.0
+scale_max = 2.5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1570975584]
 
@@ -60,9 +67,3 @@ script = ExtResource("3_dt5ha")
 position = Vector2(0, 76.5)
 shape = SubResource("RectangleShape2D_wsdwn")
 debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
-
-[node name="SceneSettings" type="Node" parent="." unique_id=131369747]
-script = ExtResource("4_wsdwn")
-y_min = 200.0
-scale_min = 1.5
-scale_max = 2.5
