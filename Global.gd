@@ -40,7 +40,7 @@ var connections: Dictionary = {
 	"scena8": {"up": "scena9", "down":"scena7", "left": "scena10", "right": null},
 	"scena9": {"up": "drzwi_aulii", "down": "scena8", "left": null, "right": null},
 	"scena10": {"up": "drzwi_kapliczka", "down": "scena8", "left": null, "right": null},
-	"wejscie_do_zakrtystii": {"up": "zakrystia1",  "down": "scena11",  "left": null,  "right": null},
+	"wejscie_do_zakrtystii": {"up": "zakrystia1",  "down": "scena11",  "left": null,  "right": "scena7"},
 	"zakrystia1": {"up": "zakrystia2",  "down": "wejscie_do_zakrtystii",  "left": null,  "right": null},
 	"zakrystia2": {"up": null,  "down": null,  "left": null,  "right": "zakrystia1"},
 	"scena11": {"up": "plebania1",  "down": "wejscie_do_zakrtystii",  "left": null,  "right": null},
@@ -68,6 +68,9 @@ var spawn_overrides: Dictionary = {
 	"right2:left":  Vector2(100, 500),
 	"top:down":     Vector2(960, 900),
 	"bottom:up":    Vector2(960, 100),
+	"zakrystia1:left": Vector2(978, 691),
+	"wejscie_do_zakrtystii:up": Vector2(944, 662),
+	"wejscie_do_zakrtystii:left": Vector2(1667, 1000),
 	# ← dodawaj kolejne tutaj w formacie "scena:kierunek_wejscia"
 }
 
