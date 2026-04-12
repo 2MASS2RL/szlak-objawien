@@ -32,9 +32,9 @@ var scenes: Dictionary = {
 # Mapa połączeń: skąd → [prawo, lewo, góra, dół]
 var connections: Dictionary = {
 	"main":   {"right": null,  "left": null,  "up": "top",   "down": null},
-	"top":    {"down": "main",    "up": "scena3",        "left": null,  "right": null},
-	"scena3": {"up": "scena4",      "down": "top",      "left": null,  "right": null},
-	"scena4": {"up": null,      "down": "scena3",      "left": "scena5", "right": null},
+	"top":    {"down": "main", "up": "scena3",  "left": null, "right": null},
+	"scena3": {"up": "scena4", "down": "top",  "left": null,  "right": null},
+	"scena4": {"up": null,  "down": "scena3",  "left": "scena5", "right": null},
 	"scena5": {"up": "scena6",  "down": null,  "left": null,  "right": "scena4"},
 	"scena6": {"up": "scena7",  "down": "scena5",  "left": null,  "right": null},
 	"scena7": {"up": "scena8",  "down": "scena6",  "left": "scena11",  "right": "wejscie_do_zakrtystii"},
