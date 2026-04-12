@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://weosyni5rfg7"]
-
-[ext_resource type="PackedScene" uid="uid://bhp5l8nbuun7u" path="res://aula_wejscie.tscn" id="1_k0rxv"]
-
-[node name="Node2D" unique_id=375761337 instance=ExtResource("1_k0rxv")]
