@@ -2,9 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://clfmjl0rck0h6" path="res://Scenes/Tu klucz.JPG" id="1_w7v4c"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_cquix"]
+[ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://item.gd" id="3_rkmut"]
+[ext_resource type="Texture2D" uid="uid://celf3dim84fml" path="res://icons/notatka.png" id="4_k7peo"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="5_fd6v7"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="6_k7peo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uiki5"]
 size = Vector2(1916, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qp5k"]
+size = Vector2(34.2424, 34.24243)
 
 [node name="Node2D" type="Node2D" unique_id=1007011794]
 
@@ -31,3 +38,28 @@ script = ExtResource("2_cquix")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=303318678]
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_uiki5")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=650922554]
+position = Vector2(821, 583)
+script = ExtResource("3_rkmut")
+item_id = "notatka_proboszcza"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1691787898]
+position = Vector2(21.149963, -21.150024)
+scale = Vector2(2.97, 2.97)
+shape = SubResource("RectangleShape2D_1qp5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1911736494]
+position = Vector2(22.250032, -21.74999)
+scale = Vector2(0.5775003, 0.5724999)
+texture = ExtResource("4_k7peo")
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("5_fd6v7")]
+position = Vector2(904, 988)
+
+[node name="SceneSettings" type="Node" parent="." unique_id=376589431]
+script = ExtResource("6_k7peo")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b8hytpdx2h7wo" path="res://Scenes/Aula1.JPG" id="1_d8byj"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_sn17w"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="3_c3n0l"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="4_fbehl"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="5_om0ec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3n0l"]
 size = Vector2(1216, 50)
@@ -42,3 +44,13 @@ script = ExtResource("3_c3n0l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1019034868]
 position = Vector2(-15, 82)
 shape = SubResource("RectangleShape2D_fbehl")
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("4_fbehl")]
+position = Vector2(904, 988)
+
+[node name="SceneSettings" type="Node" parent="." unique_id=1986218877]
+script = ExtResource("5_om0ec")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

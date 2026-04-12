@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b1gr3w3ghdh7e" path="res://Scenes/Kapliczka wejscie.JPG" id="1_fu6ex"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="2_5deso"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="3_c8w44"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="4_c8w44"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="5_4kmye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kmye"]
 size = Vector2(603, 599.5)
@@ -43,3 +45,13 @@ script = ExtResource("3_c8w44")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1924767334]
 position = Vector2(0.5, 11.5)
 shape = SubResource("RectangleShape2D_ecmbv")
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("4_c8w44")]
+position = Vector2(904, 988)
+
+[node name="SceneSettings" type="Node" parent="." unique_id=1056398981]
+script = ExtResource("5_4kmye")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="2_xxthj"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="3_gogec"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="4_5ytjq"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="5_hlipp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ytjq"]
 size = Vector2(1216, 50)
@@ -11,7 +12,7 @@ size = Vector2(1216, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlipp"]
 size = Vector2(603, 77)
 
-[node name="Node2D2" type="Node2D" unique_id=1677708582]
+[node name="Node2D4" type="Node2D" unique_id=1677708582]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1337868510]
 custom_minimum_size = Vector2(1920, 1080)
@@ -50,3 +51,13 @@ script = ExtResource("4_5ytjq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=514530310]
 position = Vector2(-15, 215)
 shape = SubResource("RectangleShape2D_hlipp")
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("5_hlipp")]
+position = Vector2(904, 988)
+
+[node name="SceneSettings2" type="Node" parent="." unique_id=1631115129]
+script = ExtResource("2_xxthj")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5
