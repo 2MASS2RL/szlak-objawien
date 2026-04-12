@@ -2,9 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://chx8d156shmr0" path="res://Scenes/Aula3.JPG" id="1_isjfm"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_82uud"]
+[ext_resource type="Script" uid="uid://dhkg31angimvh" path="res://NPC.gd" id="3_vndbn"]
+[ext_resource type="Texture2D" uid="uid://dcrv6kpb0xvqh" path="res://Postacie + animacje/KS D.png" id="4_7n6g5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqnng"]
 size = Vector2(1216, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10ip0"]
+size = Vector2(221, 379)
 
 [node name="Node2D" type="Node2D" unique_id=64403015]
 
@@ -30,3 +35,27 @@ script = ExtResource("2_82uud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=526218319]
 shape = SubResource("RectangleShape2D_dqnng")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=505625427]
+position = Vector2(1153, 569)
+script = ExtResource("3_vndbn")
+dialogue_tag = "KS D 1"
+quest_id_to_check = "KS D 1"
+dialogue_tag_active = "KS D Quest Active"
+dialogue_tag_completed = "KS D Quest Done"
+zoom_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=768269965]
+position = Vector2(-29.5, -63.5)
+shape = SubResource("RectangleShape2D_10ip0")
+
+[node name="HintLabel" type="Label" parent="Area2D" unique_id=1732978823]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -27.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1128600532]
+position = Vector2(-11, -53.999992)
+scale = Vector2(0.13399097, 0.12539956)
+texture = ExtResource("4_7n6g5")

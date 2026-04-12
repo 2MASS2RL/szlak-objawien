@@ -2,9 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://d3pumxq31c1sj" path="res://Scenes/Droga Plebania (2).JPG" id="1_kuesg"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_16gpr"]
+[ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="3_eqy1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqy1p"]
-size = Vector2(1216, 50)
+size = Vector2(1609, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5ett"]
+size = Vector2(131, 445)
 
 [node name="Node2D" type="Node2D" unique_id=462176958]
 
@@ -29,4 +33,14 @@ position = Vector2(960, 1125)
 script = ExtResource("2_16gpr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1968163961]
+position = Vector2(-143.5, -4)
 shape = SubResource("RectangleShape2D_eqy1p")
+
+[node name="TransitionRight" type="Area2D" parent="." unique_id=1668589357]
+position = Vector2(1980, 540)
+script = ExtResource("3_eqy1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionRight" unique_id=461030343]
+position = Vector2(-304.5, 31.5)
+shape = SubResource("RectangleShape2D_j5ett")
+debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)

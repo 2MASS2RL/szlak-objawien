@@ -6,11 +6,23 @@
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="4_xkmsw"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="5_dk2bt"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xkmsw"]
+a = Vector2(886, 407)
+b = Vector2(550, 491)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dk2bt"]
+a = Vector2(107, 1072)
+b = Vector2(551, 491)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_e0lkp"]
+a = Vector2(1352, 1073)
+b = Vector2(1039, 508)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0lkp"]
 size = Vector2(1840, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dmta"]
-size = Vector2(150, 358)
+size = Vector2(150, 362)
 
 [node name="Node2D" type="Node2D" unique_id=1370807373]
 
@@ -35,6 +47,15 @@ position = Vector2(904, 988)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1647719680]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=452168809]
+shape = SubResource("SegmentShape2D_xkmsw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=738533169]
+shape = SubResource("SegmentShape2D_dk2bt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=510907199]
+shape = SubResource("SegmentShape2D_e0lkp")
+
 [node name="SceneSettings" type="Node" parent="." unique_id=2002797944]
 script = ExtResource("3_gv54k")
 y_min = 200.0
@@ -55,5 +76,5 @@ position = Vector2(991, -54)
 script = ExtResource("5_dk2bt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1094874128]
-position = Vector2(-29, 381)
+position = Vector2(-29, 383)
 shape = SubResource("RectangleShape2D_5dmta")
