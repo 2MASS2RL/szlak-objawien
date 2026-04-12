@@ -61,7 +61,7 @@ position = Vector2(-15, 215)
 shape = SubResource("RectangleShape2D_hlipp")
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("5_hlipp")]
-position = Vector2(930, 894)
+position = Vector2(986, 379)
 
 [node name="SceneSettings2" type="Node" parent="." unique_id=1631115129]
 script = ExtResource("2_xxthj")

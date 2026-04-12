@@ -63,7 +63,7 @@ position = Vector2(0.5, 11.5)
 shape = SubResource("RectangleShape2D_ecmbv")
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("4_c8w44")]
-position = Vector2(904, 988)
+position = Vector2(968, 758)
 
 [node name="SceneSettings" type="Node" parent="." unique_id=1056398981]
 script = ExtResource("5_4kmye")
