@@ -13,6 +13,18 @@ size = Vector2(1216, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10ip0"]
 size = Vector2(221, 379)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_10ip0"]
+a = Vector2(1014, 423)
+b = Vector2(792, 428)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j6lcd"]
+a = Vector2(792, 426)
+b = Vector2(368, 1079)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pqykl"]
+a = Vector2(1556, 1079)
+b = Vector2(1224, 456)
+
 [node name="Node2D" type="Node2D" unique_id=64403015]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1923462041]
@@ -71,3 +83,14 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=167418563]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1011767696]
+shape = SubResource("SegmentShape2D_10ip0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=391514599]
+shape = SubResource("SegmentShape2D_j6lcd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=36662195]
+shape = SubResource("SegmentShape2D_pqykl")
