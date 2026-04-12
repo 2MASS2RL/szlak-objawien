@@ -24,7 +24,7 @@ var scenes: Dictionary = {
 	"plebania1": "res://plebania1.tscn",
 	"plebania2": "res://plebania2.tscn",
 	"plebania3": "res://plebania3.tscn",
-	"drzwi_kapliczka": "res://drzwi kapliczka.tscn",
+	"drzwi_kapliczka": "res://kapliczka_wejscie.tscn",
 	"kapliczka_srodek": "res://kapliczka_srodek.tscn"
 }
 
@@ -45,7 +45,6 @@ var connections: Dictionary = {
 	"zakrystia2": {"up": null,  "down": null,  "left": null,  "right": "zakrystia1"},
 	"scena11": {"up": "plebania1",  "down": "wejscie_do_zakrtystii",  "left": null,  "right": null},
 	"drzwi_aulii": {"up": "aula_wejscie",  "down": "scena9",  "left": null,  "right": null},
-	"kapliczka_wejscie": {"up": null,  "down": null,  "left": null,  "right": null},
 	"aula_1": {"up": "drzwi_aulii",  "down": "aula_2",  "left": null,  "right": null},
 	"aula_2": {"up": null,  "down": "aula_1",  "left": null,  "right": null},
 	"plebania1": {"up": "plebania2",  "down": null,  "left": null,  "right": null},
