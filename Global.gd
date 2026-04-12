@@ -8,7 +8,7 @@ var scenes: Dictionary = {
 	"scena3": "res://scena_3.tscn",
 	"scena4": "res://scena_4.tscn",
 	"scena5": "res://scena_5.tscn",
-	"scena6": "res://scena6.tscn",
+	"scena6": "res://scena_6.tscn",
 	"scena7": "res://scena_7.tscn",
 	"scena8": "res://scena_8.tscn",
 	"scena9": "res://scena_9.tscn",
@@ -30,16 +30,16 @@ var scenes: Dictionary = {
 
 # Mapa połączeń: skąd → [prawo, lewo, góra, dół]
 var connections: Dictionary = {
-	"main":   {"right": null,  "left": null,  "up": "top",   "down": null},
+	"main":   {"right": null, "left": null, "up": "top", "down": null},
 	"top":    {"down": "main", "up": "scena3",  "left": null, "right": null},
-	"scena3": {"up": "scena4", "down": "top",  "left": null,  "right": null},
-	"scena4": {"up": null,  "down": "scena3",  "left": "scena5", "right": null},
-	"scena5": {"up": "scena6",  "down": null,  "left": null,  "right": "scena4"},
-	"scena6": {"up": "scena7",  "down": "scena5",  "left": null,  "right": null},
-	"scena7": {"up": "scena8",  "down": "scena6",  "left": "scena11",  "right": "wejscie_do_zakrtystii"},
-	"scena8": {"up": "scena9",  "down":"scena7",  "left": "scena10",  "right": null},
-	"scena9": {"up": "drzwi_aulii",  "down": "scena8",  "left": null,  "right": null},
-	"scena10": {"up": "drzwi_kapliczka",  "down": "scena8",  "left": null,  "right": null},
+	"scena3": {"up": "scena4", "down": "top", "left": null, "right": null},
+	"scena4": {"up": null, "down": "scena3", "left": "scena5", "right": null},
+	"scena5": {"up": "scena6", "down": null, "left": null, "right": "scena4"},
+	"scena6": {"up": "scena7", "down": "scena5", "left": null, "right": null},
+	"scena7": {"up": "scena8", "down": "scena6", "left": "scena11", "right": "wejscie_do_zakrtystii"},
+	"scena8": {"up": "scena9", "down":"scena7", "left": "scena10", "right": null},
+	"scena9": {"up": "drzwi_aulii", "down": "scena8", "left": null, "right": null},
+	"scena10": {"up": "drzwi_kapliczka", "down": "scena8", "left": null, "right": null},
 	"wejscie_do_zakrtystii": {"up": "zakrystia1",  "down": "scena11",  "left": null,  "right": null},
 	"zakrystia1": {"up": "zakrystia2",  "down": "wejscie_do_zakrtystii",  "left": null,  "right": null},
 	"zakrystia2": {"up": null,  "down": null,  "left": null,  "right": "zakrystia1"},
@@ -82,7 +82,10 @@ var _opposite: Dictionary = {
 }
 
 func go(direction: String) -> void:
+	print("current_scene_key: ", current_scene_key, " | kierunek: ", direction)
 	var next = connections[current_scene_key].get(direction, null)
+	print("next: ", next)
+	
 	if next == null:
 		print("Brak sceny w kierunku: ", direction)
 		return
