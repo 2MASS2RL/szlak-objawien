@@ -45,15 +45,15 @@ var connections: Dictionary = {
 	"zakrystia1": {"up": "zakrystia2",  "down": "wejscie_do_zakrtystii",  "left": null,  "right": null},
 	"zakrystia2": {"up": null,  "down": null,  "left": null,  "right": "zakrystia1"},
 	"scena11": {"up": null,  "down": "wejscie_do_zakrtystii",  "left": "scena7",  "right": null},
-	"drzwi_aulii": {"up": null,  "down": null,  "left": null,  "right": null},
+	"drzwi_aulii": {"up": "aula_wejscie",  "down": "scena9",  "left": null,  "right": null},
 	"kapliczka_wejscie": {"up": null,  "down": null,  "left": null,  "right": null},
-	"aula_wejscie": {"up": null,  "down": null,  "left": null,  "right": null},
-	"aula2": {"up": null,  "down": null,  "left": null,  "right": null},
-	"plebania1": {"up": null,  "down": null,  "left": null,  "right": null},
-	"plebania2": {"up": null,  "down": null,  "left": null,  "right": null},
-	"plebania3": {"up": null,  "down": null,  "left": null,  "right": null},
-	"drzwi_kapliczka": {"up": null,  "down": null,  "left": null,  "right": null},
-	"kapliczka_srodek": {"up": null,  "down": null,  "left": null,  "right": null},
+	"aula_wejscie": {"up": "aula2",  "down": "drzwi_aulii",  "left": null,  "right": null},
+	"aula2": {"up": null,  "down": "aula_wejscie",  "left": null,  "right": null},
+	"plebania1": {"up": "plebania2",  "down": null,  "left": null,  "right": null},
+	"plebania2": {"up": null,  "down": "plebania1",  "left": null,  "right": "plebania3"},
+	"plebania3": {"up": null,  "down": "plebania2",  "left": null,  "right": null},
+	"drzwi_kapliczka": {"up": "kapliczka_srodek",  "down": "scena10",  "left": null,  "right": null},
+	"kapliczka_srodek": {"up": null,  "down": "drzwi_kapliczka",  "left": null,  "right": null},
 	
 }
 

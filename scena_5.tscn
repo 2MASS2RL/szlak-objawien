@@ -1,39 +1,20 @@
 [gd_scene format=3 uid="uid://dg8tupgtex3lc"]
 
+[ext_resource type="Texture2D" uid="uid://cf05uabxbutfw" path="res://Scenes/Scena9.JPG" id="1_dt5ha"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_lcma2"]
-[ext_resource type="Texture2D" uid="uid://ghbyb53sf8oi" path="res://Scenes/Scena5.JPG" id="2_dt5ha"]
-[ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="3_dt5ha"]
-[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="4_wsdwn"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="4_wsdwn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt5ha"]
-size = Vector2(119, 935)
+[node name="Node2D" type="Node2D" unique_id=1306516294]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4u57i"]
-size = Vector2(623, 50)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_wsdwn"]
-a = Vector2(1925, 1047)
-b = Vector2(5, 852)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_4u57i"]
-a = Vector2(642, 24)
-b = Vector2(1918, 151)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_h4wux"]
-a = Vector2(-4, 840)
-b = Vector2(15, 8)
-
-[node name="scena5" type="Node2D" unique_id=2067186840]
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1961125666]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1197636079]
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("2_dt5ha")
+offset_bottom = 1076.0
+texture = ExtResource("1_dt5ha")
 expand_mode = 1
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=225579591]
-position = Vector2(960, 540)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1523953705]
+position = Vector2(1518, 1552)
 limit_left = 0
 limit_top = 0
 limit_right = 1920
@@ -41,39 +22,14 @@ limit_bottom = 1080
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Player" parent="." unique_id=127990800 groups=["Player"] instance=ExtResource("1_lcma2")]
-position = Vector2(1703, 904)
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("1_lcma2")]
+position = Vector2(558, 1012)
 
-[node name="TransitionRight" type="Area2D" parent="." unique_id=696468264]
-position = Vector2(1980, 540)
-script = ExtResource("3_dt5ha")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=615885541]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionRight" unique_id=1649643129]
-position = Vector2(-34.5, 76.5)
-shape = SubResource("RectangleShape2D_dt5ha")
-debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
-
-[node name="TransitionUp" type="Area2D" parent="." unique_id=88127378]
-position = Vector2(495, -50)
+[node name="SceneSettings" type="Node" parent="." unique_id=1227356594]
 script = ExtResource("4_wsdwn")
-<<<<<<< HEAD
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=519701194]
-position = Vector2(-167.5, 68)
-shape = SubResource("RectangleShape2D_4u57i")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1336389866]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1894707766]
-shape = SubResource("SegmentShape2D_wsdwn")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1872140085]
-shape = SubResource("SegmentShape2D_4u57i")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=553310115]
-shape = SubResource("SegmentShape2D_h4wux")
-=======
 y_min = 200.0
-scale_min = 1.5
+y_max = 1000.0
+scale_min = 1.2
 scale_max = 2.5
->>>>>>> 5f8f956c27cacf9ffeb312c816db3d9e34001584
