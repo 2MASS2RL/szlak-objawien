@@ -83,7 +83,7 @@ scale = Vector2(0.13399097, 0.12539956)
 texture = ExtResource("4_7n6g5")
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("5_7n6g5")]
-position = Vector2(904, 988)
+position = Vector2(978, 991)
 
 [node name="SceneSettings" type="Node" parent="." unique_id=548503027]
 script = ExtResource("6_10ip0")
