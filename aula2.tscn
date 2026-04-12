@@ -25,6 +25,14 @@ b = Vector2(368, 1079)
 a = Vector2(1556, 1079)
 b = Vector2(1224, 456)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uesj0"]
+a = Vector2(1235, 408)
+b = Vector2(1014, 420)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8br7j"]
+a = Vector2(1236, 408)
+b = Vector2(1236, 473)
+
 [node name="Node2D" type="Node2D" unique_id=64403015]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1923462041]
@@ -94,3 +102,9 @@ shape = SubResource("SegmentShape2D_j6lcd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=36662195]
 shape = SubResource("SegmentShape2D_pqykl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1092085661]
+shape = SubResource("SegmentShape2D_uesj0")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=21204758]
+shape = SubResource("SegmentShape2D_8br7j")
