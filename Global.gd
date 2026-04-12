@@ -21,7 +21,7 @@ var scenes: Dictionary = {
 	"kapliczka_wejscie": "res://kapliczka_wejscie.tscn",
 	"aula_1": "res://aula_wejscie.tscn",
 	"aula_2": "res://aula2.tscn",
-	"pelabnia1": "res://plebania1.tscn",
+	"plebania1": "res://plebania1.tscn",
 	"plebania2": "res://plebania2.tscn",
 	"plebania3": "res://plebania3.tscn",
 	"drzwi_kapliczka": "res://drzwi kapliczka.tscn",
@@ -68,13 +68,14 @@ var spawn_overrides: Dictionary = {
 	"right2:left":  Vector2(100, 500),
 	"top:down":     Vector2(960, 900),
 	"bottom:up":    Vector2(960, 100),
-	"zakrystia_1:left": Vector2(978, 691),
+	"zakrystia1:left": Vector2(978, 691),
 	"wejscie_do_zakrtystii:up": Vector2(944, 662),
 	"wejscie_do_zakrtystii:left": Vector2(1667, 1000),
 	"zakrystia2:down": Vector2(1534, 864),
 	"scena7:left": Vector2(1832, 288),
 	"scena10:right": Vector2(930, 894),
 	"scena6:up": Vector2(792, 163),
+	"scena11:up": Vector2(1000, 900),
 	# ← dodawaj kolejne tutaj w formacie "scena:kierunek_wejscia"
 }
 

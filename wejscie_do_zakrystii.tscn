@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_h4tlj"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_h4tlj"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="4_cr8mg"]
-[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="5_tyx3a"]
+[ext_resource type="Script" uid="uid://chgcvl3tk5usg" path="res://DrzwiZakrystia.gd" id="5_cr8mg"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="6_sqwfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_libgp"]
@@ -56,7 +56,7 @@ shape = SubResource("RectangleShape2D_libgp")
 
 [node name="TransitionUp" type="Area2D" parent="." unique_id=422047490]
 position = Vector2(991, -54)
-script = ExtResource("5_tyx3a")
+script = ExtResource("5_cr8mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1705431378]
 position = Vector2(-29, 381)
