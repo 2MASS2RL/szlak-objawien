@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_lk7rq"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="4_vmldb"]
 [ext_resource type="Script" uid="uid://byswioktiwkn8" path="res://transition_left.gd" id="5_e7pb4"]
-[ext_resource type="Script" uid="uid://dhkg31angimvh" path="res://npc.gd" id="6_lk7rq"]
+[ext_resource type="Script" uid="uid://dhkg31angimvh" path="res://NPC.gd" id="6_lk7rq"]
 [ext_resource type="Texture2D" uid="uid://divxwuu8qnkp8" path="res://Postacie + animacje/KS Ł.png" id="7_lk7rq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fpwx0"]
@@ -18,7 +18,7 @@ size = Vector2(1940, 50)
 size = Vector2(50, 1088)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkad2"]
-size = Vector2(50, 1100)
+size = Vector2(81, 1100)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7jcoh"]
 a = Vector2(1538, 333)
@@ -97,14 +97,16 @@ position = Vector2(1980, 540)
 script = ExtResource("4_vmldb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionRight" unique_id=127896593]
+position = Vector2(-64, -5)
 shape = SubResource("RectangleShape2D_7kfy3")
 debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
 
 [node name="LeftTransition" type="Area2D" parent="." unique_id=329887791]
-position = Vector2(-50, 525)
+position = Vector2(-36, 539)
 script = ExtResource("5_e7pb4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTransition" unique_id=73946223]
+position = Vector2(65.5, 0)
 shape = SubResource("RectangleShape2D_hkad2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2012882239]

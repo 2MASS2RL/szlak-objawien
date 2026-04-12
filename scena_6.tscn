@@ -18,7 +18,7 @@ b = Vector2(976, -9)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_erhbx"]
 a = Vector2(1914, 1078)
-b = Vector2(6, 1067)
+b = Vector2(1911, 278)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7hf3v"]
 a = Vector2(9, 1078)
