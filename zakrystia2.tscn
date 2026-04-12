@@ -13,6 +13,26 @@ size = Vector2(115, 702)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j1a0"]
 size = Vector2(269.99997, 145)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u26c2"]
+a = Vector2(120, 1076)
+b = Vector2(738, 451)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kc4ys"]
+a = Vector2(929, 447)
+b = Vector2(738, 447)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1j1a0"]
+a = Vector2(1665, 595)
+b = Vector2(1186, 508)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xbdls"]
+a = Vector2(1184, 508)
+b = Vector2(1184, 418)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_akdp6"]
+a = Vector2(1184, 414)
+b = Vector2(1075, 416)
+
 [node name="Node2D3" type="Node2D" unique_id=137710370]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1827360624]
@@ -33,8 +53,6 @@ drag_vertical_enabled = true
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_6s7xp")]
 position = Vector2(1534, 864)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1114091224]
 
 [node name="SceneSettings" type="Node" parent="." unique_id=604689534]
 script = ExtResource("3_6s7xp")
@@ -76,3 +94,20 @@ offset_bottom = -27.0
 position = Vector2(960.99994, 727.00006)
 scale = Vector2(0.076017044, 0.0733134)
 texture = ExtResource("6_kc4ys")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=33716433]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=526455778]
+shape = SubResource("SegmentShape2D_u26c2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1854404292]
+shape = SubResource("SegmentShape2D_kc4ys")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2" unique_id=845322372]
+shape = SubResource("SegmentShape2D_1j1a0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1089870551]
+shape = SubResource("SegmentShape2D_xbdls")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1140198063]
+shape = SubResource("SegmentShape2D_akdp6")

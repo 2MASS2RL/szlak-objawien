@@ -4,8 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_h4tlj"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_h4tlj"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="4_cr8mg"]
-[ext_resource type="Script" uid="uid://chgcvl3tk5usg" path="res://DrzwiZakrystia.gd" id="5_cr8mg"]
+[ext_resource type="Script" path="res://DrzwiZakrystia.gd" id="5_cr8mg"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="6_sqwfo"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cr8mg"]
+a = Vector2(1845, 676)
+b = Vector2(1160, 499)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tyx3a"]
+a = Vector2(763, 502)
+b = Vector2(-10, 682)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sqwfo"]
+a = Vector2(-1, 1081)
+b = Vector2(2, 679)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_libgp"]
 size = Vector2(1840, 50)
@@ -38,6 +50,15 @@ drag_vertical_enabled = true
 position = Vector2(1749, 894)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=303008686]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1308602222]
+shape = SubResource("SegmentShape2D_cr8mg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1981203494]
+shape = SubResource("SegmentShape2D_tyx3a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1305580306]
+shape = SubResource("SegmentShape2D_sqwfo")
 
 [node name="SceneSettings" type="Node" parent="." unique_id=709176093]
 script = ExtResource("3_h4tlj")

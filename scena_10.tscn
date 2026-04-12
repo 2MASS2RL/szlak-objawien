@@ -12,6 +12,14 @@ size = Vector2(1216, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlipp"]
 size = Vector2(603, 77)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hlipp"]
+a = Vector2(677, 194)
+b = Vector2(366, 1086)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_w46gy"]
+a = Vector2(1493, 1074)
+b = Vector2(1224, 204)
+
 [node name="Node2D4" type="Node2D" unique_id=1677708582]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1337868510]
@@ -61,3 +69,11 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1858190620]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=61397537]
+shape = SubResource("SegmentShape2D_hlipp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1134817427]
+shape = SubResource("SegmentShape2D_w46gy")

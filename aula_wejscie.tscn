@@ -7,10 +7,18 @@
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="5_om0ec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3n0l"]
-size = Vector2(1216, 50)
+size = Vector2(1724, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbehl"]
-size = Vector2(922.5, 76)
+size = Vector2(1070.25, 76)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_om0ec"]
+a = Vector2(1817, 1064)
+b = Vector2(1475, 69)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cjfj6"]
+a = Vector2(518, 58)
+b = Vector2(116, 1068)
 
 [node name="Node2D" type="Node2D" unique_id=375761337]
 
@@ -35,6 +43,7 @@ position = Vector2(960, 1125)
 script = ExtResource("2_sn17w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1852432492]
+position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_c3n0l")
 
 [node name="TransitionUp" type="Area2D" parent="." unique_id=1525897488]
@@ -42,7 +51,7 @@ position = Vector2(991, -54)
 script = ExtResource("3_c3n0l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1019034868]
-position = Vector2(-15, 82)
+position = Vector2(58.875, 82)
 shape = SubResource("RectangleShape2D_fbehl")
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("4_fbehl")]
@@ -54,3 +63,11 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2065355477]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=186579216]
+shape = SubResource("SegmentShape2D_om0ec")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=206116772]
+shape = SubResource("SegmentShape2D_cjfj6")
