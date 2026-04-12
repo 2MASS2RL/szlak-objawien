@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_82uud"]
 [ext_resource type="Script" uid="uid://dhkg31angimvh" path="res://NPC.gd" id="3_vndbn"]
 [ext_resource type="Texture2D" uid="uid://dcrv6kpb0xvqh" path="res://Postacie + animacje/KS D.png" id="4_7n6g5"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="5_7n6g5"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="6_10ip0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqnng"]
 size = Vector2(1216, 50)
@@ -59,3 +61,13 @@ offset_bottom = -27.0
 position = Vector2(-11, -53.999992)
 scale = Vector2(0.13399097, 0.12539956)
 texture = ExtResource("4_7n6g5")
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("5_7n6g5")]
+position = Vector2(904, 988)
+
+[node name="SceneSettings" type="Node" parent="." unique_id=548503027]
+script = ExtResource("6_10ip0")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

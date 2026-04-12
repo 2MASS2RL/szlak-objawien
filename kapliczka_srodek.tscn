@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://btdni06hpk253" path="res://Scenes/IMG_E6443.JPG" id="1_8m7yo"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_52g3r"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="3_3m2vy"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="4_0lohf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3m2vy"]
 size = Vector2(1216, 50)
@@ -30,3 +32,13 @@ script = ExtResource("2_52g3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=570204367]
 shape = SubResource("RectangleShape2D_3m2vy")
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("3_3m2vy")]
+position = Vector2(904, 988)
+
+[node name="SceneSettings" type="Node" parent="." unique_id=228214992]
+script = ExtResource("4_0lohf")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5

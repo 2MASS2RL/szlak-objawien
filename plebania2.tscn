@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d3pumxq31c1sj" path="res://Scenes/Droga Plebania (2).JPG" id="1_kuesg"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_16gpr"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="3_eqy1p"]
+[ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="4_j5ett"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="5_lgf25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqy1p"]
 size = Vector2(1609, 42)
@@ -44,3 +46,13 @@ script = ExtResource("3_eqy1p")
 position = Vector2(-304.5, 31.5)
 shape = SubResource("RectangleShape2D_j5ett")
 debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
+
+[node name="Player" parent="." unique_id=127990800 instance=ExtResource("4_j5ett")]
+position = Vector2(904, 988)
+
+[node name="SceneSettings" type="Node" parent="." unique_id=82758092]
+script = ExtResource("5_lgf25")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5
