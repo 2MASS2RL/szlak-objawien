@@ -14,11 +14,11 @@ size = Vector2(1940, 50)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_072gn"]
 a = Vector2(7, 1060)
-b = Vector2(511, 394)
+b = Vector2(471, 446)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_l4ttq"]
-a = Vector2(1126, 404)
-b = Vector2(511, 390)
+a = Vector2(1131, 445)
+b = Vector2(470, 446)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ubtel"]
 a = Vector2(1512, 428)
