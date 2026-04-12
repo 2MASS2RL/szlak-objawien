@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cafxc1ba4p6r"]
+
+[ext_resource type="Texture2D" uid="uid://b1gr3w3ghdh7e" path="res://Scenes/Kapliczka wejscie.JPG" id="1_vm1ko"]
+
+[node name="Node2D" type="Node2D" unique_id=1382759427]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=15068974]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_vm1ko")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=133956554]
+position = Vector2(2360, 1502)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

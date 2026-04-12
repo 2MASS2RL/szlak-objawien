@@ -7,7 +7,7 @@ var scenes: Dictionary = {
 	"top":    "res://scena_2.tscn",
 	"scena3": "res://scena_3.tscn",
 	"scena4": "res://scena_4.tscn",
-	"scena5": "res://scena5.tscn",
+	"scena5": "res://scena_5.tscn",
 	"scena6": "res://scena6.tscn",
 	"scena7": "res://scena_7.tscn",
 	"scena8": "res://scena_8.tscn",
@@ -17,7 +17,15 @@ var scenes: Dictionary = {
 	"zakrystia1": "res://zakrystia1.tscn",
 	"zakrystia2": "res://zakrystia2.tscn",
 	"scena11": "res://scena11.tscn",
-	"drzwi_aulii": "res://drzwi_aulii.tscn"
+	"drzwi_aulii": "res://drzwi_aulii.tscn",
+	"kapliczka_wejscie": "res://kapliczka_wejscie.tscn",
+	"aula_wejscie": "res://aula_wejscie.tscn",
+	"aula2": "res://aula2.tscn",
+	"pelabnia1": "res://plebania1.tscn",
+	"plebania2": "res://plebania2.tscn",
+	"plebania3": "res://plebania3.tscn",
+	"drzwi_kapliczka": "res://drzwi kapliczka.tscn",
+	"kapliczka_srodek": "res://kapliczka_srodek.tscn"
 	
 }
 
@@ -32,12 +40,21 @@ var connections: Dictionary = {
 	"scena7": {"up": "scena8",  "down": "scena6",  "left": "scena11",  "right": "wejscie_do_zakrtystii"},
 	"scena8": {"up": "scena9",  "down":"scena7",  "left": "scena10",  "right": null},
 	"scena9": {"up": "drzwi_aulii",  "down": "scena8",  "left": null,  "right": null},
-	"scena10": {"up": null,  "down": null,  "left": null,  "right": null},
+	"scena10": {"up": "drzwi_kapliczka",  "down": "scena8",  "left": null,  "right": null},
 	"wejscie_do_zakrtystii": {"up": "zakrystia1",  "down": "scena11",  "left": null,  "right": null},
 	"zakrystia1": {"up": "zakrystia2",  "down": "wejscie_do_zakrtystii",  "left": null,  "right": null},
 	"zakrystia2": {"up": null,  "down": null,  "left": null,  "right": "zakrystia1"},
 	"scena11": {"up": null,  "down": "wejscie_do_zakrtystii",  "left": "scena7",  "right": null},
 	"drzwi_aulii": {"up": null,  "down": null,  "left": null,  "right": null},
+	"kapliczka_wejscie": {"up": null,  "down": null,  "left": null,  "right": null},
+	"aula_wejscie": {"up": null,  "down": null,  "left": null,  "right": null},
+	"aula2": {"up": null,  "down": null,  "left": null,  "right": null},
+	"plebania1": {"up": null,  "down": null,  "left": null,  "right": null},
+	"plebania2": {"up": null,  "down": null,  "left": null,  "right": null},
+	"plebania3": {"up": null,  "down": null,  "left": null,  "right": null},
+	"drzwi_kapliczka": {"up": null,  "down": null,  "left": null,  "right": null},
+	"kapliczka_srodek": {"up": null,  "down": null,  "left": null,  "right": null},
+	
 }
 
 # Pozycja spawnu gdy WCHODZISZ do sceny z danego kierunku

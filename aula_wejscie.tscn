@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bhp5l8nbuun7u"]
+
+[ext_resource type="Texture2D" uid="uid://b8hytpdx2h7wo" path="res://Scenes/Aula1.JPG" id="1_d8byj"]
+
+[node name="Node2D" type="Node2D" unique_id=375761337]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1755495344]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_d8byj")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1420289789]
+position = Vector2(2360, 1502)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
