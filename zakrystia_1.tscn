@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://xqkou3uaen84"]
+
+[ext_resource type="Texture2D" uid="uid://c6dbttjjrbqvo" path="res://Scenes/Przed zakrystia.JPG" id="1_5rcig"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_38aou"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="3_42qvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn407"]
+size = Vector2(1216, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g8ob"]
+size = Vector2(165, 261)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xqpb4"]
+a = Vector2(831, 410)
+b = Vector2(632, 430)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u48eq"]
+a = Vector2(647, 402)
+b = Vector2(298, 1045)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8y6pf"]
+a = Vector2(1554, 1048)
+b = Vector2(1038, 638)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3uebp"]
+a = Vector2(1040, 633)
+b = Vector2(993, 456)
+
+[node name="Node2D" type="Node2D" unique_id=796873939]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=3353168]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_5rcig")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=311064374]
+position = Vector2(2360, 1502)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=1676363941]
+position = Vector2(960, 1125)
+script = ExtResource("2_38aou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=2134372283]
+shape = SubResource("RectangleShape2D_qn407")
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=1452342390]
+position = Vector2(935, -50)
+script = ExtResource("3_42qvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=650438890]
+position = Vector2(-21.5, 436.5)
+shape = SubResource("RectangleShape2D_7g8ob")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=785762494]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=962110774]
+shape = SubResource("SegmentShape2D_xqpb4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1466867460]
+shape = SubResource("SegmentShape2D_u48eq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=705290914]
+shape = SubResource("SegmentShape2D_8y6pf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=311394226]
+shape = SubResource("SegmentShape2D_3uebp")
