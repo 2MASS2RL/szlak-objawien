@@ -56,6 +56,7 @@ debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
 [node name="TransitionUp" type="Area2D" parent="." unique_id=88127378]
 position = Vector2(495, -50)
 script = ExtResource("4_wsdwn")
+<<<<<<< HEAD
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=519701194]
 position = Vector2(-167.5, 68)
@@ -71,3 +72,8 @@ shape = SubResource("SegmentShape2D_4u57i")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=553310115]
 shape = SubResource("SegmentShape2D_h4wux")
+=======
+y_min = 200.0
+scale_min = 1.5
+scale_max = 2.5
+>>>>>>> 5f8f956c27cacf9ffeb312c816db3d9e34001584
