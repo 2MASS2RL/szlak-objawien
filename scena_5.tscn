@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="1_lcma2"]
 [ext_resource type="Texture2D" uid="uid://ghbyb53sf8oi" path="res://Scenes/Scena5.JPG" id="1_wsdwn"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="4_4u57i"]
+[ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="4_wsdwn"]
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="5_h4wux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t82vw"]
@@ -32,7 +33,7 @@ drag_vertical_enabled = true
 script = ExtResource("1_dt5ha")
 
 [node name="Player" parent="." unique_id=127990800 groups=["Player"] instance=ExtResource("1_lcma2")]
-position = Vector2(500, 200)
+position = Vector2(1831, 674)
 
 [node name="TransitionRight" type="Area2D" parent="." unique_id=2019171803]
 position = Vector2(1980, 540)
@@ -48,3 +49,10 @@ script = ExtResource("5_h4wux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=560220968]
 shape = SubResource("RectangleShape2D_uctts")
+
+[node name="SceneSettings" type="Node" parent="." unique_id=1984945373]
+script = ExtResource("4_wsdwn")
+y_min = 200.0
+y_max = 1000.0
+scale_min = 1.2
+scale_max = 2.5
