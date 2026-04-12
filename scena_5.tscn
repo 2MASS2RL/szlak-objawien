@@ -64,6 +64,5 @@ debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
 [node name="SceneSettings" type="Node" parent="." unique_id=131369747]
 script = ExtResource("4_wsdwn")
 y_min = 200.0
-y_max = 1000.0
-scale_min = 1.2
+scale_min = 1.5
 scale_max = 2.5
