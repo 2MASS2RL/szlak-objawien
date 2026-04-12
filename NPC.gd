@@ -5,6 +5,10 @@ extends Area2D
 @export var dialogue_tag_active: String = ""
 @export var dialogue_tag_completed: String = ""
 
+# Widoczność NPC zależna od questa
+@export var visible_quest_id: String = ""
+@export var visible_when: String = "always"  # "always" | "before" | "after"
+
 enum ZoomMode { NONE, PLAYER, POINT, NPC }
 @export var zoom_mode  : ZoomMode = ZoomMode.NONE
 @export var zoom_value : float    = 1.8
@@ -15,6 +19,19 @@ var _player_nearby: bool = false
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+	QuestManager.quest_started.connect(_update_visibility)
+	QuestManager.quest_completed.connect(_update_visibility)
+	_update_visibility("")
+
+func _update_visibility(_quest_id: String) -> void:
+	if visible_quest_id == "" or visible_when == "always":
+		visible = true
+		return
+	match visible_when:
+		"before":
+			visible = not QuestManager.is_completed(visible_quest_id)
+		"after":
+			visible = QuestManager.is_completed(visible_quest_id)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
@@ -22,7 +39,7 @@ func _input(event: InputEvent) -> void:
 		print("player_nearby: ", _player_nearby)
 		print("dialogue_active: ", DialogueManager.is_active())
 		print("===================")
-		
+
 		if _player_nearby and not DialogueManager.is_active():
 			var req := _build_zoom_request()
 			DialogueManager.start_dialogue(_get_dialogue_tag(), global_position, req)
@@ -30,7 +47,7 @@ func _input(event: InputEvent) -> void:
 func _get_dialogue_tag() -> String:
 	if quest_id_to_check == "":
 		return dialogue_tag
-	
+
 	print("=== QUEST DEBUG ===")
 	print("Quest ID: ", quest_id_to_check)
 	print("is_completed: ", QuestManager.is_completed(quest_id_to_check))
@@ -39,7 +56,7 @@ func _get_dialogue_tag() -> String:
 	print("tag active: ", dialogue_tag_active)
 	print("tag completed: ", dialogue_tag_completed)
 	print("===================")
-	
+
 	if QuestManager.is_completed(quest_id_to_check) and dialogue_tag_completed != "":
 		return dialogue_tag_completed
 	elif QuestManager.has_quest(quest_id_to_check) and dialogue_tag_active != "":
