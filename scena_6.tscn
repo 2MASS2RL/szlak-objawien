@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://jrwy1knqi433" path="res://Scenes/Scena6.JPG" id="1_ot40v"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_pl8ch"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_ngxhy"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="4_erhbx"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="5_7hf3v"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_pl8ch"]
 a = Vector2(3, 451)
@@ -23,6 +25,12 @@ b = Vector2(1911, 278)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7hf3v"]
 a = Vector2(9, 1078)
 b = Vector2(3, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kacml"]
+size = Vector2(1922, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ff8m"]
+size = Vector2(364.5, 68)
 
 [node name="scena6" type="Node2D" unique_id=134801297]
 
@@ -68,3 +76,19 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=817676645]
+position = Vector2(960, 1125)
+script = ExtResource("4_erhbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=498539649]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_kacml")
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=66793419]
+position = Vector2(991, -54)
+script = ExtResource("5_7hf3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1373362976]
+position = Vector2(-184.25, 9)
+shape = SubResource("RectangleShape2D_3ff8m")

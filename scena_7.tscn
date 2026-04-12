@@ -3,9 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cqnd1r2npnyrc" path="res://Scenes/Scena7.JPG" id="1_e0hya"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_it7hv"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="4_4pf0i"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="4_s5ptr"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="5_thwji"]
+[ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="6_thwji"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_e0hya"]
-a = Vector2(6, 820)
+a = Vector2(3, 844)
 b = Vector2(553, 277)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_it7hv"]
@@ -18,11 +21,7 @@ b = Vector2(724, 193)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ghq45"]
 a = Vector2(726, 193)
-b = Vector2(1393, 92)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_h3dny"]
-a = Vector2(982, 309)
-b = Vector2(1640, 133)
+b = Vector2(995, 308)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ravvp"]
 a = Vector2(1027, 407)
@@ -37,8 +36,21 @@ a = Vector2(1140, 735)
 b = Vector2(1916, 371)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fl0d4"]
-a = Vector2(1200, 873)
+a = Vector2(1269, 1064)
 b = Vector2(1151, 725)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_h3dny"]
+a = Vector2(2, 1078)
+b = Vector2(2, 842)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ravvp"]
+size = Vector2(124, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvitb"]
+size = Vector2(1220, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghq45"]
+size = Vector2(50, 231)
 
 [node name="Node2D" type="Node2D" unique_id=436168165]
 
@@ -75,9 +87,6 @@ shape = SubResource("SegmentShape2D_thwji")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2106399813]
 shape = SubResource("SegmentShape2D_ghq45")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1350375308]
-shape = SubResource("SegmentShape2D_h3dny")
-
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1604020201]
 shape = SubResource("SegmentShape2D_ravvp")
 
@@ -90,9 +99,37 @@ shape = SubResource("SegmentShape2D_svnd5")
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D" unique_id=1879235393]
 shape = SubResource("SegmentShape2D_fl0d4")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=922946859]
+shape = SubResource("SegmentShape2D_h3dny")
+
 [node name="SceneSettings" type="Node" parent="." unique_id=567094177]
 script = ExtResource("4_4pf0i")
 y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=1939894604]
+position = Vector2(991, -54)
+script = ExtResource("4_s5ptr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=1907289200]
+position = Vector2(-355, 190)
+shape = SubResource("RectangleShape2D_ravvp")
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=1628881567]
+position = Vector2(960, 1125)
+script = ExtResource("5_thwji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=812069134]
+position = Vector2(-341, -8)
+shape = SubResource("RectangleShape2D_rvitb")
+
+[node name="TransitionRight" type="Area2D" parent="." unique_id=385553236]
+position = Vector2(1980, 540)
+script = ExtResource("6_thwji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionRight" unique_id=151756854]
+position = Vector2(-64, -273.5)
+shape = SubResource("RectangleShape2D_ghq45")
+debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
