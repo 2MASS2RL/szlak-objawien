@@ -12,6 +12,11 @@ func apply_scene_settings(settings: Node) -> void:
 	Y_MAX     = settings.y_max
 	SCALE_MIN = settings.scale_min
 	SCALE_MAX = settings.scale_max
+	# Natychmiast ustaw skalę dla aktualnej pozycji
+	var t = clamp((position.y - Y_MIN) / (Y_MAX - Y_MIN), 0.0, 1.0)
+	var s = lerp(SCALE_MIN, SCALE_MAX, t)
+	scale = Vector2(s, s)
+	print("✓ Gracz: pos.y=", position.y, " t=", t, " s=", s)
 
 func _ready() -> void:
 	add_to_group("Player")
