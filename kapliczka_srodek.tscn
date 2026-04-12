@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_52g3r"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="3_3m2vy"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="4_0lohf"]
+[ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://item.gd" id="5_d6nqd"]
+[ext_resource type="Texture2D" uid="uid://celf3dim84fml" path="res://icons/notatka.png" id="6_lr8je"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3m2vy"]
 size = Vector2(1216, 50)
@@ -19,6 +21,9 @@ b = Vector2(352, 1100)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_d6nqd"]
 a = Vector2(1055, 454)
 b = Vector2(1561, 1105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rqjm"]
+size = Vector2(49.158203, 39.05722)
 
 [node name="Node2D" type="Node2D" unique_id=830171183]
 
@@ -65,3 +70,18 @@ shape = SubResource("SegmentShape2D_2r2uw")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2039128866]
 shape = SubResource("SegmentShape2D_d6nqd")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1606072517]
+position = Vector2(792, 549)
+script = ExtResource("5_d6nqd")
+item_id = "notatka_proboszcza"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1046915990]
+position = Vector2(75, 1)
+scale = Vector2(2.97, 2.97)
+shape = SubResource("RectangleShape2D_8rqjm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1938164332]
+position = Vector2(76, -1)
+scale = Vector2(0.7400008, 0.7)
+texture = ExtResource("6_lr8je")
