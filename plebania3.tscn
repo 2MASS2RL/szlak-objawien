@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://clfmjl0rck0h6" path="res://Scenes/Tu klucz.JPG" id="1_w7v4c"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="2_cquix"]
-[ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://item.gd" id="3_rkmut"]
+[ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://Item.gd" id="3_rkmut"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="5_fd6v7"]
 [ext_resource type="Texture2D" uid="uid://7wyxraryhm78" path="res://icons/Wino.png" id="5_k7peo"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="6_k7peo"]
@@ -48,7 +48,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("5_fd6v7")]
-position = Vector2(904, 988)
+position = Vector2(1746, 911)
 
 [node name="TransitionDown" type="Area2D" parent="." unique_id=864211637]
 position = Vector2(960, 1125)

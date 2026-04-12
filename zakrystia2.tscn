@@ -77,6 +77,8 @@ dialogue_tag = "KS M 1"
 quest_id_to_check = "KS M 1"
 dialogue_tag_active = "KS M Quest Active"
 dialogue_tag_completed = "KS M Quest Done"
+visible_quest_id = "KS M 1"
+visible_when = "before"
 zoom_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1582248500]
