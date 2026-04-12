@@ -67,7 +67,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_it7hv")]
-position = Vector2(618, 979)
+position = Vector2(1832, 288)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=104230094]
 
