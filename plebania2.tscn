@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d1e7dmb316qk0"]
+
+[ext_resource type="Texture2D" uid="uid://d3pumxq31c1sj" path="res://Scenes/Droga Plebania (2).JPG" id="1_kuesg"]
+
+[node name="Node2D" type="Node2D" unique_id=462176958]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=721972234]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_kuesg")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1951818338]
+position = Vector2(2360, 1502)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
