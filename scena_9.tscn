@@ -3,6 +3,39 @@
 [ext_resource type="Texture2D" uid="uid://cf05uabxbutfw" path="res://Scenes/Scena9.JPG" id="1_25jo6"]
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="2_6owel"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="3_6owel"]
+[ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="4_frvc1"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="5_wtt3a"]
+[ext_resource type="Script" uid="uid://dhkg31angimvh" path="res://NPC.gd" id="6_dita7"]
+[ext_resource type="Texture2D" uid="uid://shed8mg7yygr" path="res://Postacie + animacje/KS M.png" id="7_1ntrm"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ywds2"]
+a = Vector2(627, 560)
+b = Vector2(94, 1068)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3j5yk"]
+a = Vector2(1692, 1082)
+b = Vector2(1680, 877)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d3krq"]
+a = Vector2(1674, 874)
+b = Vector2(1209, 591)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ih6ia"]
+a = Vector2(912, 714)
+b = Vector2(776, 603)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1ghqb"]
+a = Vector2(912, 714)
+b = Vector2(1204, 581)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebwq0"]
+size = Vector2(149, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cltt"]
+size = Vector2(1470, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vki6"]
+size = Vector2(405, 178)
 
 [node name="Node2D" type="Node2D" unique_id=1306516294]
 
@@ -27,9 +60,67 @@ position = Vector2(558, 1012)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=615885541]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1107651947]
+shape = SubResource("SegmentShape2D_ywds2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1383855649]
+shape = SubResource("SegmentShape2D_3j5yk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1161740250]
+shape = SubResource("SegmentShape2D_d3krq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1268724075]
+shape = SubResource("SegmentShape2D_ih6ia")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=592073442]
+shape = SubResource("SegmentShape2D_ih6ia")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=199172952]
+shape = SubResource("SegmentShape2D_1ghqb")
+
 [node name="SceneSettings" type="Node" parent="." unique_id=1227356594]
 script = ExtResource("3_6owel")
 y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="TransitionUp" type="Area2D" parent="." unique_id=1774047787]
+position = Vector2(935, -50)
+script = ExtResource("4_frvc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=324982289]
+position = Vector2(-230.5, 636)
+shape = SubResource("RectangleShape2D_ebwq0")
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=291606040]
+position = Vector2(960, 1125)
+script = ExtResource("5_wtt3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=278154746]
+shape = SubResource("RectangleShape2D_4cltt")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1403722523]
+position = Vector2(185.87, 106.38)
+script = ExtResource("6_dita7")
+dialogue_tag = "KS M 1"
+quest_id_to_check = "KS M 1"
+dialogue_tag_active = "KS M Quest Active"
+dialogue_tag_completed = "KS M Quest Done"
+zoom_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=930527457]
+position = Vector2(967.13, 652.12)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_6vki6")
+
+[node name="HintLabel" type="Label" parent="Area2D" unique_id=410378400]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -27.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1263807927]
+position = Vector2(973.12994, 637.62)
+scale = Vector2(0.11103935, 0.11337379)
+texture = ExtResource("7_1ntrm")

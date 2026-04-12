@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="4_s5ptr"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="5_thwji"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="6_thwji"]
+[ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://item.gd" id="7_h3dny"]
+[ext_resource type="Texture2D" uid="uid://b05m14qmo4map" path="res://icons/klucz.png" id="8_ravvp"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_e0hya"]
 a = Vector2(3, 844)
@@ -28,16 +30,20 @@ a = Vector2(1021, 369)
 b = Vector2(1880, 154)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_svnd5"]
-a = Vector2(1140, 735)
+a = Vector2(1495, 588)
 b = Vector2(1916, 371)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fl0d4"]
 a = Vector2(1269, 1064)
-b = Vector2(1151, 725)
+b = Vector2(1636, 1056)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h3dny"]
 a = Vector2(2, 1078)
 b = Vector2(2, 842)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_oh3tv"]
+a = Vector2(1639, 1043)
+b = Vector2(1495, 580)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ravvp"]
 size = Vector2(124, 60)
@@ -48,7 +54,10 @@ size = Vector2(1220, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghq45"]
 size = Vector2(50, 231)
 
-[node name="Node2D" type="Node2D" unique_id=436168165]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isw8a"]
+size = Vector2(61.95288, 58.585815)
+
+[node name="Node2D2" type="Node2D" unique_id=436168165]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=831154738]
 custom_minimum_size = Vector2(1920, 1080)
@@ -95,6 +104,9 @@ shape = SubResource("SegmentShape2D_fl0d4")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=922946859]
 shape = SubResource("SegmentShape2D_h3dny")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1816012268]
+shape = SubResource("SegmentShape2D_oh3tv")
+
 [node name="SceneSettings" type="Node" parent="." unique_id=567094177]
 script = ExtResource("4_4pf0i")
 y_min = 200.0
@@ -126,3 +138,16 @@ script = ExtResource("6_thwji")
 position = Vector2(-64, -273.5)
 shape = SubResource("RectangleShape2D_ghq45")
 debug_color = Color(0.99887115, 0, 0.14270037, 0.41960785)
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1538149128]
+position = Vector2(1443, 937)
+script = ExtResource("7_h3dny")
+item_id = "notatka_proboszcza"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1641208200]
+scale = Vector2(2.97, 2.97)
+shape = SubResource("RectangleShape2D_isw8a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=894545646]
+scale = Vector2(0.06740656, 0.044750433)
+texture = ExtResource("8_ravvp")

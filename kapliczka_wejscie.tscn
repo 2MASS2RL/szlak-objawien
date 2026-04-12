@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="5_4kmye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kmye"]
-size = Vector2(603, 599.5)
+size = Vector2(603, 218.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecmbv"]
 size = Vector2(1925, 73)
@@ -35,7 +35,7 @@ position = Vector2(991, -54)
 script = ExtResource("2_5deso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionUp" unique_id=837906518]
-position = Vector2(-15, 476.25)
+position = Vector2(-15, 432.625)
 shape = SubResource("RectangleShape2D_4kmye")
 
 [node name="TransitionDown" type="Area2D" parent="." unique_id=513181630]
