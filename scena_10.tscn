@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://nrd8nlx3wrax" path="res://Scenes/ScenaKapliczka.JPG" id="1_nekeb"]
 [ext_resource type="Script" uid="uid://hrgtwspeeffu" path="res://SceneSettings.gd" id="2_xxthj"]
+[ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="3_gogec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ytjq"]
+size = Vector2(1216, 50)
 
 [node name="Node2D" type="Node2D" unique_id=1677708582]
 
@@ -27,3 +31,10 @@ y_min = 200.0
 y_max = 1000.0
 scale_min = 1.2
 scale_max = 2.5
+
+[node name="TransitionDown" type="Area2D" parent="." unique_id=983022112]
+position = Vector2(960, 1125)
+script = ExtResource("3_gogec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1486008147]
+shape = SubResource("RectangleShape2D_5ytjq")
