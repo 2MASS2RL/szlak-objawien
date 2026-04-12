@@ -22,7 +22,11 @@ b = Vector2(1039, 508)
 size = Vector2(1840, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dmta"]
+<<<<<<< HEAD
 size = Vector2(150, 362)
+=======
+size = Vector2(150, 278)
+>>>>>>> 19f137ed9ca2e2e57acdd2656cad5632be727c32
 
 [node name="Node2D" type="Node2D" unique_id=1370807373]
 
@@ -43,7 +47,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("2_gv54k")]
-position = Vector2(904, 988)
+position = Vector2(978, 691)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1647719680]
 
