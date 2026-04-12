@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://bv5wi13yjrum6" path="res://transition_up.gd" id="4_s5ptr"]
 [ext_resource type="Script" uid="uid://ckjgagrty2bj1" path="res://transition_down.gd" id="5_thwji"]
 [ext_resource type="Script" uid="uid://cb4y3rnigiro6" path="res://transition_right.gd" id="6_thwji"]
-[ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://Item.gd" id="7_h3dny"]
-[ext_resource type="Texture2D" uid="uid://qd3w5y2s74s3" path="res://icons/klucz.png" id="8_ravvp"]
+[ext_resource type="Script" uid="uid://ctasur3rnt5xp" path="res://item.gd" id="7_h3dny"]
+[ext_resource type="Texture2D" uid="uid://b05m14qmo4map" path="res://icons/klucz.png" id="8_ravvp"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_e0hya"]
 a = Vector2(3, 844)
@@ -26,7 +26,7 @@ a = Vector2(726, 193)
 b = Vector2(1014, 371)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rvitb"]
-a = Vector2(1021, 369)
+a = Vector2(1013, 371)
 b = Vector2(1880, 154)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_svnd5"]
