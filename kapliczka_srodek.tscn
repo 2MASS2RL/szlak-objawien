@@ -8,6 +8,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3m2vy"]
 size = Vector2(1216, 50)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0lohf"]
+a = Vector2(1052, 449)
+b = Vector2(697, 454)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2r2uw"]
+a = Vector2(700, 452)
+b = Vector2(352, 1100)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d6nqd"]
+a = Vector2(1055, 454)
+b = Vector2(1561, 1105)
+
 [node name="Node2D" type="Node2D" unique_id=830171183]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=652301048]
@@ -42,3 +54,14 @@ script = ExtResource("2_52g3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=570204367]
 shape = SubResource("RectangleShape2D_3m2vy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=44310635]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1093459936]
+shape = SubResource("SegmentShape2D_0lohf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1519601525]
+shape = SubResource("SegmentShape2D_2r2uw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2039128866]
+shape = SubResource("SegmentShape2D_d6nqd")

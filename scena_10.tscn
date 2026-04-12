@@ -7,14 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="5_hlipp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ytjq"]
-size = Vector2(1216, 50)
+size = Vector2(1290, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlipp"]
 size = Vector2(603, 77)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_hlipp"]
-a = Vector2(677, 194)
-b = Vector2(366, 1086)
+a = Vector2(797, 199)
+b = Vector2(300, 1069)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_w46gy"]
 a = Vector2(1493, 1074)
@@ -50,6 +50,7 @@ position = Vector2(960, 1125)
 script = ExtResource("3_gogec")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=1486008147]
+position = Vector2(-37, 0)
 shape = SubResource("RectangleShape2D_5ytjq")
 
 [node name="TransitionUp" type="Area2D" parent="." unique_id=1079831688]
