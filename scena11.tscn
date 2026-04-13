@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://doiotmfmu1fvw" path="res://Player.tscn" id="5_c7f2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ka6rh"]
-size = Vector2(1216, 50)
+size = Vector2(1379, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f6v0"]
 size = Vector2(603, 117.5)
@@ -50,6 +50,7 @@ position = Vector2(960, 1125)
 script = ExtResource("3_5iaqo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDown" unique_id=188717264]
+position = Vector2(-70.5, 0)
 shape = SubResource("RectangleShape2D_ka6rh")
 
 [node name="TransitionUp" type="Area2D" parent="." unique_id=208640902]

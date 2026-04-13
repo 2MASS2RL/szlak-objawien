@@ -45,7 +45,7 @@ var connections: Dictionary = {
 	"zakrystia2": {"up": null,  "down": null,  "left": null,  "right": "zakrystia1"},
 	"scena11": {"up": "plebania1",  "down": "wejscie_do_zakrtystii",  "left": null,  "right": null},
 	"drzwi_aulii": {"up": "aula_1",  "down": "scena9",  "left": null,  "right": null},
-	"aula_1": {"up": "drzwi_aulii",  "down": "aula_2",  "left": null,  "right": null},
+	"aula_1": {"up": "aula_2",  "down": "drzwi_aulii",  "left": null,  "right": null},
 	"aula_2": {"up": null,  "down": "aula_1",  "left": null,  "right": null},
 	"plebania1": {"up": "plebania2",  "down": "scena11",  "left": null,  "right": null},
 	"plebania2": {"up": null,  "down": "plebania1",  "left": null,  "right": "plebania3"},
@@ -75,9 +75,15 @@ var spawn_overrides: Dictionary = {
 	"scena10:right": Vector2(930, 894),
 	"scena6:up": Vector2(792, 163),
 	"scena11:up": Vector2(1000, 900),
+<<<<<<< HEAD
 	"aula_1:down": Vector2(956, 900),
 	"aula_1:up": Vector2(956, 250),
 	"aula_2:down": Vector2(978, 250),
+=======
+	"aula_1:down": Vector2(956, 235),
+	"aula_1:up": Vector2(979, 979),
+	"aula_2:up": Vector2(978, 991),
+>>>>>>> 3cff9b7bd42c00ab48bd9a5d1c0e917eab312704
 	"scena9:down": Vector2(641, 967),
 	"scena9:up": Vector2(706, 967),
 	"drzwi_kapliczka:up": Vector2(968, 758),
