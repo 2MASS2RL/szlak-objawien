@@ -33,7 +33,7 @@ b = Vector2(1014, 420)
 a = Vector2(1236, 408)
 b = Vector2(1236, 473)
 
-[node name="Node2D" type="Node2D" unique_id=64403015]
+[node name="Node2D2" type="Node2D" unique_id=64403015]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1923462041]
 custom_minimum_size = Vector2(1920, 1080)
