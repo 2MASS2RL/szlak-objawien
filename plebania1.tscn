@@ -63,7 +63,7 @@ position = Vector2(-174.75, 132.5)
 shape = SubResource("RectangleShape2D_yrsta")
 
 [node name="Player" parent="." unique_id=127990800 instance=ExtResource("4_k1xxh")]
-position = Vector2(904, 988)
+position = Vector2(895, 345)
 
 [node name="SceneSettings" type="Node" parent="." unique_id=1709511343]
 script = ExtResource("5_bygcp")

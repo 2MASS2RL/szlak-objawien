@@ -47,7 +47,7 @@ var connections: Dictionary = {
 	"drzwi_aulii": {"up": "aula_1",  "down": "scena9",  "left": null,  "right": null},
 	"aula_1": {"up": "drzwi_aulii",  "down": "aula_2",  "left": null,  "right": null},
 	"aula_2": {"up": null,  "down": "aula_1",  "left": null,  "right": null},
-	"plebania1": {"up": "plebania2",  "down": null,  "left": null,  "right": null},
+	"plebania1": {"up": "plebania2",  "down": "scena11",  "left": null,  "right": null},
 	"plebania2": {"up": null,  "down": "plebania1",  "left": null,  "right": "plebania3"},
 	"plebania3": {"up": null,  "down": "plebania2",  "left": null,  "right": null},
 	"drzwi_kapliczka": {"up": "kapliczka_srodek",  "down": "scena10",  "left": null,  "right": null},
@@ -84,6 +84,7 @@ var spawn_overrides: Dictionary = {
 	"plebania3:left": Vector2(1746, 911),
 	"plebania2:up": Vector2(1431, 600),
 	"scena7:up": Vector2(672, 336),
+	"plebania1:up": Vector2(900, 345),
 	# ← dodawaj kolejne tutaj w formacie "scena:kierunek_wejscia"
 }
 

@@ -9,7 +9,7 @@
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_cr8mg"]
 a = Vector2(1845, 676)
-b = Vector2(1160, 499)
+b = Vector2(1137, 510)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tyx3a"]
 a = Vector2(763, 502)
@@ -20,8 +20,8 @@ a = Vector2(-1, 1081)
 b = Vector2(2, 679)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_libgp"]
-a = Vector2(1159, 390)
-b = Vector2(761, 392)
+a = Vector2(1163, 488)
+b = Vector2(761, 488)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_libgp"]
 size = Vector2(1840, 50)
