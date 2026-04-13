@@ -75,7 +75,7 @@ var spawn_overrides: Dictionary = {
 	"scena10:right": Vector2(930, 894),
 	"scena6:up": Vector2(792, 163),
 	"scena11:up": Vector2(1000, 900),
-	"aula_1:down": Vector2(956, 900),
+	"aula_1:down": Vector2(956, 235),
 	"aula_2:up": Vector2(978, 991),
 	"scena9:down": Vector2(641, 967),
 	"scena9:up": Vector2(706, 967),
